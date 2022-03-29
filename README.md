@@ -43,7 +43,7 @@ O AutoFBackup foi pensado e desenvolvido para atender Rotinas de Backup automati
 - [x] FTP
 
 ## Início Rápido
-1. Baixe a [versão mais recente](https://github.com/MatheusOliveira-dev/AutoFBackup/realeses)  e extraia para um diretório de sua preferência.
+1. Baixe a [versão mais recente](https://github.com/MatheusOliveira-dev/AutoFBackup/releases)  e extraia para um diretório de sua preferência.
 1. Nas propriedades do executável AutoFBackup, marque para executar como Administrador. _(Opcional, porém recomendado)_.
 
 Para mais informações, por favor, consulte a [documentação](https://github.com/MatheusOliveira-dev/AutoFBackup/wiki/1.-In%C3%ADcio).
