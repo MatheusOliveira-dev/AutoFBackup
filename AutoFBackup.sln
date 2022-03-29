@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFBacukp", "AutoFBackup\AutoFBackup.csproj", "{89CEB02A-479C-4A28-B61F-765CDC5E352B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebird", "Firebird\Firebird.csproj", "{27B6C775-AA3B-4808-AE2A-15CD8BF47BDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram", "Telegram\Telegram.csproj", "{13895685-F984-4161-8D23-52E53F112B2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{EC29846F-3C7E-4DC3-9DB2-40C3C8B4A8D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTP", "FTP\FTP.csproj", "{D6611F16-7D30-40E5-A14E-14EADCFB5DE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaNZ", "MegaNZ\MegaNZ.csproj", "{5EAD36A2-5648-49B0-98CF-C47B1FB3107E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email", "Email\Email.csproj", "{54CFFDA0-813A-4220-AC11-028924C4B8F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89CEB02A-479C-4A28-B61F-765CDC5E352B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89CEB02A-479C-4A28-B61F-765CDC5E352B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89CEB02A-479C-4A28-B61F-765CDC5E352B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89CEB02A-479C-4A28-B61F-765CDC5E352B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27B6C775-AA3B-4808-AE2A-15CD8BF47BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27B6C775-AA3B-4808-AE2A-15CD8BF47BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27B6C775-AA3B-4808-AE2A-15CD8BF47BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27B6C775-AA3B-4808-AE2A-15CD8BF47BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13895685-F984-4161-8D23-52E53F112B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13895685-F984-4161-8D23-52E53F112B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13895685-F984-4161-8D23-52E53F112B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13895685-F984-4161-8D23-52E53F112B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC29846F-3C7E-4DC3-9DB2-40C3C8B4A8D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC29846F-3C7E-4DC3-9DB2-40C3C8B4A8D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC29846F-3C7E-4DC3-9DB2-40C3C8B4A8D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC29846F-3C7E-4DC3-9DB2-40C3C8B4A8D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6611F16-7D30-40E5-A14E-14EADCFB5DE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6611F16-7D30-40E5-A14E-14EADCFB5DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6611F16-7D30-40E5-A14E-14EADCFB5DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6611F16-7D30-40E5-A14E-14EADCFB5DE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EAD36A2-5648-49B0-98CF-C47B1FB3107E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EAD36A2-5648-49B0-98CF-C47B1FB3107E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EAD36A2-5648-49B0-98CF-C47B1FB3107E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EAD36A2-5648-49B0-98CF-C47B1FB3107E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54CFFDA0-813A-4220-AC11-028924C4B8F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54CFFDA0-813A-4220-AC11-028924C4B8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54CFFDA0-813A-4220-AC11-028924C4B8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54CFFDA0-813A-4220-AC11-028924C4B8F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08652DFB-F399-40D4-A5F5-6F0396E23AF6}
+	EndGlobalSection
+EndGlobal
