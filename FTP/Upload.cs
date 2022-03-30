@@ -19,10 +19,18 @@ namespace FTP
             string backupParaUpload = string.Format(@"{0}\{1}{2}", diretorioBackups, uidRotinaBackup, compactado ? ".zip" : ".fbk");
             string nomeBackupUpload = compactado ? uidRotinaBackup + ".zip" : uidRotinaBackup + ".fbk";
 
+            int portaFTP = Shared.Helpers.ConverteStringParaNumero(porta);
 
-            
+            if (portaFTP == 0)
+            {
+                portaFTP = 21;
 
-            FtpClient client = new FtpClient(host, Shared.Helpers.ConverteStringParaNumero(porta), 
+                Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", diretorioBackups, uidRotinaBackup),
+                "[!] Porta 0 detectada para o FTP (Exclusão de Arquivos de Backup antigos no FTP). O AutoFBackup tentará utilizar a porta padrão (21)");
+            }
+
+
+            FtpClient client = new FtpClient(host, portaFTP, 
                 new NetworkCredential(usuario, senha));
 
             client.EncryptionMode = FtpEncryptionMode.Explicit;

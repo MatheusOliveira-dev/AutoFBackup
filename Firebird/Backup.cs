@@ -31,6 +31,13 @@ namespace Firebird
 
 		public bool ExecutaBackup()
         {
+
+			if (!Directory.Exists(_diretorioBackups))
+            {
+				Shared.Helpers.CriaArquivo(string.Format(@"{0}\LogErroBackup-{1}.txt", _diretorioBackups, _uidRotinaBackup), "Rotina de Backup abortada -> O Diretório de Backups informado não existe!");
+				return false;
+			}
+
 			FbBackup backupSvc = new FbBackup();
 
             try

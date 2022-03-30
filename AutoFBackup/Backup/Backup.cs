@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -338,8 +339,22 @@ namespace Backup
         {
             if (!string.IsNullOrWhiteSpace(root_Backup.CriacaoBackup.Opcoes.AplicativoPreBackup.Aplicativo))
             {
+
+              
+
                 string aplicativo = root_Backup.CriacaoBackup.Opcoes.AplicativoPreBackup.Aplicativo;
                 string argumentos = root_Backup.CriacaoBackup.Opcoes.AplicativoPreBackup.Argumentos;
+
+                string diretorioBackups = root_Backup.CriacaoBackup.Diretorio_Backup;
+
+
+                if (!File.Exists(aplicativo))
+                {
+
+                    Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", diretorioBackups, uidRotinaBackup),
+                    string.Format("Execução do Aplicativo Pré-Backup abortada -> {0}", "O Aplicativo Informado não existe."));
+                    return;
+                }
 
                 Process aplicativoProcesso = new Process();
 
@@ -363,6 +378,16 @@ namespace Backup
             {
                 string aplicativo = root_Backup.CriacaoBackup.Opcoes.AplicativoPosBackup.Aplicativo;
                 string argumentos = root_Backup.CriacaoBackup.Opcoes.AplicativoPosBackup.Argumentos;
+
+                string diretorioBackups = root_Backup.CriacaoBackup.Diretorio_Backup;
+
+                if (!File.Exists(aplicativo))
+                {
+
+                    Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", diretorioBackups, uidRotinaBackup),
+                    string.Format("Execução do Aplicativo Pós-Backup abortada -> {0}", "O Aplicativo Informado não existe."));
+                    return;
+                }
 
                 Process aplicativoProcesso = new Process();
 

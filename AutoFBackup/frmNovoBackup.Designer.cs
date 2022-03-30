@@ -197,7 +197,7 @@
             this.tbControl.Location = new System.Drawing.Point(84, 59);
             this.tbControl.Multiline = true;
             this.tbControl.Name = "tbControl";
-            this.tbControl.SelectedIndex = 1;
+            this.tbControl.SelectedIndex = 2;
             this.tbControl.ShowToolTips = true;
             this.tbControl.Size = new System.Drawing.Size(560, 446);
             this.tbControl.TabIndex = 15;
@@ -1572,11 +1572,11 @@
             this.label21.AutoSize = true;
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label21.Location = new System.Drawing.Point(20, 54);
+            this.label21.Location = new System.Drawing.Point(43, 53);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(111, 13);
+            this.label21.Size = new System.Drawing.Size(88, 13);
             this.label21.TabIndex = 52;
-            this.label21.Text = "Nº Contato Destino:";
+            this.label21.Text = "ChatID Destino:";
             // 
             // metroTabPage3
             // 
