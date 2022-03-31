@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -117,6 +118,31 @@ namespace FBackup
                 notifyIcon.ShowBalloonTip(1000);
                 this.Hide();
             }
+        }
+
+        private void lblEdsonGregorio_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.facebook.com/egmqfs/");
+        }
+
+        private void lblMQFSFacebook_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.facebook.com/groups/mqFirebirdSQL/");
+        }
+
+        private void lblMQFSYoutube_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.youtube.com/c/MeuqueridoFirebirdSQL");
+        }
+
+        private void lblAutoFBackupWiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/MatheusOliveira-dev/AutoFBackup/wiki/1.-In%C3%ADcio");
+        }
+
+        private void lblAutoFBackupVersoes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/MatheusOliveira-dev/AutoFBackup/releases");
         }
     }
 }

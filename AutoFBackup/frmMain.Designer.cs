@@ -50,6 +50,13 @@ namespace FBackup
             this.lblSair = new System.Windows.Forms.Label();
             this.lblMinimizar = new System.Windows.Forms.Label();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.lblMQFSYoutube = new System.Windows.Forms.LinkLabel();
+            this.lblEdsonGregorio = new System.Windows.Forms.LinkLabel();
+            this.lblMQFSFacebook = new System.Windows.Forms.LinkLabel();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblAutoFBackupWiki = new System.Windows.Forms.LinkLabel();
+            this.lblAutoFBackupVersoes = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +71,13 @@ namespace FBackup
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
+            this.panel2.Controls.Add(this.lblAutoFBackupVersoes);
+            this.panel2.Controls.Add(this.lblAutoFBackupWiki);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.bunifuSeparator1);
+            this.panel2.Controls.Add(this.lblMQFSFacebook);
+            this.panel2.Controls.Add(this.lblEdsonGregorio);
+            this.panel2.Controls.Add(this.lblMQFSYoutube);
             this.panel2.Controls.Add(this.btnConfiguracoes);
             this.panel2.Controls.Add(this.btnIntegracoes);
             this.panel2.Controls.Add(this.btnNovoBackup);
@@ -233,6 +247,85 @@ namespace FBackup
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
+            // lblMQFSYoutube
+            // 
+            this.lblMQFSYoutube.AutoSize = true;
+            this.lblMQFSYoutube.LinkColor = System.Drawing.Color.Red;
+            this.lblMQFSYoutube.Location = new System.Drawing.Point(0, 481);
+            this.lblMQFSYoutube.Name = "lblMQFSYoutube";
+            this.lblMQFSYoutube.Size = new System.Drawing.Size(215, 13);
+            this.lblMQFSYoutube.TabIndex = 12;
+            this.lblMQFSYoutube.TabStop = true;
+            this.lblMQFSYoutube.Text = "MQFS - Meu querido Firebird SQL (Youtube)";
+            this.lblMQFSYoutube.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMQFSYoutube_LinkClicked);
+            // 
+            // lblEdsonGregorio
+            // 
+            this.lblEdsonGregorio.AutoSize = true;
+            this.lblEdsonGregorio.Location = new System.Drawing.Point(0, 436);
+            this.lblEdsonGregorio.Name = "lblEdsonGregorio";
+            this.lblEdsonGregorio.Size = new System.Drawing.Size(137, 13);
+            this.lblEdsonGregorio.TabIndex = 13;
+            this.lblEdsonGregorio.TabStop = true;
+            this.lblEdsonGregorio.Text = "Edson Gregorio (Facebook)";
+            this.lblEdsonGregorio.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblEdsonGregorio_LinkClicked);
+            // 
+            // lblMQFSFacebook
+            // 
+            this.lblMQFSFacebook.AutoSize = true;
+            this.lblMQFSFacebook.Location = new System.Drawing.Point(0, 458);
+            this.lblMQFSFacebook.Name = "lblMQFSFacebook";
+            this.lblMQFSFacebook.Size = new System.Drawing.Size(223, 13);
+            this.lblMQFSFacebook.TabIndex = 14;
+            this.lblMQFSFacebook.TabStop = true;
+            this.lblMQFSFacebook.Text = "MQFS - Meu querido Firebird SQL (Facebook)";
+            this.lblMQFSFacebook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMQFSFacebook_LinkClicked);
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(-2, 368);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(223, 10);
+            this.bunifuSeparator1.TabIndex = 15;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 355);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Conteúdo Recomendado";
+            // 
+            // lblAutoFBackupWiki
+            // 
+            this.lblAutoFBackupWiki.AutoSize = true;
+            this.lblAutoFBackupWiki.Location = new System.Drawing.Point(0, 383);
+            this.lblAutoFBackupWiki.Name = "lblAutoFBackupWiki";
+            this.lblAutoFBackupWiki.Size = new System.Drawing.Size(102, 13);
+            this.lblAutoFBackupWiki.TabIndex = 17;
+            this.lblAutoFBackupWiki.TabStop = true;
+            this.lblAutoFBackupWiki.Text = "AutoFBackup - Wiki";
+            this.lblAutoFBackupWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAutoFBackupWiki_LinkClicked);
+            // 
+            // lblAutoFBackupVersoes
+            // 
+            this.lblAutoFBackupVersoes.AutoSize = true;
+            this.lblAutoFBackupVersoes.LinkColor = System.Drawing.Color.Black;
+            this.lblAutoFBackupVersoes.Location = new System.Drawing.Point(0, 403);
+            this.lblAutoFBackupVersoes.Name = "lblAutoFBackupVersoes";
+            this.lblAutoFBackupVersoes.Size = new System.Drawing.Size(119, 13);
+            this.lblAutoFBackupVersoes.TabIndex = 18;
+            this.lblAutoFBackupVersoes.TabStop = true;
+            this.lblAutoFBackupVersoes.Text = "AutoFBackup - Versões";
+            this.lblAutoFBackupVersoes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAutoFBackupVersoes_LinkClicked);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +345,7 @@ namespace FBackup
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.SizeChanged += new System.EventHandler(this.frmMain_SizeChanged);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +370,13 @@ namespace FBackup
         private System.Windows.Forms.Label lblSair;
         private System.Windows.Forms.Label lblMinimizar;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.LinkLabel lblMQFSFacebook;
+        private System.Windows.Forms.LinkLabel lblEdsonGregorio;
+        private System.Windows.Forms.LinkLabel lblMQFSYoutube;
+        private System.Windows.Forms.Label label2;
+        private BunifuSeparator bunifuSeparator1;
+        private System.Windows.Forms.LinkLabel lblAutoFBackupVersoes;
+        private System.Windows.Forms.LinkLabel lblAutoFBackupWiki;
     }
 }
 

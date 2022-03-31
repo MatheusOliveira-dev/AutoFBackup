@@ -41,6 +41,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
       <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu4.1.1\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu4.1.1\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
       <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu4.1.1\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
     </Reference>
