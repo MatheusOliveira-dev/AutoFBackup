@@ -72,12 +72,6 @@ Se você tem sugestões de como tornar o projeto melhor, por favor, sigas os pas
 Distribuído sob a licença MIT. Veja `LICENSE.txt` para mais informações.
 
 
-## Contato
-
-Quer uma ajuda específica sobre o AutoFBackup? Pode me chamar. Sempre que possível estarei à disposição :)
-[Meu Facebook](https://www.facebook.com/matheus.22052)
-
-
 [contributors-shield]: https://img.shields.io/github/contributors/MatheusOliveira-dev/AutoFBackup.svg?style=for-the-badge
 [contributors-url]: https://github.com/MatheusOliveira-dev/AutoFBackup/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/MatheusOliveira-dev/AutoFBackup.svg?style=for-the-badge
