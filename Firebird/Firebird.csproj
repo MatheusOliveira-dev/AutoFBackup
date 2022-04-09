@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Backup.cs" />
     <Compile Include="Delete.cs" />
+    <Compile Include="Gfix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

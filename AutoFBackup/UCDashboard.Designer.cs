@@ -52,6 +52,7 @@
             this.column_Identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_Execucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_DiretorioBackups = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_NomeRotinaJSON = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -299,7 +300,7 @@
             this.dtGridViewRotinas.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtGridViewRotinas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGridViewRotinas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridViewRotinas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtGridViewRotinas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.dtGridViewRotinas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtGridViewRotinas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -317,6 +318,7 @@
             this.column_Identificador,
             this.column_Tipo,
             this.column_Execucao,
+            this.column_DiretorioBackups,
             this.column_NomeRotinaJSON});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -367,6 +369,7 @@
             this.column_Identificador.HeaderText = "Identificador";
             this.column_Identificador.Name = "column_Identificador";
             this.column_Identificador.ReadOnly = true;
+            this.column_Identificador.Width = 97;
             // 
             // column_Tipo
             // 
@@ -374,6 +377,7 @@
             this.column_Tipo.HeaderText = "Tipo";
             this.column_Tipo.Name = "column_Tipo";
             this.column_Tipo.ReadOnly = true;
+            this.column_Tipo.Width = 53;
             // 
             // column_Execucao
             // 
@@ -381,6 +385,14 @@
             this.column_Execucao.HeaderText = "Execução";
             this.column_Execucao.Name = "column_Execucao";
             this.column_Execucao.ReadOnly = true;
+            this.column_Execucao.Width = 80;
+            // 
+            // column_DiretorioBackups
+            // 
+            this.column_DiretorioBackups.HeaderText = "Diretório de Backups";
+            this.column_DiretorioBackups.Name = "column_DiretorioBackups";
+            this.column_DiretorioBackups.ReadOnly = true;
+            this.column_DiretorioBackups.Width = 139;
             // 
             // column_NomeRotinaJSON
             // 
@@ -388,6 +400,7 @@
             this.column_NomeRotinaJSON.HeaderText = "JSON Rotina Backup";
             this.column_NomeRotinaJSON.Name = "column_NomeRotinaJSON";
             this.column_NomeRotinaJSON.ReadOnly = true;
+            this.column_NomeRotinaJSON.Width = 137;
             // 
             // UCDashboard
             // 
@@ -436,6 +449,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn column_Identificador;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_Execucao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column_DiretorioBackups;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_NomeRotinaJSON;
     }
 }

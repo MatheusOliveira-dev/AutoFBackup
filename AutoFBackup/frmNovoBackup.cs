@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,13 @@ namespace FBackup
 {
     public partial class frmNovoBackup : Form
     {
-        public frmNovoBackup()
+        frmMain frmMain = null;
+        public frmNovoBackup(frmMain frmMain)
         {
             InitializeComponent();
             dpDownFrequenciaBackups.selectedIndex = 0;
             tbControl.SelectedIndex = 0;
+            this.frmMain = frmMain;
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -81,7 +84,7 @@ namespace FBackup
             }
             else if (lstBoxFlagsBackup.CheckedItems.Count <= 0)
             {
-                MessageBox.Show("Ao menos uma flag deve ser selecionada.", "Opções do Backup", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Ao menos uma Flag do Arquivo de Backup deve ser selecionada.", "Opções do Backup", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 return false;
             }
 
@@ -165,6 +168,32 @@ namespace FBackup
             }
         }
 
+
+        private bool ValidaGFIX()
+        {
+            if (chbxExecutaGFIX.Checked)
+            {
+                if (string.IsNullOrEmpty(tbDiretorioGFIX.Text))
+                {
+                    MessageBox.Show("É obrigatório informar o Diretório do GFIX.", "Opções do Backup", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    return false;
+                }
+                else if (lstBoxFlagsBackup.CheckedItems.Count <= 0)
+                {
+                    MessageBox.Show("Ao menos um argumento do GFIX deve ser selecionado.", "Opções do Backup", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (!ValidaServidor())
@@ -207,6 +236,11 @@ namespace FBackup
                 return;
             }
 
+            if (!ValidaGFIX())
+            {
+                return;
+            }
+
             CriaRotinaBackup();
 
         }
@@ -225,6 +259,7 @@ namespace FBackup
             AplicativoPreBackup_Backup aplicativoPreBackup_Backup = new AplicativoPreBackup_Backup();
             AplicativoPosBackup_Backup aplicativoPosBackup_Backup = new AplicativoPosBackup_Backup();
             ExcluirBackupsAntigosLocal_Backup backupsAntigosLocal_Backup = new ExcluirBackupsAntigosLocal_Backup();
+            ExecutaGfix_Backup executaGfix_Backup = new ExecutaGfix_Backup();
 
             bancoDeDados_Backup.Identificador = tbIdentificador_Servidor.Text;
             bancoDeDados_Backup.Servidor = tbServidor_Servidor.Text;
@@ -243,6 +278,7 @@ namespace FBackup
             frequencia_Backup.Minuto = frequenciaBackups.Item3;
             frequencia_Backup.DiasSemana = frequenciaBackups.Item4;
 
+            aplicativoPreBackup_Backup.AguardaConclusao = chbxAguardarConclusaoAplicativoPreBackup.Checked;
             aplicativoPreBackup_Backup.Aplicativo = tbAplicativoPreBackup.Text;
             aplicativoPreBackup_Backup.Argumentos = tbArgumentosPreBackup.Text;
 
@@ -253,6 +289,10 @@ namespace FBackup
             backupsAntigosLocal_Backup.Dias = nmUpDownDiasExcluirBackupsAntigos.Value.ToString();
 
 
+            executaGfix_Backup.Ativo = chbxExecutaGFIX.Checked;
+            executaGfix_Backup.CaminhoGfix = tbDiretorioGFIX.Text;
+            executaGfix_Backup.ArgumentosGfix = tbArgumentosGFIX.Text;
+
             List<string> flagsBackup = new List<string>();
 
             foreach (var flag in lstBoxFlagsBackup.CheckedItems)
@@ -260,11 +300,11 @@ namespace FBackup
                 flagsBackup.Add(flag.ToString().ToString().Trim());
             }
 
-
             opcoes_CriacaoBackup_Backup.FlagsBackup = flagsBackup;
             opcoes_CriacaoBackup_Backup.AplicativoPreBackup = aplicativoPreBackup_Backup;
             opcoes_CriacaoBackup_Backup.AplicativoPosBackup = aplicativoPosBackup_Backup;
             opcoes_CriacaoBackup_Backup.ExcluirBackupsAntigosLocal = backupsAntigosLocal_Backup;
+            opcoes_CriacaoBackup_Backup.ExecutaGfix = executaGfix_Backup;
 
             criacaoBackup_Backup.Opcoes = opcoes_CriacaoBackup_Backup;
 
@@ -353,16 +393,9 @@ namespace FBackup
 
             backup.CriaRotinaBackup(rootBackup);
 
+            this.frmMain.Re_InicializaRotinas = true;
 
-            if (MessageBox.Show("Arquivo de Rotina criado com sucesso. No entanto, note que é necessário reiniciar o AutoFBackup para que o Arquivo de Rotina criado seja executado no período informado.\n\n" +
-                        "Deseja reiniciar o AutoFBackup agora?", "Arquivo de Rotina criado com Sucesso", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            {
-                Application.Restart();
-            }
-            else
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private Tuple<string, string, string, List<string>> ObtemDadosFrequenciaBackupSelecionada()
@@ -629,6 +662,68 @@ namespace FBackup
         private void lblExplicacaoExclusaoBackupsAntigos1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("O AutoFBackup excluirá qualquer arquivo que possua uma extensão do tipo ZIP ou FBK e se enquadre na Regra de Exclusão de Dias informada.\nPortanto, cuidado ao salvar arquivos pessoais no Diretório de Backups Local se essa opção estiver ativa.", "Exclusão de Backups Antigos", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+        }
+
+        private void lblAvisoGfix_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Há suporte para essa opção apenas se o AutoFBackup estiver sendo executado no mesmo computador onde o Banco de Dados está localizado.", "GFIX", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+        }
+
+        private void btnDiretorioGFIX_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new OpenFileDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                fbd.Filter = "Executável |*.exe";
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.FileName))
+                {
+                    tbDiretorioGFIX.Text = fbd.FileName;
+                }
+            }
+        }
+
+        private void chbxExecutaGFIX_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbxExecutaGFIX.Checked)
+            {
+                gpbxGFIX.Enabled = true;
+            }
+            else
+            {
+                gpbxGFIX.Enabled = false;
+            }
+        }
+
+        private void lblAvisoArgumentosGfix_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Informe os argumentos no formato:\n-argumento1 -argumento2 -argumento3.\n\nPor exemplo: -mend -full -ignore\n\n-----\nAtenção: Não é preciso especificar os argumentos 'User', 'Password' e o caminho para o Banco de Dados", "Argumentos do GFIX", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+            MessageBox.Show("-activate: activate shadow file for database usage\n" +
+                "-attach: shutdown new database attachments\n" +
+                "-buffers: set page buffers < n >\n" +
+                "-commit: commit transaction < tr / all >\n" +
+                "-cache: shutdown cache manager\n" +
+                "-full: validate record fragments (-v)\n" +
+                "-force: force database shutdown\n" +
+                "-fetch_password: fetch_password from file\n" +
+                "-housekeeping: set sweep interval < n >\n" +
+                "-ignore: ignore checksum errors\n" +
+                "-kill: kill all unavailable shadow files\n" +
+                "-mend: prepare corrupt database for backup\n" +
+                "-mode: read_only or read_write\n" +
+                "-no_update: read - only validation(-v)\n" +
+                "-online: database online < single / multi / normal >\n" +
+                "-rollback: rollback transaction < tr / all >" +
+                "-sql_dialect: set database dialect n\n" +
+                "-sweep: force garbage collection\n" +
+                "-shut: shutdown < full / single / multi >\n" +
+                "-two_phase: perform automated two - phase recovery\n" +
+                "-tran: shutdown transaction startup\n" +
+                "-use: use full or reserve space for versions\n" +
+                "-validate: validate database structure\n" +
+                "-write: write synchronously or asynchronously\n\n\nFonte: https://www.firebirdsql.org/pdfmanual/html/gfix-cmdline.html", "Argumentos do GFIX", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
         }
     }
 }

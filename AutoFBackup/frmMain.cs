@@ -20,6 +20,24 @@ namespace FBackup
         public frmMain()
         {
             InitializeComponent();
+            InicializaApp();
+        }
+
+        public bool Re_InicializaRotinas 
+        {
+            set
+            {
+                if (value)
+                {
+
+                    JobManager.RemoveAllJobs();
+
+                    Backup.Backup backup = new Backup.Backup();
+                    JobManager.Initialize(new RegistroTarefasAgendadas(backup.ObtemRotinasBackups()));
+
+                    btnDashboard.PerformClick();
+                }
+            }
         }
 
         private void InicializaApp()
@@ -32,35 +50,22 @@ namespace FBackup
             Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
             Configuracoes.CriaConfiguracoesPadraoSeNecessario();
 
-            Backup.Backup backup = new Backup.Backup();
-            JobManager.Initialize(new RegistroTarefasAgendadas(backup.ObtemRotinasBackups()));
 
-            
-        }
+            Shared.Helpers.HabilitaDesabilitaInicializacaoComWindows(Configuracoes.ObtemConfiguracoes().Geral.IniciarComOWindows);
 
-
-        private void CarregaConfiguracoes()
-        {
-            Configuracoes.Configuracoes configuracoes = new Configuracoes.Configuracoes();
-            RootConfiguracoes rootConfiguracoes = configuracoes.ObtemConfiguracoes();
-
-            Shared.Helpers.HabilitaDesabilitaInicializacaoComWindows(rootConfiguracoes.Geral.IniciarComOWindows);
+            Re_InicializaRotinas = true;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            InicializaApp();
-
-            UCDashboard uCDashboard = new UCDashboard();
-            pnlControls.Controls.Add(uCDashboard);
-
+            
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             pnlControls.Controls.Clear();
 
-            UCDashboard uCDashboard = new UCDashboard();
+            UCDashboard uCDashboard = new UCDashboard(this);
             pnlControls.Controls.Add(uCDashboard);
         }
 
@@ -83,7 +88,7 @@ namespace FBackup
 
         private void btnNovoBackup_Click(object sender, EventArgs e)
         {
-            frmNovoBackup frmNovoBackup = new frmNovoBackup();
+            frmNovoBackup frmNovoBackup = new frmNovoBackup(this);
             frmNovoBackup.ShowDialog();
         }
 

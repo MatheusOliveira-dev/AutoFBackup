@@ -39,7 +39,6 @@ namespace Backup
         {
             public RegistroTarefasAgendadas(List<Root_Backup> lstRoot_Backups)
             {
-
                 foreach (Root_Backup root_Backup in lstRoot_Backups)
                 {
                     string nomeJob = Shared.Helpers.GeraUidRotinaBackup(root_Backup.BancoDeDados.Identificador);
@@ -152,6 +151,30 @@ namespace Backup
                 root_Backup.CriacaoBackup.Opcoes.FlagsBackup, uidRotinaBackup, diretorioBackups);
 
             return firebirdBackup.ExecutaBackup();
+        }
+
+        public static void ExecutaGfix(Root_Backup root_Backup, string uidRotinaBackup)
+        {
+
+            if (root_Backup.CriacaoBackup.Opcoes.ExecutaGfix != null 
+                && root_Backup.CriacaoBackup.Opcoes.ExecutaGfix.Ativo)
+            {
+                string usuarioBancoDeDados = root_Backup.BancoDeDados.Usuario;
+                string senhaBancoDeDados = root_Backup.BancoDeDados.Senha;
+                string servidorBancoDeDados = root_Backup.BancoDeDados.Servidor;
+                string caminhoBancoDeDados = root_Backup.BancoDeDados.Caminho;
+
+                string caminhoGfix = root_Backup.CriacaoBackup.Opcoes.ExecutaGfix.CaminhoGfix;
+                string argumentosGfix = root_Backup.CriacaoBackup.Opcoes.ExecutaGfix.ArgumentosGfix;
+
+                string diretorioBackups = root_Backup.CriacaoBackup.Diretorio_Backup;
+
+
+                Firebird.Gfix firebirdGfix = new Firebird.Gfix(usuarioBancoDeDados, senhaBancoDeDados,
+                    servidorBancoDeDados, caminhoBancoDeDados, caminhoGfix, argumentosGfix, uidRotinaBackup, diretorioBackups);
+
+                firebirdGfix.ExecutaGfix();
+            }
         }
 
         public static void ExcluiBackupsAntigosLocal(Root_Backup root_Backup, string uidRotinaBackup)
@@ -369,6 +392,11 @@ namespace Backup
                 }
 
                 aplicativoProcesso.Start();
+
+                if (root_Backup.CriacaoBackup.Opcoes.AplicativoPreBackup.AguardaConclusao)
+                {
+                    aplicativoProcesso.WaitForExit();
+                }
             }
         }
 
@@ -424,7 +452,10 @@ namespace Backup
                 bool compactaBackupZip = _root_Backup.CriacaoBackup.Opcoes.FlagsBackup.Contains("Compactar");
 
                 ExecutaAplicativoPreBackup(_root_Backup, uidRotinaBackup);
-               
+
+
+                ExecutaGfix(_root_Backup, uidRotinaBackup);
+
                 if (ExecutaBackup(_root_Backup, geraLogTxt, compactaBackupZip, uidRotinaBackup))
                 {
                     string conclusaoBackup = string.Format("{0} {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());

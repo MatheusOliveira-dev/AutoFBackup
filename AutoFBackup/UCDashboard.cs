@@ -14,9 +14,13 @@ namespace FBackup
 {
     public partial class UCDashboard : UserControl
     {
-        public UCDashboard()
+
+        frmMain frmMain = null;
+
+        public UCDashboard(frmMain frmMain)
         {
             InitializeComponent();
+            this.frmMain = frmMain;
         }
 
         private void SetaStatusIntegracao(string integracao, Bunifu.UI.WinForms.BunifuRadioButton btn)
@@ -42,6 +46,9 @@ namespace FBackup
 
                 string identificadorBancoDeDados = root_Backup.BancoDeDados.Identificador;
                 string tipoRotina = root_Backup.CriacaoBackup.Frequencia.Tipo;
+
+                string diretorioBackups = root_Backup.CriacaoBackup.Diretorio_Backup;
+                
                 string horaRotina = root_Backup.CriacaoBackup.Frequencia.Hora;
                 string minutoRotina = root_Backup.CriacaoBackup.Frequencia.Minuto;
 
@@ -58,7 +65,7 @@ namespace FBackup
 
                 
 
-                dtGridViewRotinas.Rows.Add(identificadorBancoDeDados, tipoRotina, horarioExecucaoRotina, arquivo);
+                dtGridViewRotinas.Rows.Add(identificadorBancoDeDados, tipoRotina, horarioExecucaoRotina, diretorioBackups, arquivo);
             }
         }
         private void UCDashboard_Load(object sender, EventArgs e)
@@ -83,19 +90,10 @@ namespace FBackup
                 if (MessageBox.Show("Tem certeza que deseja excluir a Rotina de Backup selecionada?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     Shared.Helpers.ExcluiArquivo(dtGridViewRotinas.SelectedRows[0].Cells["column_NomeRotinaJSON"].Value.ToString());
-
-
-                    if (MessageBox.Show("Observe que mesmo excluindo o Arquivo de Rotina, é necessário reiniciar o AutoFBackup para que o Arquivo de Rotina excluído não seja executado.\n\n" +
-                        "Deseja reiniciar o AutoFBackup agora?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                    {
-                        Application.Restart();
-                    }
-
-                    CarregaRotinasBackup();
+                    this.frmMain.Re_InicializaRotinas = true;
                 }
             }
         }
-
         private void dtGridViewRotinas_MouseEnter(object sender, EventArgs e)
         {
             
