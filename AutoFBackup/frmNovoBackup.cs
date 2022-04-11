@@ -448,15 +448,21 @@ namespace FBackup
 
             tbAplicativoPreBackup.Text = configuracoesJson.Backups.AplicativoPreBackup.Aplicativo;
             tbArgumentosPreBackup.Text = configuracoesJson.Backups.AplicativoPreBackup.Argumentos;
+            chbxAguardarConclusaoAplicativoPreBackup.Checked = configuracoesJson.Backups.AplicativoPreBackup.AguardaConclusao;
 
             tbAplicativoPosBackup.Text = configuracoesJson.Backups.AplicativoPosBackup.Aplicativo;
             tbArgumentosPosBackup.Text = configuracoesJson.Backups.AplicativoPosBackup.Argumentos;
 
             chbxExcluirBackupsAntigos.Checked = configuracoesJson.Backups.ExcluirBackupsAntigosLocal.Ativo;
             nmUpDownDiasExcluirBackupsAntigos.Value = Shared.Helpers.ConverteStringParaNumero(configuracoesJson.Backups.ExcluirBackupsAntigosLocal.Dias);
+
+            if (configuracoesJson.Backups.ExecutaGfix != null)
+            {
+                chbxExecutaGFIX.Checked = configuracoesJson.Backups.ExecutaGfix.Ativo;
+                tbDiretorioGFIX.Text = configuracoesJson.Backups.ExecutaGfix.CaminhoGfix;
+                tbArgumentosGFIX.Text = configuracoesJson.Backups.ExecutaGfix.ArgumentosGfix;
+            }
         }
-
-
         private void CarregaIntegracaoTelegram()
         {
             Integracoes.Telegram telegram = new Integracoes.Telegram();
@@ -675,7 +681,7 @@ namespace FBackup
             {
                 DialogResult result = fbd.ShowDialog();
 
-                fbd.Filter = "Executável |*.exe";
+                fbd.Filter = "GFIX.exe (.exe)|*.exe|All Files (*.*)|*.*";
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.FileName))
                 {

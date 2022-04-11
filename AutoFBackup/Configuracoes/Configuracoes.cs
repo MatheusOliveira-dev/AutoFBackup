@@ -20,6 +20,7 @@ namespace Configuracoes
                 AplicativoPreBackupConfiguracoes aplicativoPreBackupConfiguracoes = new AplicativoPreBackupConfiguracoes();
                 AplicativoPosBackupConfiguracoes aplicativoPosBackupConfiguracoes = new AplicativoPosBackupConfiguracoes();
                 ExcluirBackupsAntigosLocalConfiguracoes excluirBackupsAntigosLocalConfiguracoes = new ExcluirBackupsAntigosLocalConfiguracoes();
+                ExecutaGfixConfiguracoes executaGfixConfiguracoes = new ExecutaGfixConfiguracoes();
                 BackupsConfiguracoes backupsConfiguracoes = new BackupsConfiguracoes();
 
                 geralConfiguracoes.BuscaAtualizacaoIniApp = true;
@@ -34,6 +35,10 @@ namespace Configuracoes
                 excluirBackupsAntigosLocalConfiguracoes.Ativo = false;
                 excluirBackupsAntigosLocalConfiguracoes.Dias = "0";
 
+                executaGfixConfiguracoes.Ativo = false;
+                executaGfixConfiguracoes.CaminhoGfix = "";
+                executaGfixConfiguracoes.ArgumentosGfix = "-mend -full -ignore";
+
                 backupsConfiguracoes.DiretorioBackups = Application.StartupPath;
 
                 List<string> flagsBackup = new List<string>();
@@ -45,6 +50,7 @@ namespace Configuracoes
                 backupsConfiguracoes.AplicativoPreBackup = aplicativoPreBackupConfiguracoes;
                 backupsConfiguracoes.AplicativoPosBackup = aplicativoPosBackupConfiguracoes;
                 backupsConfiguracoes.ExcluirBackupsAntigosLocal = excluirBackupsAntigosLocalConfiguracoes;
+                backupsConfiguracoes.ExecutaGfix = executaGfixConfiguracoes;
                 backupsConfiguracoes.FlagsBackup = flagsBackup;
                 rootConfiguracoes.Backups = backupsConfiguracoes;
 

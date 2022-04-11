@@ -16,6 +16,7 @@ namespace Models
     {
         public string Aplicativo { get; set; }
         public string Argumentos { get; set; }
+        public bool AguardaConclusao { get; set; }
     }
 
     public class AplicativoPosBackupConfiguracoes
@@ -30,6 +31,13 @@ namespace Models
         public string Dias { get; set; }
     }
 
+    public class ExecutaGfixConfiguracoes
+    {
+        public bool Ativo { get; set; }
+        public string CaminhoGfix { get; set; }
+        public string ArgumentosGfix { get; set; }
+    }
+
     public class BackupsConfiguracoes
     {
         public string DiretorioBackups { get; set; }
@@ -37,6 +45,7 @@ namespace Models
         public AplicativoPreBackupConfiguracoes AplicativoPreBackup { get; set; }
         public AplicativoPosBackupConfiguracoes AplicativoPosBackup { get; set; }
         public ExcluirBackupsAntigosLocalConfiguracoes ExcluirBackupsAntigosLocal { get; set; }
+        public ExecutaGfixConfiguracoes ExecutaGfix { get; set; }
     }
 
     public class RootConfiguracoes
