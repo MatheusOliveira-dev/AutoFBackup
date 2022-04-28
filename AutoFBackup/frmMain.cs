@@ -21,6 +21,16 @@ namespace FBackup
         {
             InitializeComponent();
             InicializaApp();
+
+            this.AplicaArgumentos();
+        }
+
+        private void AplicaArgumentos()
+        {
+            if (Program.iniciarMinimizado)
+            {
+                this.WindowState = FormWindowState.Minimized;
+            }
         }
 
         public bool Re_InicializaRotinas 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using IWshRuntimeLibrary;
 
 namespace Shared
 {
@@ -11,12 +12,12 @@ namespace Shared
     {
         public static bool VerificaArquivoExistente(string arquivo)
         {
-            return File.Exists(string.Format(@"{0}", arquivo));
+            return System.IO.File.Exists(string.Format(@"{0}", arquivo));
         }
 
         public static void CriaArquivo(string arquivo, string conteudo)
         {
-            File.WriteAllText(arquivo, conteudo);
+            System.IO.File.WriteAllText(arquivo, conteudo);
         }
 
         public static void EscreveArquivo(string arquivo, string conteudo)
@@ -24,12 +25,12 @@ namespace Shared
 
             conteudo = string.Format("\n\n[X] {0} [{1}-{2}]", conteudo, DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
 
-            File.AppendAllText(arquivo, conteudo);
+            System.IO.File.AppendAllText(arquivo, conteudo);
         }
 
         public static string LeArquivo(string arquivo)
         {
-            return File.ReadAllText(arquivo);
+            return System.IO.File.ReadAllText(arquivo);
         }
 
         //get all files from a directory
@@ -49,7 +50,7 @@ namespace Shared
         {
             if (VerificaArquivoExistente(arquivo))
             {
-                File.Delete(arquivo);
+                System.IO.File.Delete(arquivo);
             }
         }
 
@@ -84,12 +85,37 @@ namespace Shared
 
         public static void HabilitaDesabilitaInicializacaoComWindows(bool adicionarAtualizar)
         {
+           
             RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            rk.DeleteValue(Application.ProductName, false);
+
+           
+            WshShell wshShell = new WshShell();
+            IWshRuntimeLibrary.IWshShortcut atalhoLnkAutoFBackup;
+
+            string startUpDiretorio =
+              Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+
+            atalhoLnkAutoFBackup =
+              (IWshRuntimeLibrary.IWshShortcut)wshShell.CreateShortcut(string.Format(@"{0}\AutoFBackup.lnk", startUpDiretorio));
 
             if (adicionarAtualizar)
-                rk.SetValue(Application.ProductName, Application.ExecutablePath.ToString());
+            {
+                atalhoLnkAutoFBackup.TargetPath = Application.ExecutablePath;
+                atalhoLnkAutoFBackup.WorkingDirectory = Application.StartupPath;
+                atalhoLnkAutoFBackup.Description = "Executa o AutoFBackup com o Windows";
+                atalhoLnkAutoFBackup.Arguments = "iniciarMinimizado";
+                atalhoLnkAutoFBackup.Save();
+            }
             else
-                rk.DeleteValue(Application.ProductName, false);
+            {
+                ExcluiArquivo(string.Format(@"{0}\AutoFBackup.lnk", startUpDiretorio));
+            }
+        }
+
+        public static bool IniciadoComWindows()
+        {
+            return true;
         }
     }
 }
