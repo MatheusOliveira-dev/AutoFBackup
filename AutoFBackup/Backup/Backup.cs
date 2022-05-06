@@ -16,7 +16,6 @@ namespace Backup
     {
         public List<Root_Backup> ObtemRotinasBackups()
         {
-
             List<string> listArquivosRotinas = Shared.Helpers.ObtemArquivosDiretorio("Rotinas", "*.json");
 
             List<Root_Backup> lstRootBackups = new List<Root_Backup>(); 
@@ -52,19 +51,21 @@ namespace Backup
                     switch (tipo)
                     {
                         case "Hora":
-
+                         
                             Schedule(() => new ExecutaJobBackup(root_Backup))
                                 .NonReentrant()
                                 .WithName(nomeJob)
                                 .ToRunEvery(hora)
                                 .Hours();
                             break;
-
+                       
                         case "Diaria":
                             Schedule(() => new ExecutaJobBackup(root_Backup))
                                 .NonReentrant()
                                 .WithName(nomeJob)
-                                .ToRunOnceAt(hora, minutos);
+                                .ToRunEvery(0)
+                                .Days()
+                                .At(hora, minutos);
                             break;
 
                         case "Semanal":
@@ -98,7 +99,7 @@ namespace Backup
                                         break;
                                     case "Quinta-Feira":
                                         Schedule(() => new ExecutaJobBackup(root_Backup))
-                                            .NonReentrant()
+                                                  .NonReentrant()
                                             .WithName(nomeJob)
                                             .ToRunEvery(0)
                                             .Weeks()
