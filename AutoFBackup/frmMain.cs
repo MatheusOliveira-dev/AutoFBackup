@@ -5,9 +5,11 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AutoUpdaterDotNET;
 using FluentScheduler;
 using Models;
 using static Backup.Backup;
@@ -63,9 +65,14 @@ namespace FBackup
 
             Shared.Helpers.HabilitaDesabilitaInicializacaoComWindows(Configuracoes.ObtemConfiguracoes().Geral.IniciarComOWindows);
 
+            if (Configuracoes.ObtemConfiguracoes() != null && Configuracoes.ObtemConfiguracoes().Geral.BuscaAtualizacaoIniApp)
+            {
+                Atualizacoes.Atualizacoes atualizacoes = new Atualizacoes.Atualizacoes();
+                atualizacoes.AtualizaAplicacao();
+            }
+
             Re_InicializaRotinas = true;
         }
-
         private void frmMain_Load(object sender, EventArgs e)
         {
             
@@ -158,6 +165,12 @@ namespace FBackup
         private void lblAutoFBackupVersoes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/MatheusOliveira-dev/AutoFBackup/releases");
+        }
+
+        private void btnAtualizarApp_Click(object sender, EventArgs e)
+        {
+            frmAtualizaApp frmAtualizaApp = new frmAtualizaApp();
+            frmAtualizaApp.Show();
         }
     }
 }

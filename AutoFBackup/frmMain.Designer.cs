@@ -34,6 +34,13 @@ namespace FBackup
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnlControls = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblAutoFBackupVersoes = new System.Windows.Forms.LinkLabel();
+            this.lblAutoFBackupWiki = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.lblMQFSFacebook = new System.Windows.Forms.LinkLabel();
+            this.lblEdsonGregorio = new System.Windows.Forms.LinkLabel();
+            this.lblMQFSYoutube = new System.Windows.Forms.LinkLabel();
             this.btnConfiguracoes = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnIntegracoes = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnNovoBackup = new Guna.UI2.WinForms.Guna2TileButton();
@@ -50,13 +57,8 @@ namespace FBackup
             this.lblSair = new System.Windows.Forms.Label();
             this.lblMinimizar = new System.Windows.Forms.Label();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.lblMQFSYoutube = new System.Windows.Forms.LinkLabel();
-            this.lblEdsonGregorio = new System.Windows.Forms.LinkLabel();
-            this.lblMQFSFacebook = new System.Windows.Forms.LinkLabel();
-            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblAutoFBackupWiki = new System.Windows.Forms.LinkLabel();
-            this.lblAutoFBackupVersoes = new System.Windows.Forms.LinkLabel();
+            this.btnAtualizarApp = new Guna.UI2.WinForms.Guna2TileButton();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +73,7 @@ namespace FBackup
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
+            this.panel2.Controls.Add(this.btnAtualizarApp);
             this.panel2.Controls.Add(this.lblAutoFBackupVersoes);
             this.panel2.Controls.Add(this.lblAutoFBackupWiki);
             this.panel2.Controls.Add(this.label2);
@@ -87,6 +90,85 @@ namespace FBackup
             this.panel2.Size = new System.Drawing.Size(223, 504);
             this.panel2.TabIndex = 1;
             // 
+            // lblAutoFBackupVersoes
+            // 
+            this.lblAutoFBackupVersoes.AutoSize = true;
+            this.lblAutoFBackupVersoes.LinkColor = System.Drawing.Color.Black;
+            this.lblAutoFBackupVersoes.Location = new System.Drawing.Point(0, 403);
+            this.lblAutoFBackupVersoes.Name = "lblAutoFBackupVersoes";
+            this.lblAutoFBackupVersoes.Size = new System.Drawing.Size(119, 13);
+            this.lblAutoFBackupVersoes.TabIndex = 18;
+            this.lblAutoFBackupVersoes.TabStop = true;
+            this.lblAutoFBackupVersoes.Text = "AutoFBackup - Versões";
+            this.lblAutoFBackupVersoes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAutoFBackupVersoes_LinkClicked);
+            // 
+            // lblAutoFBackupWiki
+            // 
+            this.lblAutoFBackupWiki.AutoSize = true;
+            this.lblAutoFBackupWiki.Location = new System.Drawing.Point(0, 383);
+            this.lblAutoFBackupWiki.Name = "lblAutoFBackupWiki";
+            this.lblAutoFBackupWiki.Size = new System.Drawing.Size(102, 13);
+            this.lblAutoFBackupWiki.TabIndex = 17;
+            this.lblAutoFBackupWiki.TabStop = true;
+            this.lblAutoFBackupWiki.Text = "AutoFBackup - Wiki";
+            this.lblAutoFBackupWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAutoFBackupWiki_LinkClicked);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 355);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Conteúdo Recomendado";
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(-2, 368);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(223, 10);
+            this.bunifuSeparator1.TabIndex = 15;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = false;
+            // 
+            // lblMQFSFacebook
+            // 
+            this.lblMQFSFacebook.AutoSize = true;
+            this.lblMQFSFacebook.Location = new System.Drawing.Point(0, 458);
+            this.lblMQFSFacebook.Name = "lblMQFSFacebook";
+            this.lblMQFSFacebook.Size = new System.Drawing.Size(223, 13);
+            this.lblMQFSFacebook.TabIndex = 14;
+            this.lblMQFSFacebook.TabStop = true;
+            this.lblMQFSFacebook.Text = "MQFS - Meu querido Firebird SQL (Facebook)";
+            this.lblMQFSFacebook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMQFSFacebook_LinkClicked);
+            // 
+            // lblEdsonGregorio
+            // 
+            this.lblEdsonGregorio.AutoSize = true;
+            this.lblEdsonGregorio.Location = new System.Drawing.Point(0, 436);
+            this.lblEdsonGregorio.Name = "lblEdsonGregorio";
+            this.lblEdsonGregorio.Size = new System.Drawing.Size(137, 13);
+            this.lblEdsonGregorio.TabIndex = 13;
+            this.lblEdsonGregorio.TabStop = true;
+            this.lblEdsonGregorio.Text = "Edson Gregorio (Facebook)";
+            this.lblEdsonGregorio.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblEdsonGregorio_LinkClicked);
+            // 
+            // lblMQFSYoutube
+            // 
+            this.lblMQFSYoutube.AutoSize = true;
+            this.lblMQFSYoutube.LinkColor = System.Drawing.Color.Red;
+            this.lblMQFSYoutube.Location = new System.Drawing.Point(0, 481);
+            this.lblMQFSYoutube.Name = "lblMQFSYoutube";
+            this.lblMQFSYoutube.Size = new System.Drawing.Size(215, 13);
+            this.lblMQFSYoutube.TabIndex = 12;
+            this.lblMQFSYoutube.TabStop = true;
+            this.lblMQFSYoutube.Text = "MQFS - Meu querido Firebird SQL (Youtube)";
+            this.lblMQFSYoutube.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMQFSYoutube_LinkClicked);
+            // 
             // btnConfiguracoes
             // 
             this.btnConfiguracoes.CheckedState.Parent = this.btnConfiguracoes;
@@ -97,7 +179,7 @@ namespace FBackup
             this.btnConfiguracoes.ForeColor = System.Drawing.Color.White;
             this.btnConfiguracoes.HoverState.Parent = this.btnConfiguracoes;
             this.btnConfiguracoes.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguracoes.Image")));
-            this.btnConfiguracoes.Location = new System.Drawing.Point(119, 114);
+            this.btnConfiguracoes.Location = new System.Drawing.Point(119, 102);
             this.btnConfiguracoes.Name = "btnConfiguracoes";
             this.btnConfiguracoes.ShadowDecoration.Parent = this.btnConfiguracoes;
             this.btnConfiguracoes.Size = new System.Drawing.Size(85, 64);
@@ -115,7 +197,7 @@ namespace FBackup
             this.btnIntegracoes.ForeColor = System.Drawing.Color.White;
             this.btnIntegracoes.HoverState.Parent = this.btnIntegracoes;
             this.btnIntegracoes.Image = ((System.Drawing.Image)(resources.GetObject("btnIntegracoes.Image")));
-            this.btnIntegracoes.Location = new System.Drawing.Point(22, 114);
+            this.btnIntegracoes.Location = new System.Drawing.Point(22, 102);
             this.btnIntegracoes.Name = "btnIntegracoes";
             this.btnIntegracoes.ShadowDecoration.Parent = this.btnIntegracoes;
             this.btnIntegracoes.Size = new System.Drawing.Size(85, 64);
@@ -247,84 +329,28 @@ namespace FBackup
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
-            // lblMQFSYoutube
+            // btnAtualizarApp
             // 
-            this.lblMQFSYoutube.AutoSize = true;
-            this.lblMQFSYoutube.LinkColor = System.Drawing.Color.Red;
-            this.lblMQFSYoutube.Location = new System.Drawing.Point(0, 481);
-            this.lblMQFSYoutube.Name = "lblMQFSYoutube";
-            this.lblMQFSYoutube.Size = new System.Drawing.Size(215, 13);
-            this.lblMQFSYoutube.TabIndex = 12;
-            this.lblMQFSYoutube.TabStop = true;
-            this.lblMQFSYoutube.Text = "MQFS - Meu querido Firebird SQL (Youtube)";
-            this.lblMQFSYoutube.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMQFSYoutube_LinkClicked);
+            this.btnAtualizarApp.CheckedState.Parent = this.btnAtualizarApp;
+            this.btnAtualizarApp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtualizarApp.CustomImages.Parent = this.btnAtualizarApp;
+            this.btnAtualizarApp.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.btnAtualizarApp.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAtualizarApp.ForeColor = System.Drawing.Color.White;
+            this.btnAtualizarApp.HoverState.Parent = this.btnAtualizarApp;
+            this.btnAtualizarApp.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizarApp.Image")));
+            this.btnAtualizarApp.Location = new System.Drawing.Point(119, 172);
+            this.btnAtualizarApp.Name = "btnAtualizarApp";
+            this.btnAtualizarApp.ShadowDecoration.Parent = this.btnAtualizarApp;
+            this.btnAtualizarApp.Size = new System.Drawing.Size(85, 64);
+            this.btnAtualizarApp.TabIndex = 19;
+            this.btnAtualizarApp.Text = "Atualizar App";
+            this.btnAtualizarApp.Click += new System.EventHandler(this.btnAtualizarApp_Click);
             // 
-            // lblEdsonGregorio
+            // bunifuElipse1
             // 
-            this.lblEdsonGregorio.AutoSize = true;
-            this.lblEdsonGregorio.Location = new System.Drawing.Point(0, 436);
-            this.lblEdsonGregorio.Name = "lblEdsonGregorio";
-            this.lblEdsonGregorio.Size = new System.Drawing.Size(137, 13);
-            this.lblEdsonGregorio.TabIndex = 13;
-            this.lblEdsonGregorio.TabStop = true;
-            this.lblEdsonGregorio.Text = "Edson Gregorio (Facebook)";
-            this.lblEdsonGregorio.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblEdsonGregorio_LinkClicked);
-            // 
-            // lblMQFSFacebook
-            // 
-            this.lblMQFSFacebook.AutoSize = true;
-            this.lblMQFSFacebook.Location = new System.Drawing.Point(0, 458);
-            this.lblMQFSFacebook.Name = "lblMQFSFacebook";
-            this.lblMQFSFacebook.Size = new System.Drawing.Size(223, 13);
-            this.lblMQFSFacebook.TabIndex = 14;
-            this.lblMQFSFacebook.TabStop = true;
-            this.lblMQFSFacebook.Text = "MQFS - Meu querido Firebird SQL (Facebook)";
-            this.lblMQFSFacebook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMQFSFacebook_LinkClicked);
-            // 
-            // bunifuSeparator1
-            // 
-            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(-2, 368);
-            this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(223, 10);
-            this.bunifuSeparator1.TabIndex = 15;
-            this.bunifuSeparator1.Transparency = 255;
-            this.bunifuSeparator1.Vertical = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 355);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Conteúdo Recomendado";
-            // 
-            // lblAutoFBackupWiki
-            // 
-            this.lblAutoFBackupWiki.AutoSize = true;
-            this.lblAutoFBackupWiki.Location = new System.Drawing.Point(0, 383);
-            this.lblAutoFBackupWiki.Name = "lblAutoFBackupWiki";
-            this.lblAutoFBackupWiki.Size = new System.Drawing.Size(102, 13);
-            this.lblAutoFBackupWiki.TabIndex = 17;
-            this.lblAutoFBackupWiki.TabStop = true;
-            this.lblAutoFBackupWiki.Text = "AutoFBackup - Wiki";
-            this.lblAutoFBackupWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAutoFBackupWiki_LinkClicked);
-            // 
-            // lblAutoFBackupVersoes
-            // 
-            this.lblAutoFBackupVersoes.AutoSize = true;
-            this.lblAutoFBackupVersoes.LinkColor = System.Drawing.Color.Black;
-            this.lblAutoFBackupVersoes.Location = new System.Drawing.Point(0, 403);
-            this.lblAutoFBackupVersoes.Name = "lblAutoFBackupVersoes";
-            this.lblAutoFBackupVersoes.Size = new System.Drawing.Size(119, 13);
-            this.lblAutoFBackupVersoes.TabIndex = 18;
-            this.lblAutoFBackupVersoes.TabStop = true;
-            this.lblAutoFBackupVersoes.Text = "AutoFBackup - Versões";
-            this.lblAutoFBackupVersoes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAutoFBackupVersoes_LinkClicked);
+            this.bunifuElipse1.ElipseRadius = 10;
+            this.bunifuElipse1.TargetControl = this.btnAtualizarApp;
             // 
             // frmMain
             // 
@@ -377,6 +403,8 @@ namespace FBackup
         private BunifuSeparator bunifuSeparator1;
         private System.Windows.Forms.LinkLabel lblAutoFBackupVersoes;
         private System.Windows.Forms.LinkLabel lblAutoFBackupWiki;
+        private Guna.UI2.WinForms.Guna2TileButton btnAtualizarApp;
+        private BunifuElipse bunifuElipse1;
     }
 }
 
