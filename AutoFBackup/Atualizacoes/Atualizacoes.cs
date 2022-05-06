@@ -11,6 +11,10 @@ namespace FBackup.Atualizacoes
 {
     public class Atualizacoes
     {
+        public Atualizacoes()
+        {
+            
+        }
         public void AtualizaAplicacao()
         {
             AutoUpdater.ReportErrors = true;
@@ -44,11 +48,11 @@ namespace FBackup.Atualizacoes
                                 MessageBoxIcon.Information);
                     }
 
-                    
+
 
                     if (dialogResult.Equals(DialogResult.Yes) || dialogResult.Equals(DialogResult.OK))
                     {
-                       
+
                         if (MessageBox.Show(
                                 "Você deseja visualizar os recursos corrigidos/implementados/alterados nessa Versão?", @"Changelog",
                                 MessageBoxButtons.YesNo,
@@ -73,8 +77,8 @@ namespace FBackup.Atualizacoes
                 }
                 else
                 {
-                    MessageBox.Show(@"Nenhuma versão disponível. Você já está executando a Última Versão do AutoFBackup.", @"No update available",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(@"Nenhuma nova Versão disponível. Você já está executando a Última Versão do AutoFBackup.", @"Última Versão já instalada",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else

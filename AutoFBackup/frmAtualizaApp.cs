@@ -24,6 +24,7 @@ namespace FBackup
             AutoUpdater.Mandatory = true;
             AutoUpdater.Synchronous = true;
             AutoUpdater.Start("https://raw.githubusercontent.com/MatheusOliveira-dev/AutoFBackupUpdater/main/Update.xml");
+
             this.Close();
         }
     }
