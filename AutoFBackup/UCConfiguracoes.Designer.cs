@@ -36,6 +36,17 @@
             this.chbxIniciarComOWindows = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbxBuscaAtualizacoesIni = new Guna.UI2.WinForms.Guna2CheckBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.chbxAguardarConclusaoAplicativoPreBackup = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.chbxExecutaGFIX = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.lblAvisoGfix = new System.Windows.Forms.LinkLabel();
+            this.gpbxGFIX = new System.Windows.Forms.GroupBox();
+            this.lblAvisoArgumentosGfix = new System.Windows.Forms.LinkLabel();
+            this.tbArgumentosGFIX = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbDiretorioGFIX = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnDiretorioGFIX = new Guna.UI2.WinForms.Guna2TileButton();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblExplicacaoFlags = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
@@ -61,24 +72,13 @@
             this.bunifuElipseBtnDiretorioBackups = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipseBtnAppPreBackup = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipseBtnAppPosBackup = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.gpbxGFIX = new System.Windows.Forms.GroupBox();
-            this.lblAvisoArgumentosGfix = new System.Windows.Forms.LinkLabel();
-            this.tbArgumentosGFIX = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tbDiretorioGFIX = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnDiretorioGFIX = new Guna.UI2.WinForms.Guna2TileButton();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.chbxExecutaGFIX = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.lblAvisoGfix = new System.Windows.Forms.LinkLabel();
             this.bunifuElipseBtnDiretorioGFIX = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.chbxAguardarConclusaoAplicativoPreBackup = new Guna.UI2.WinForms.Guna2CheckBox();
             this.tbControl.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmUpDownDiasExcluirBackupsAntigos)).BeginInit();
-            this.gpbxGFIX.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.gpbxGFIX.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmUpDownDiasExcluirBackupsAntigos)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -100,7 +100,7 @@
             this.tbControl.Location = new System.Drawing.Point(8, 43);
             this.tbControl.Multiline = true;
             this.tbControl.Name = "tbControl";
-            this.tbControl.SelectedIndex = 1;
+            this.tbControl.SelectedIndex = 0;
             this.tbControl.ShowToolTips = true;
             this.tbControl.Size = new System.Drawing.Size(560, 464);
             this.tbControl.TabIndex = 14;
@@ -118,7 +118,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(552, 404);
+            this.metroTabPage1.Size = new System.Drawing.Size(552, 422);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Configurações Gerais  ";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -152,7 +152,6 @@
             this.chbxBuscaAtualizacoesIni.CheckedState.BorderRadius = 2;
             this.chbxBuscaAtualizacoesIni.CheckedState.BorderThickness = 0;
             this.chbxBuscaAtualizacoesIni.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxBuscaAtualizacoesIni.Enabled = false;
             this.chbxBuscaAtualizacoesIni.Location = new System.Drawing.Point(9, 31);
             this.chbxBuscaAtualizacoesIni.Name = "chbxBuscaAtualizacoesIni";
             this.chbxBuscaAtualizacoesIni.Size = new System.Drawing.Size(289, 17);
@@ -199,6 +198,193 @@
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
+            // 
+            // chbxAguardarConclusaoAplicativoPreBackup
+            // 
+            this.chbxAguardarConclusaoAplicativoPreBackup.AutoSize = true;
+            this.chbxAguardarConclusaoAplicativoPreBackup.BackColor = System.Drawing.Color.Transparent;
+            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderRadius = 2;
+            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderThickness = 0;
+            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxAguardarConclusaoAplicativoPreBackup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbxAguardarConclusaoAplicativoPreBackup.Location = new System.Drawing.Point(422, 280);
+            this.chbxAguardarConclusaoAplicativoPreBackup.Name = "chbxAguardarConclusaoAplicativoPreBackup";
+            this.chbxAguardarConclusaoAplicativoPreBackup.Size = new System.Drawing.Size(131, 17);
+            this.chbxAguardarConclusaoAplicativoPreBackup.TabIndex = 64;
+            this.chbxAguardarConclusaoAplicativoPreBackup.Text = "Aguardar Conclusão";
+            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderRadius = 2;
+            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderThickness = 0;
+            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxAguardarConclusaoAplicativoPreBackup.UseVisualStyleBackColor = false;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.panel8.Controls.Add(this.chbxExecutaGFIX);
+            this.panel8.Controls.Add(this.lblAvisoGfix);
+            this.panel8.Location = new System.Drawing.Point(104, 176);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(386, 31);
+            this.panel8.TabIndex = 63;
+            // 
+            // chbxExecutaGFIX
+            // 
+            this.chbxExecutaGFIX.AutoSize = true;
+            this.chbxExecutaGFIX.BackColor = System.Drawing.Color.Transparent;
+            this.chbxExecutaGFIX.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExecutaGFIX.CheckedState.BorderRadius = 2;
+            this.chbxExecutaGFIX.CheckedState.BorderThickness = 0;
+            this.chbxExecutaGFIX.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExecutaGFIX.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbxExecutaGFIX.ForeColor = System.Drawing.Color.Black;
+            this.chbxExecutaGFIX.Location = new System.Drawing.Point(3, 7);
+            this.chbxExecutaGFIX.Name = "chbxExecutaGFIX";
+            this.chbxExecutaGFIX.Size = new System.Drawing.Size(300, 17);
+            this.chbxExecutaGFIX.TabIndex = 0;
+            this.chbxExecutaGFIX.Text = "Executar GFIX Antes da Criação do Arquivo de Backup";
+            this.chbxExecutaGFIX.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExecutaGFIX.UncheckedState.BorderRadius = 2;
+            this.chbxExecutaGFIX.UncheckedState.BorderThickness = 0;
+            this.chbxExecutaGFIX.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExecutaGFIX.UseVisualStyleBackColor = false;
+            this.chbxExecutaGFIX.CheckedChanged += new System.EventHandler(this.chbxExecutaGFIX_CheckedChanged);
+            // 
+            // lblAvisoGfix
+            // 
+            this.lblAvisoGfix.AutoSize = true;
+            this.lblAvisoGfix.BackColor = System.Drawing.Color.Transparent;
+            this.lblAvisoGfix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblAvisoGfix.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.lblAvisoGfix.LinkColor = System.Drawing.Color.Red;
+            this.lblAvisoGfix.Location = new System.Drawing.Point(309, 5);
+            this.lblAvisoGfix.Name = "lblAvisoGfix";
+            this.lblAvisoGfix.Size = new System.Drawing.Size(28, 19);
+            this.lblAvisoGfix.TabIndex = 58;
+            this.lblAvisoGfix.TabStop = true;
+            this.lblAvisoGfix.Text = "⚠";
+            this.lblAvisoGfix.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAvisoGfix.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAvisoGfix_LinkClicked);
+            // 
+            // gpbxGFIX
+            // 
+            this.gpbxGFIX.BackColor = System.Drawing.Color.Transparent;
+            this.gpbxGFIX.Controls.Add(this.lblAvisoArgumentosGfix);
+            this.gpbxGFIX.Controls.Add(this.tbArgumentosGFIX);
+            this.gpbxGFIX.Controls.Add(this.tbDiretorioGFIX);
+            this.gpbxGFIX.Controls.Add(this.btnDiretorioGFIX);
+            this.gpbxGFIX.Controls.Add(this.label37);
+            this.gpbxGFIX.Controls.Add(this.label36);
+            this.gpbxGFIX.Enabled = false;
+            this.gpbxGFIX.Location = new System.Drawing.Point(104, 169);
+            this.gpbxGFIX.Name = "gpbxGFIX";
+            this.gpbxGFIX.Size = new System.Drawing.Size(386, 102);
+            this.gpbxGFIX.TabIndex = 58;
+            this.gpbxGFIX.TabStop = false;
+            // 
+            // lblAvisoArgumentosGfix
+            // 
+            this.lblAvisoArgumentosGfix.AutoSize = true;
+            this.lblAvisoArgumentosGfix.BackColor = System.Drawing.Color.Transparent;
+            this.lblAvisoArgumentosGfix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblAvisoArgumentosGfix.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.lblAvisoArgumentosGfix.LinkColor = System.Drawing.Color.Red;
+            this.lblAvisoArgumentosGfix.Location = new System.Drawing.Point(334, 74);
+            this.lblAvisoArgumentosGfix.Name = "lblAvisoArgumentosGfix";
+            this.lblAvisoArgumentosGfix.Size = new System.Drawing.Size(28, 19);
+            this.lblAvisoArgumentosGfix.TabIndex = 62;
+            this.lblAvisoArgumentosGfix.TabStop = true;
+            this.lblAvisoArgumentosGfix.Text = "⚠";
+            this.lblAvisoArgumentosGfix.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAvisoArgumentosGfix.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAvisoArgumentosGfix_LinkClicked);
+            // 
+            // tbArgumentosGFIX
+            // 
+            this.tbArgumentosGFIX.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbArgumentosGFIX.DefaultText = "-mend -full -ignore";
+            this.tbArgumentosGFIX.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbArgumentosGFIX.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbArgumentosGFIX.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbArgumentosGFIX.DisabledState.Parent = this.tbArgumentosGFIX;
+            this.tbArgumentosGFIX.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbArgumentosGFIX.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbArgumentosGFIX.FocusedState.Parent = this.tbArgumentosGFIX;
+            this.tbArgumentosGFIX.ForeColor = System.Drawing.Color.Black;
+            this.tbArgumentosGFIX.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbArgumentosGFIX.HoverState.Parent = this.tbArgumentosGFIX;
+            this.tbArgumentosGFIX.Location = new System.Drawing.Point(84, 72);
+            this.tbArgumentosGFIX.Name = "tbArgumentosGFIX";
+            this.tbArgumentosGFIX.PasswordChar = '\0';
+            this.tbArgumentosGFIX.PlaceholderText = "";
+            this.tbArgumentosGFIX.SelectedText = "";
+            this.tbArgumentosGFIX.SelectionStart = 19;
+            this.tbArgumentosGFIX.ShadowDecoration.Parent = this.tbArgumentosGFIX;
+            this.tbArgumentosGFIX.Size = new System.Drawing.Size(244, 24);
+            this.tbArgumentosGFIX.TabIndex = 61;
+            // 
+            // tbDiretorioGFIX
+            // 
+            this.tbDiretorioGFIX.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbDiretorioGFIX.DefaultText = "";
+            this.tbDiretorioGFIX.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbDiretorioGFIX.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbDiretorioGFIX.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbDiretorioGFIX.DisabledState.Parent = this.tbDiretorioGFIX;
+            this.tbDiretorioGFIX.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbDiretorioGFIX.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbDiretorioGFIX.FocusedState.Parent = this.tbDiretorioGFIX;
+            this.tbDiretorioGFIX.ForeColor = System.Drawing.Color.Black;
+            this.tbDiretorioGFIX.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbDiretorioGFIX.HoverState.Parent = this.tbDiretorioGFIX;
+            this.tbDiretorioGFIX.Location = new System.Drawing.Point(84, 44);
+            this.tbDiretorioGFIX.Name = "tbDiretorioGFIX";
+            this.tbDiretorioGFIX.PasswordChar = '\0';
+            this.tbDiretorioGFIX.PlaceholderText = "";
+            this.tbDiretorioGFIX.ReadOnly = true;
+            this.tbDiretorioGFIX.SelectedText = "";
+            this.tbDiretorioGFIX.ShadowDecoration.Parent = this.tbDiretorioGFIX;
+            this.tbDiretorioGFIX.Size = new System.Drawing.Size(244, 24);
+            this.tbDiretorioGFIX.TabIndex = 58;
+            // 
+            // btnDiretorioGFIX
+            // 
+            this.btnDiretorioGFIX.CheckedState.Parent = this.btnDiretorioGFIX;
+            this.btnDiretorioGFIX.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDiretorioGFIX.CustomImages.Parent = this.btnDiretorioGFIX;
+            this.btnDiretorioGFIX.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.btnDiretorioGFIX.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDiretorioGFIX.ForeColor = System.Drawing.Color.White;
+            this.btnDiretorioGFIX.HoverState.Parent = this.btnDiretorioGFIX;
+            this.btnDiretorioGFIX.Image = ((System.Drawing.Image)(resources.GetObject("btnDiretorioGFIX.Image")));
+            this.btnDiretorioGFIX.Location = new System.Drawing.Point(334, 44);
+            this.btnDiretorioGFIX.Name = "btnDiretorioGFIX";
+            this.btnDiretorioGFIX.ShadowDecoration.Parent = this.btnDiretorioGFIX;
+            this.btnDiretorioGFIX.Size = new System.Drawing.Size(46, 24);
+            this.btnDiretorioGFIX.TabIndex = 60;
+            this.btnDiretorioGFIX.Click += new System.EventHandler(this.btnDiretorioGFIX_Click);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.BackColor = System.Drawing.Color.Transparent;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label37.Location = new System.Drawing.Point(25, 44);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(53, 26);
+            this.label37.TabIndex = 59;
+            this.label37.Text = "Diretório\n do GFIX:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.BackColor = System.Drawing.Color.Transparent;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label36.Location = new System.Drawing.Point(8, 72);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(70, 26);
+            this.label36.TabIndex = 58;
+            this.label36.Text = "Argumentos\r\n    do GFIX:";
             // 
             // label2
             // 
@@ -562,197 +748,10 @@
             this.bunifuElipseBtnAppPosBackup.ElipseRadius = 10;
             this.bunifuElipseBtnAppPosBackup.TargetControl = this.btnDiretorioAppPosBackup;
             // 
-            // gpbxGFIX
-            // 
-            this.gpbxGFIX.BackColor = System.Drawing.Color.Transparent;
-            this.gpbxGFIX.Controls.Add(this.lblAvisoArgumentosGfix);
-            this.gpbxGFIX.Controls.Add(this.tbArgumentosGFIX);
-            this.gpbxGFIX.Controls.Add(this.tbDiretorioGFIX);
-            this.gpbxGFIX.Controls.Add(this.btnDiretorioGFIX);
-            this.gpbxGFIX.Controls.Add(this.label37);
-            this.gpbxGFIX.Controls.Add(this.label36);
-            this.gpbxGFIX.Enabled = false;
-            this.gpbxGFIX.Location = new System.Drawing.Point(104, 169);
-            this.gpbxGFIX.Name = "gpbxGFIX";
-            this.gpbxGFIX.Size = new System.Drawing.Size(386, 102);
-            this.gpbxGFIX.TabIndex = 58;
-            this.gpbxGFIX.TabStop = false;
-            // 
-            // lblAvisoArgumentosGfix
-            // 
-            this.lblAvisoArgumentosGfix.AutoSize = true;
-            this.lblAvisoArgumentosGfix.BackColor = System.Drawing.Color.Transparent;
-            this.lblAvisoArgumentosGfix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblAvisoArgumentosGfix.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.lblAvisoArgumentosGfix.LinkColor = System.Drawing.Color.Red;
-            this.lblAvisoArgumentosGfix.Location = new System.Drawing.Point(334, 74);
-            this.lblAvisoArgumentosGfix.Name = "lblAvisoArgumentosGfix";
-            this.lblAvisoArgumentosGfix.Size = new System.Drawing.Size(28, 19);
-            this.lblAvisoArgumentosGfix.TabIndex = 62;
-            this.lblAvisoArgumentosGfix.TabStop = true;
-            this.lblAvisoArgumentosGfix.Text = "⚠";
-            this.lblAvisoArgumentosGfix.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblAvisoArgumentosGfix.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAvisoArgumentosGfix_LinkClicked);
-            // 
-            // tbArgumentosGFIX
-            // 
-            this.tbArgumentosGFIX.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbArgumentosGFIX.DefaultText = "-mend -full -ignore";
-            this.tbArgumentosGFIX.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbArgumentosGFIX.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbArgumentosGFIX.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbArgumentosGFIX.DisabledState.Parent = this.tbArgumentosGFIX;
-            this.tbArgumentosGFIX.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbArgumentosGFIX.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbArgumentosGFIX.FocusedState.Parent = this.tbArgumentosGFIX;
-            this.tbArgumentosGFIX.ForeColor = System.Drawing.Color.Black;
-            this.tbArgumentosGFIX.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbArgumentosGFIX.HoverState.Parent = this.tbArgumentosGFIX;
-            this.tbArgumentosGFIX.Location = new System.Drawing.Point(84, 72);
-            this.tbArgumentosGFIX.Name = "tbArgumentosGFIX";
-            this.tbArgumentosGFIX.PasswordChar = '\0';
-            this.tbArgumentosGFIX.PlaceholderText = "";
-            this.tbArgumentosGFIX.SelectedText = "";
-            this.tbArgumentosGFIX.SelectionStart = 19;
-            this.tbArgumentosGFIX.ShadowDecoration.Parent = this.tbArgumentosGFIX;
-            this.tbArgumentosGFIX.Size = new System.Drawing.Size(244, 24);
-            this.tbArgumentosGFIX.TabIndex = 61;
-            // 
-            // tbDiretorioGFIX
-            // 
-            this.tbDiretorioGFIX.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbDiretorioGFIX.DefaultText = "";
-            this.tbDiretorioGFIX.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbDiretorioGFIX.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbDiretorioGFIX.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbDiretorioGFIX.DisabledState.Parent = this.tbDiretorioGFIX;
-            this.tbDiretorioGFIX.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbDiretorioGFIX.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbDiretorioGFIX.FocusedState.Parent = this.tbDiretorioGFIX;
-            this.tbDiretorioGFIX.ForeColor = System.Drawing.Color.Black;
-            this.tbDiretorioGFIX.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbDiretorioGFIX.HoverState.Parent = this.tbDiretorioGFIX;
-            this.tbDiretorioGFIX.Location = new System.Drawing.Point(84, 44);
-            this.tbDiretorioGFIX.Name = "tbDiretorioGFIX";
-            this.tbDiretorioGFIX.PasswordChar = '\0';
-            this.tbDiretorioGFIX.PlaceholderText = "";
-            this.tbDiretorioGFIX.ReadOnly = true;
-            this.tbDiretorioGFIX.SelectedText = "";
-            this.tbDiretorioGFIX.ShadowDecoration.Parent = this.tbDiretorioGFIX;
-            this.tbDiretorioGFIX.Size = new System.Drawing.Size(244, 24);
-            this.tbDiretorioGFIX.TabIndex = 58;
-            // 
-            // btnDiretorioGFIX
-            // 
-            this.btnDiretorioGFIX.CheckedState.Parent = this.btnDiretorioGFIX;
-            this.btnDiretorioGFIX.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDiretorioGFIX.CustomImages.Parent = this.btnDiretorioGFIX;
-            this.btnDiretorioGFIX.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.btnDiretorioGFIX.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDiretorioGFIX.ForeColor = System.Drawing.Color.White;
-            this.btnDiretorioGFIX.HoverState.Parent = this.btnDiretorioGFIX;
-            this.btnDiretorioGFIX.Image = ((System.Drawing.Image)(resources.GetObject("btnDiretorioGFIX.Image")));
-            this.btnDiretorioGFIX.Location = new System.Drawing.Point(334, 44);
-            this.btnDiretorioGFIX.Name = "btnDiretorioGFIX";
-            this.btnDiretorioGFIX.ShadowDecoration.Parent = this.btnDiretorioGFIX;
-            this.btnDiretorioGFIX.Size = new System.Drawing.Size(46, 24);
-            this.btnDiretorioGFIX.TabIndex = 60;
-            this.btnDiretorioGFIX.Click += new System.EventHandler(this.btnDiretorioGFIX_Click);
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.BackColor = System.Drawing.Color.Transparent;
-            this.label37.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label37.Location = new System.Drawing.Point(25, 44);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(53, 26);
-            this.label37.TabIndex = 59;
-            this.label37.Text = "Diretório\n do GFIX:";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.BackColor = System.Drawing.Color.Transparent;
-            this.label36.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label36.Location = new System.Drawing.Point(8, 72);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(70, 26);
-            this.label36.TabIndex = 58;
-            this.label36.Text = "Argumentos\r\n    do GFIX:";
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.panel8.Controls.Add(this.chbxExecutaGFIX);
-            this.panel8.Controls.Add(this.lblAvisoGfix);
-            this.panel8.Location = new System.Drawing.Point(104, 176);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(386, 31);
-            this.panel8.TabIndex = 63;
-            // 
-            // chbxExecutaGFIX
-            // 
-            this.chbxExecutaGFIX.AutoSize = true;
-            this.chbxExecutaGFIX.BackColor = System.Drawing.Color.Transparent;
-            this.chbxExecutaGFIX.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxExecutaGFIX.CheckedState.BorderRadius = 2;
-            this.chbxExecutaGFIX.CheckedState.BorderThickness = 0;
-            this.chbxExecutaGFIX.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxExecutaGFIX.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxExecutaGFIX.ForeColor = System.Drawing.Color.Black;
-            this.chbxExecutaGFIX.Location = new System.Drawing.Point(3, 7);
-            this.chbxExecutaGFIX.Name = "chbxExecutaGFIX";
-            this.chbxExecutaGFIX.Size = new System.Drawing.Size(300, 17);
-            this.chbxExecutaGFIX.TabIndex = 0;
-            this.chbxExecutaGFIX.Text = "Executar GFIX Antes da Criação do Arquivo de Backup";
-            this.chbxExecutaGFIX.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbxExecutaGFIX.UncheckedState.BorderRadius = 2;
-            this.chbxExecutaGFIX.UncheckedState.BorderThickness = 0;
-            this.chbxExecutaGFIX.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbxExecutaGFIX.UseVisualStyleBackColor = false;
-            this.chbxExecutaGFIX.CheckedChanged += new System.EventHandler(this.chbxExecutaGFIX_CheckedChanged);
-            // 
-            // lblAvisoGfix
-            // 
-            this.lblAvisoGfix.AutoSize = true;
-            this.lblAvisoGfix.BackColor = System.Drawing.Color.Transparent;
-            this.lblAvisoGfix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblAvisoGfix.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.lblAvisoGfix.LinkColor = System.Drawing.Color.Red;
-            this.lblAvisoGfix.Location = new System.Drawing.Point(309, 5);
-            this.lblAvisoGfix.Name = "lblAvisoGfix";
-            this.lblAvisoGfix.Size = new System.Drawing.Size(28, 19);
-            this.lblAvisoGfix.TabIndex = 58;
-            this.lblAvisoGfix.TabStop = true;
-            this.lblAvisoGfix.Text = "⚠";
-            this.lblAvisoGfix.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblAvisoGfix.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAvisoGfix_LinkClicked);
-            // 
             // bunifuElipseBtnDiretorioGFIX
             // 
             this.bunifuElipseBtnDiretorioGFIX.ElipseRadius = 10;
             this.bunifuElipseBtnDiretorioGFIX.TargetControl = this.btnDiretorioGFIX;
-            // 
-            // chbxAguardarConclusaoAplicativoPreBackup
-            // 
-            this.chbxAguardarConclusaoAplicativoPreBackup.AutoSize = true;
-            this.chbxAguardarConclusaoAplicativoPreBackup.BackColor = System.Drawing.Color.Transparent;
-            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderRadius = 2;
-            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderThickness = 0;
-            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxAguardarConclusaoAplicativoPreBackup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxAguardarConclusaoAplicativoPreBackup.Location = new System.Drawing.Point(422, 280);
-            this.chbxAguardarConclusaoAplicativoPreBackup.Name = "chbxAguardarConclusaoAplicativoPreBackup";
-            this.chbxAguardarConclusaoAplicativoPreBackup.Size = new System.Drawing.Size(131, 17);
-            this.chbxAguardarConclusaoAplicativoPreBackup.TabIndex = 64;
-            this.chbxAguardarConclusaoAplicativoPreBackup.Text = "Aguardar Conclusão";
-            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderRadius = 2;
-            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderThickness = 0;
-            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbxAguardarConclusaoAplicativoPreBackup.UseVisualStyleBackColor = false;
             // 
             // UCConfiguracoes
             // 
@@ -770,11 +769,11 @@
             this.metroTabPage1.PerformLayout();
             this.metroTabPage2.ResumeLayout(false);
             this.metroTabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmUpDownDiasExcluirBackupsAntigos)).EndInit();
-            this.gpbxGFIX.ResumeLayout(false);
-            this.gpbxGFIX.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.gpbxGFIX.ResumeLayout(false);
+            this.gpbxGFIX.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmUpDownDiasExcluirBackupsAntigos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
