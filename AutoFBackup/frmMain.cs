@@ -282,8 +282,29 @@ namespace FBackup
 
         private void btnAtualizarApp_Click(object sender, EventArgs e)
         {
-            frmAtualizaApp frmAtualizaApp = new frmAtualizaApp();
-            frmAtualizaApp.Show();
+            Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
+
+            if (Configuracoes.ObtemConfiguracoes().Geral.ExigirSenhaAcessoBotoes 
+                && !string.IsNullOrWhiteSpace(Configuracoes.ObtemConfiguracoes().Geral.SenhaAcessoBotoes))
+            {
+                using (frmSenhaAcesso frmSenhaAcesso = new frmSenhaAcesso(TipoAcessos.Botao))
+                {
+                    DialogResult dr = frmSenhaAcesso.ShowDialog();
+
+                    if (dr == DialogResult.OK)
+                    {
+                        frmAtualizaApp frmAtualizaApp = new frmAtualizaApp();
+                        frmAtualizaApp.Show();
+                    }
+                }
+            }
+            else
+            {
+                frmAtualizaApp frmAtualizaApp = new frmAtualizaApp();
+                frmAtualizaApp.Show();
+            }
+
+          
         }
     }
 }
