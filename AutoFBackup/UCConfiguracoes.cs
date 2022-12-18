@@ -18,6 +18,8 @@ namespace FBackup
         {
             InitializeComponent();
             tbControl.SelectedIndex = 0;
+            tbSenhaAcessoBotoes.MaxLength = 20;
+            tbSenhaFecharApp.MaxLength = 20;
         }
 
         private void CarregaConfiguracoes()

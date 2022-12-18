@@ -21,6 +21,8 @@ namespace FBackup
         {
             InitializeComponent();
 
+            tbSenha.MaxLength = 20;
+
             this.tipoAcesso = tipoAcesso;
         }
 
