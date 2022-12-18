@@ -40,7 +40,12 @@
     <Reference Include="AutoUpdater.NET, Version=1.7.0.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Autoupdater.NET.Official.1.7.0\lib\net45\AutoUpdater.NET.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b" />
+    <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b">
+      <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu4.1.1\Bunifu.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.1.5.3">
+      <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu4.1.1\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
       <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu4.1.1\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
     </Reference>
@@ -54,7 +59,7 @@
       <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu4.1.1\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSnackbar">
-      <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu.UI.WinForms.BunifuSnackbar.dll</HintPath>
+      <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu4.1.1\Bunifu.UI.WinForms.BunifuSnackbar.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuToolTip">
       <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu4.1.1\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
@@ -102,11 +107,18 @@
   <ItemGroup>
     <Compile Include="Atualizacoes\Atualizacoes.cs" />
     <Compile Include="Configuracoes\Configuracoes.cs" />
+    <Compile Include="Enums\TipoAcessos.cs" />
     <Compile Include="frmAtualizaApp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAtualizaApp.Designer.cs">
       <DependentUpon>frmAtualizaApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSenhaAcesso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSenhaAcesso.Designer.cs">
+      <DependentUpon>frmSenhaAcesso.cs</DependentUpon>
     </Compile>
     <Compile Include="Integracoes\Email.cs" />
     <Compile Include="Integracoes\FTP.cs" />
@@ -159,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNovoBackup.resx">
       <DependentUpon>frmNovoBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSenhaAcesso.resx">
+      <DependentUpon>frmSenhaAcesso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

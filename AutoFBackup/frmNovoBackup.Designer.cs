@@ -75,6 +75,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.tbServidor_Servidor = new Guna.UI2.WinForms.Guna2TextBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.chbxAguardarConclusaoAplicativoPreBackup = new Guna.UI2.WinForms.Guna2CheckBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.chbxExecutaGFIX = new Guna.UI2.WinForms.Guna2CheckBox();
             this.lblAvisoGfix = new System.Windows.Forms.LinkLabel();
@@ -152,7 +153,6 @@
             this.bunifuSnackbar1 = new Bunifu.UI.WinForms.BunifuSnackbar(this.components);
             this.bunifuElipseBtnDiretorioGFIX = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.chbxAguardarConclusaoAplicativoPreBackup = new Guna.UI2.WinForms.Guna2CheckBox();
             this.tbControl.SuspendLayout();
             this.metroTabPage4.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -210,9 +210,9 @@
             this.tbControl.Location = new System.Drawing.Point(84, 59);
             this.tbControl.Multiline = true;
             this.tbControl.Name = "tbControl";
-            this.tbControl.SelectedIndex = 1;
+            this.tbControl.SelectedIndex = 0;
             this.tbControl.ShowToolTips = true;
-            this.tbControl.Size = new System.Drawing.Size(588, 610);
+            this.tbControl.Size = new System.Drawing.Size(588, 558);
             this.tbControl.TabIndex = 15;
             this.tbControl.UseCustomForeColor = true;
             this.tbControl.UseSelectable = true;
@@ -248,7 +248,7 @@
             this.metroTabPage4.HorizontalScrollbarSize = 10;
             this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage4.Name = "metroTabPage4";
-            this.metroTabPage4.Size = new System.Drawing.Size(580, 568);
+            this.metroTabPage4.Size = new System.Drawing.Size(580, 516);
             this.metroTabPage4.TabIndex = 4;
             this.metroTabPage4.Text = "Principal  ";
             this.metroTabPage4.VerticalScrollbarBarColor = true;
@@ -675,7 +675,7 @@
             this.dpDownFrequenciaBackups.DisabledColor = System.Drawing.Color.Gray;
             this.dpDownFrequenciaBackups.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpDownFrequenciaBackups.ForeColor = System.Drawing.Color.White;
-            this.dpDownFrequenciaBackups.Items = new string[] {
+            this.dpDownFrequenciaBackups.items = new string[] {
         "Por Hora",
         "Diário",
         "Semanal"};
@@ -918,12 +918,32 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(580, 568);
+            this.metroTabPage2.Size = new System.Drawing.Size(580, 516);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Opções - Backup  ";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
+            // 
+            // chbxAguardarConclusaoAplicativoPreBackup
+            // 
+            this.chbxAguardarConclusaoAplicativoPreBackup.AutoSize = true;
+            this.chbxAguardarConclusaoAplicativoPreBackup.BackColor = System.Drawing.Color.Transparent;
+            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderRadius = 2;
+            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderThickness = 0;
+            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxAguardarConclusaoAplicativoPreBackup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbxAguardarConclusaoAplicativoPreBackup.Location = new System.Drawing.Point(431, 345);
+            this.chbxAguardarConclusaoAplicativoPreBackup.Name = "chbxAguardarConclusaoAplicativoPreBackup";
+            this.chbxAguardarConclusaoAplicativoPreBackup.Size = new System.Drawing.Size(131, 17);
+            this.chbxAguardarConclusaoAplicativoPreBackup.TabIndex = 58;
+            this.chbxAguardarConclusaoAplicativoPreBackup.Text = "Aguardar Conclusão";
+            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderRadius = 2;
+            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderThickness = 0;
+            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxAguardarConclusaoAplicativoPreBackup.UseVisualStyleBackColor = false;
             // 
             // panel8
             // 
@@ -1111,7 +1131,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label8.Location = new System.Drawing.Point(342, 490);
+            this.label8.Location = new System.Drawing.Point(342, 476);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(188, 13);
             this.label8.TabIndex = 53;
@@ -1131,7 +1151,7 @@
             this.nmUpDownDiasExcluirBackupsAntigos.FocusedState.Parent = this.nmUpDownDiasExcluirBackupsAntigos;
             this.nmUpDownDiasExcluirBackupsAntigos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nmUpDownDiasExcluirBackupsAntigos.ForeColor = System.Drawing.Color.Black;
-            this.nmUpDownDiasExcluirBackupsAntigos.Location = new System.Drawing.Point(273, 483);
+            this.nmUpDownDiasExcluirBackupsAntigos.Location = new System.Drawing.Point(273, 469);
             this.nmUpDownDiasExcluirBackupsAntigos.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -1152,7 +1172,7 @@
             this.chbxExcluirBackupsAntigos.CheckedState.BorderThickness = 0;
             this.chbxExcluirBackupsAntigos.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
             this.chbxExcluirBackupsAntigos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxExcluirBackupsAntigos.Location = new System.Drawing.Point(14, 489);
+            this.chbxExcluirBackupsAntigos.Location = new System.Drawing.Point(14, 475);
             this.chbxExcluirBackupsAntigos.Name = "chbxExcluirBackupsAntigos";
             this.chbxExcluirBackupsAntigos.Size = new System.Drawing.Size(257, 17);
             this.chbxExcluirBackupsAntigos.TabIndex = 51;
@@ -1168,7 +1188,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label6.Location = new System.Drawing.Point(23, 452);
+            this.label6.Location = new System.Drawing.Point(23, 438);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 13);
             this.label6.TabIndex = 50;
@@ -1188,7 +1208,7 @@
             this.tbArgumentosPosBackup.ForeColor = System.Drawing.Color.Black;
             this.tbArgumentosPosBackup.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbArgumentosPosBackup.HoverState.Parent = this.tbArgumentosPosBackup;
-            this.tbArgumentosPosBackup.Location = new System.Drawing.Point(106, 447);
+            this.tbArgumentosPosBackup.Location = new System.Drawing.Point(106, 433);
             this.tbArgumentosPosBackup.Name = "tbArgumentosPosBackup";
             this.tbArgumentosPosBackup.PasswordChar = '\0';
             this.tbArgumentosPosBackup.PlaceholderText = "";
@@ -1207,7 +1227,7 @@
             this.btnDiretorioAppPosBackup.ForeColor = System.Drawing.Color.White;
             this.btnDiretorioAppPosBackup.HoverState.Parent = this.btnDiretorioAppPosBackup;
             this.btnDiretorioAppPosBackup.Image = ((System.Drawing.Image)(resources.GetObject("btnDiretorioAppPosBackup.Image")));
-            this.btnDiretorioAppPosBackup.Location = new System.Drawing.Point(516, 417);
+            this.btnDiretorioAppPosBackup.Location = new System.Drawing.Point(516, 403);
             this.btnDiretorioAppPosBackup.Name = "btnDiretorioAppPosBackup";
             this.btnDiretorioAppPosBackup.ShadowDecoration.Parent = this.btnDiretorioAppPosBackup;
             this.btnDiretorioAppPosBackup.Size = new System.Drawing.Size(46, 24);
@@ -1219,7 +1239,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label7.Location = new System.Drawing.Point(-2, 416);
+            this.label7.Location = new System.Drawing.Point(-2, 402);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 26);
             this.label7.TabIndex = 47;
@@ -1240,7 +1260,7 @@
             this.tbAplicativoPosBackup.ForeColor = System.Drawing.Color.Black;
             this.tbAplicativoPosBackup.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbAplicativoPosBackup.HoverState.Parent = this.tbAplicativoPosBackup;
-            this.tbAplicativoPosBackup.Location = new System.Drawing.Point(106, 417);
+            this.tbAplicativoPosBackup.Location = new System.Drawing.Point(106, 403);
             this.tbAplicativoPosBackup.Name = "tbAplicativoPosBackup";
             this.tbAplicativoPosBackup.PasswordChar = '\0';
             this.tbAplicativoPosBackup.PlaceholderText = "";
@@ -1428,7 +1448,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(580, 568);
+            this.metroTabPage1.Size = new System.Drawing.Size(580, 516);
             this.metroTabPage1.TabIndex = 2;
             this.metroTabPage1.Text = "Notificações de Backups  ";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -1479,7 +1499,7 @@
             this.gpbxEmail.Enabled = false;
             this.gpbxEmail.Location = new System.Drawing.Point(12, 155);
             this.gpbxEmail.Name = "gpbxEmail";
-            this.gpbxEmail.Size = new System.Drawing.Size(529, 249);
+            this.gpbxEmail.Size = new System.Drawing.Size(529, 210);
             this.gpbxEmail.TabIndex = 14;
             this.gpbxEmail.TabStop = false;
             // 
@@ -1756,7 +1776,7 @@
             this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(580, 568);
+            this.metroTabPage3.Size = new System.Drawing.Size(580, 516);
             this.metroTabPage3.TabIndex = 3;
             this.metroTabPage3.Text = "Upload de Backups";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
@@ -2029,7 +2049,7 @@
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
             this.btnSalvar.HoverState.Parent = this.btnSalvar;
             this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
-            this.btnSalvar.Location = new System.Drawing.Point(514, 675);
+            this.btnSalvar.Location = new System.Drawing.Point(509, 626);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.ShadowDecoration.Parent = this.btnSalvar;
             this.btnSalvar.Size = new System.Drawing.Size(58, 39);
@@ -2058,7 +2078,7 @@
             this.btnFechar.ForeColor = System.Drawing.Color.White;
             this.btnFechar.HoverState.Parent = this.btnFechar;
             this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
-            this.btnFechar.Location = new System.Drawing.Point(584, 675);
+            this.btnFechar.Location = new System.Drawing.Point(579, 626);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.ShadowDecoration.Parent = this.btnFechar;
             this.btnFechar.Size = new System.Drawing.Size(58, 39);
@@ -2169,32 +2189,12 @@
             this.bunifuElipse3.ElipseRadius = 15;
             this.bunifuElipse3.TargetControl = this.btnSalvar;
             // 
-            // chbxAguardarConclusaoAplicativoPreBackup
-            // 
-            this.chbxAguardarConclusaoAplicativoPreBackup.AutoSize = true;
-            this.chbxAguardarConclusaoAplicativoPreBackup.BackColor = System.Drawing.Color.Transparent;
-            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderRadius = 2;
-            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderThickness = 0;
-            this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxAguardarConclusaoAplicativoPreBackup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxAguardarConclusaoAplicativoPreBackup.Location = new System.Drawing.Point(431, 345);
-            this.chbxAguardarConclusaoAplicativoPreBackup.Name = "chbxAguardarConclusaoAplicativoPreBackup";
-            this.chbxAguardarConclusaoAplicativoPreBackup.Size = new System.Drawing.Size(131, 17);
-            this.chbxAguardarConclusaoAplicativoPreBackup.TabIndex = 58;
-            this.chbxAguardarConclusaoAplicativoPreBackup.Text = "Aguardar Conclusão";
-            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderRadius = 2;
-            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.BorderThickness = 0;
-            this.chbxAguardarConclusaoAplicativoPreBackup.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbxAguardarConclusaoAplicativoPreBackup.UseVisualStyleBackColor = false;
-            // 
             // frmNovoBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(737, 723);
+            this.ClientSize = new System.Drawing.Size(737, 671);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.tbControl);

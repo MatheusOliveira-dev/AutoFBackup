@@ -18,7 +18,6 @@ namespace FBackup
         {
             Program.iniciarMinimizado = args != null && args.Any(arg => arg.Equals("iniciarMinimizado", StringComparison.CurrentCultureIgnoreCase));
 
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());

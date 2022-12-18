@@ -33,6 +33,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbControl = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbSenhaFecharApp = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbSenhaAcessoBotoes = new Guna.UI2.WinForms.Guna2TextBox();
+            this.chbxExigirSenhaFecharApp = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbxExigirSenhaAcessoBotoes = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbxIniciarComOWindows = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbxBuscaAtualizacoesIni = new Guna.UI2.WinForms.Guna2CheckBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
@@ -73,6 +79,7 @@
             this.bunifuElipseBtnAppPreBackup = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipseBtnAppPosBackup = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipseBtnDiretorioGFIX = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.chbxExibirConteudoRecomendado = new Guna.UI2.WinForms.Guna2CheckBox();
             this.tbControl.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -110,6 +117,13 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.chbxExibirConteudoRecomendado);
+            this.metroTabPage1.Controls.Add(this.label10);
+            this.metroTabPage1.Controls.Add(this.tbSenhaFecharApp);
+            this.metroTabPage1.Controls.Add(this.label9);
+            this.metroTabPage1.Controls.Add(this.tbSenhaAcessoBotoes);
+            this.metroTabPage1.Controls.Add(this.chbxExigirSenhaFecharApp);
+            this.metroTabPage1.Controls.Add(this.chbxExigirSenhaAcessoBotoes);
             this.metroTabPage1.Controls.Add(this.chbxIniciarComOWindows);
             this.metroTabPage1.Controls.Add(this.chbxBuscaAtualizacoesIni);
             this.metroTabPage1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,6 +138,114 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label10.Location = new System.Drawing.Point(11, 168);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Senha:";
+            // 
+            // tbSenhaFecharApp
+            // 
+            this.tbSenhaFecharApp.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbSenhaFecharApp.DefaultText = "";
+            this.tbSenhaFecharApp.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbSenhaFecharApp.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbSenhaFecharApp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbSenhaFecharApp.DisabledState.Parent = this.tbSenhaFecharApp;
+            this.tbSenhaFecharApp.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbSenhaFecharApp.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSenhaFecharApp.FocusedState.Parent = this.tbSenhaFecharApp;
+            this.tbSenhaFecharApp.ForeColor = System.Drawing.Color.Black;
+            this.tbSenhaFecharApp.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSenhaFecharApp.HoverState.Parent = this.tbSenhaFecharApp;
+            this.tbSenhaFecharApp.Location = new System.Drawing.Point(59, 164);
+            this.tbSenhaFecharApp.Name = "tbSenhaFecharApp";
+            this.tbSenhaFecharApp.PasswordChar = '\0';
+            this.tbSenhaFecharApp.PlaceholderText = "";
+            this.tbSenhaFecharApp.SelectedText = "";
+            this.tbSenhaFecharApp.ShadowDecoration.Parent = this.tbSenhaFecharApp;
+            this.tbSenhaFecharApp.Size = new System.Drawing.Size(147, 24);
+            this.tbSenhaFecharApp.TabIndex = 20;
+            this.tbSenhaFecharApp.UseSystemPasswordChar = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label9.Location = new System.Drawing.Point(11, 112);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(42, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Senha:";
+            // 
+            // tbSenhaAcessoBotoes
+            // 
+            this.tbSenhaAcessoBotoes.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbSenhaAcessoBotoes.DefaultText = "";
+            this.tbSenhaAcessoBotoes.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbSenhaAcessoBotoes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbSenhaAcessoBotoes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbSenhaAcessoBotoes.DisabledState.Parent = this.tbSenhaAcessoBotoes;
+            this.tbSenhaAcessoBotoes.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbSenhaAcessoBotoes.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSenhaAcessoBotoes.FocusedState.Parent = this.tbSenhaAcessoBotoes;
+            this.tbSenhaAcessoBotoes.ForeColor = System.Drawing.Color.Black;
+            this.tbSenhaAcessoBotoes.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSenhaAcessoBotoes.HoverState.Parent = this.tbSenhaAcessoBotoes;
+            this.tbSenhaAcessoBotoes.Location = new System.Drawing.Point(59, 108);
+            this.tbSenhaAcessoBotoes.Name = "tbSenhaAcessoBotoes";
+            this.tbSenhaAcessoBotoes.PasswordChar = '\0';
+            this.tbSenhaAcessoBotoes.PlaceholderText = "";
+            this.tbSenhaAcessoBotoes.SelectedText = "";
+            this.tbSenhaAcessoBotoes.ShadowDecoration.Parent = this.tbSenhaAcessoBotoes;
+            this.tbSenhaAcessoBotoes.Size = new System.Drawing.Size(147, 24);
+            this.tbSenhaAcessoBotoes.TabIndex = 18;
+            this.tbSenhaAcessoBotoes.UseSystemPasswordChar = true;
+            // 
+            // chbxExigirSenhaFecharApp
+            // 
+            this.chbxExigirSenhaFecharApp.AutoSize = true;
+            this.chbxExigirSenhaFecharApp.BackColor = System.Drawing.Color.Transparent;
+            this.chbxExigirSenhaFecharApp.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExigirSenhaFecharApp.CheckedState.BorderRadius = 2;
+            this.chbxExigirSenhaFecharApp.CheckedState.BorderThickness = 0;
+            this.chbxExigirSenhaFecharApp.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExigirSenhaFecharApp.Location = new System.Drawing.Point(9, 141);
+            this.chbxExigirSenhaFecharApp.Name = "chbxExigirSenhaFecharApp";
+            this.chbxExigirSenhaFecharApp.Size = new System.Drawing.Size(233, 17);
+            this.chbxExigirSenhaFecharApp.TabIndex = 5;
+            this.chbxExigirSenhaFecharApp.Text = "Exigir Senha para Fechar o AutoFBackup";
+            this.chbxExigirSenhaFecharApp.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExigirSenhaFecharApp.UncheckedState.BorderRadius = 2;
+            this.chbxExigirSenhaFecharApp.UncheckedState.BorderThickness = 0;
+            this.chbxExigirSenhaFecharApp.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExigirSenhaFecharApp.UseVisualStyleBackColor = false;
+            // 
+            // chbxExigirSenhaAcessoBotoes
+            // 
+            this.chbxExigirSenhaAcessoBotoes.AutoSize = true;
+            this.chbxExigirSenhaAcessoBotoes.BackColor = System.Drawing.Color.Transparent;
+            this.chbxExigirSenhaAcessoBotoes.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExigirSenhaAcessoBotoes.CheckedState.BorderRadius = 2;
+            this.chbxExigirSenhaAcessoBotoes.CheckedState.BorderThickness = 0;
+            this.chbxExigirSenhaAcessoBotoes.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExigirSenhaAcessoBotoes.Location = new System.Drawing.Point(9, 85);
+            this.chbxExigirSenhaAcessoBotoes.Name = "chbxExigirSenhaAcessoBotoes";
+            this.chbxExigirSenhaAcessoBotoes.Size = new System.Drawing.Size(435, 17);
+            this.chbxExigirSenhaAcessoBotoes.TabIndex = 4;
+            this.chbxExigirSenhaAcessoBotoes.Text = "Exigir Senha para acessar botões (Dashboard, Novo Backup, Configurações, etc)";
+            this.chbxExigirSenhaAcessoBotoes.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExigirSenhaAcessoBotoes.UncheckedState.BorderRadius = 2;
+            this.chbxExigirSenhaAcessoBotoes.UncheckedState.BorderThickness = 0;
+            this.chbxExigirSenhaAcessoBotoes.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExigirSenhaAcessoBotoes.UseVisualStyleBackColor = false;
             // 
             // chbxIniciarComOWindows
             // 
@@ -753,6 +875,25 @@
             this.bunifuElipseBtnDiretorioGFIX.ElipseRadius = 10;
             this.bunifuElipseBtnDiretorioGFIX.TargetControl = this.btnDiretorioGFIX;
             // 
+            // chbxExibirConteudoRecomendado
+            // 
+            this.chbxExibirConteudoRecomendado.AutoSize = true;
+            this.chbxExibirConteudoRecomendado.BackColor = System.Drawing.Color.Transparent;
+            this.chbxExibirConteudoRecomendado.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExibirConteudoRecomendado.CheckedState.BorderRadius = 2;
+            this.chbxExibirConteudoRecomendado.CheckedState.BorderThickness = 0;
+            this.chbxExibirConteudoRecomendado.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExibirConteudoRecomendado.Location = new System.Drawing.Point(9, 207);
+            this.chbxExibirConteudoRecomendado.Name = "chbxExibirConteudoRecomendado";
+            this.chbxExibirConteudoRecomendado.Size = new System.Drawing.Size(186, 17);
+            this.chbxExibirConteudoRecomendado.TabIndex = 22;
+            this.chbxExibirConteudoRecomendado.Text = "Exibir Conteúdo Recomendado";
+            this.chbxExibirConteudoRecomendado.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExibirConteudoRecomendado.UncheckedState.BorderRadius = 2;
+            this.chbxExibirConteudoRecomendado.UncheckedState.BorderThickness = 0;
+            this.chbxExibirConteudoRecomendado.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExibirConteudoRecomendado.UseVisualStyleBackColor = false;
+            // 
             // UCConfiguracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -824,5 +965,12 @@
         private System.Windows.Forms.LinkLabel lblAvisoGfix;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipseBtnDiretorioGFIX;
         private Guna.UI2.WinForms.Guna2CheckBox chbxAguardarConclusaoAplicativoPreBackup;
+        private Guna.UI2.WinForms.Guna2CheckBox chbxExigirSenhaAcessoBotoes;
+        private Guna.UI2.WinForms.Guna2CheckBox chbxExigirSenhaFecharApp;
+        private System.Windows.Forms.Label label10;
+        private Guna.UI2.WinForms.Guna2TextBox tbSenhaFecharApp;
+        private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2TextBox tbSenhaAcessoBotoes;
+        private Guna.UI2.WinForms.Guna2CheckBox chbxExibirConteudoRecomendado;
     }
 }

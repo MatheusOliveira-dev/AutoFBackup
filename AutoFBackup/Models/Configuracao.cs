@@ -10,6 +10,11 @@ namespace Models
     {
         public bool BuscaAtualizacaoIniApp { get; set; }
         public bool IniciarComOWindows { get; set; }
+        public bool ExigirSenhaAcessoBotoes { get; set; }
+        public string SenhaAcessoBotoes { get; set; }
+        public bool ExigirSenhaFecharApp { get; set; }
+        public string SenhaFecharApp { get; set; }
+        public bool ExibirConteudoRecomendado { get; set; }
     }
 
     public class AplicativoPreBackupConfiguracoes

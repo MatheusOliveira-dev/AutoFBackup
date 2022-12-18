@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutoUpdaterDotNET;
+using FBackup.Enums;
 using FluentScheduler;
 using Models;
 using static Backup.Backup;
@@ -30,9 +31,8 @@ namespace FBackup
         private void AplicaArgumentos()
         {
             if (Program.iniciarMinimizado)
-            {
                 this.WindowState = FormWindowState.Minimized;
-            }
+            
         }
 
         public bool Re_InicializaRotinas 
@@ -47,7 +47,13 @@ namespace FBackup
                     Backup.Backup backup = new Backup.Backup();
                     JobManager.Initialize(new RegistroTarefasAgendadas(backup.ObtemRotinasBackups()));
 
-                    btnDashboard.PerformClick();
+
+                    Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
+
+                    if (!Configuracoes.ObtemConfiguracoes().Geral.ExigirSenhaAcessoBotoes || string.IsNullOrWhiteSpace(Configuracoes.ObtemConfiguracoes().Geral.SenhaAcessoBotoes))
+                    {
+                        btnDashboard.PerformClick();
+                    }   
                 }
             }
         }
@@ -62,7 +68,6 @@ namespace FBackup
             Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
             Configuracoes.CriaConfiguracoesPadraoSeNecessario();
 
-
             Shared.Helpers.HabilitaDesabilitaInicializacaoComWindows(Configuracoes.ObtemConfiguracoes().Geral.IniciarComOWindows);
 
             if (Configuracoes.ObtemConfiguracoes() != null && Configuracoes.ObtemConfiguracoes().Geral.BuscaAtualizacaoIniApp)
@@ -75,45 +80,153 @@ namespace FBackup
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
+            Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
+            pnlConteudoRecomendado.Visible = Configuracoes.ObtemConfiguracoes().Geral.ExibirConteudoRecomendado;
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            pnlControls.Controls.Clear();
 
-            UCDashboard uCDashboard = new UCDashboard(this);
-            pnlControls.Controls.Add(uCDashboard);
+            Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
+
+            if (Configuracoes.ObtemConfiguracoes().Geral.ExigirSenhaAcessoBotoes && !string.IsNullOrWhiteSpace(Configuracoes.ObtemConfiguracoes().Geral.SenhaAcessoBotoes))
+            {
+
+
+                using (frmSenhaAcesso frmSenhaAcesso = new frmSenhaAcesso(TipoAcessos.Botao))
+                {
+                    DialogResult dr = frmSenhaAcesso.ShowDialog();
+
+                    if (dr == DialogResult.OK)
+                    {
+                        pnlControls.Controls.Clear();
+
+                        UCDashboard uCDashboard = new UCDashboard(this);
+                        pnlControls.Controls.Add(uCDashboard);
+                    }
+                }
+            }
+            else
+            {
+                pnlControls.Controls.Clear();
+
+                UCDashboard uCDashboard = new UCDashboard(this);
+                pnlControls.Controls.Add(uCDashboard);
+            }
+           
         }
 
         private void btnIntegracoes_Click(object sender, EventArgs e)
         {
-            pnlControls.Controls.Clear();
+            Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
 
-            UCIntegracoes uCIntegracoes = new UCIntegracoes();
-            pnlControls.Controls.Add(uCIntegracoes);
+            if (Configuracoes.ObtemConfiguracoes().Geral.ExigirSenhaAcessoBotoes && !string.IsNullOrWhiteSpace(Configuracoes.ObtemConfiguracoes().Geral.SenhaAcessoBotoes))
+            {
+                using (frmSenhaAcesso frmSenhaAcesso = new frmSenhaAcesso(TipoAcessos.Botao))
+                {
+                    DialogResult dr = frmSenhaAcesso.ShowDialog();
+
+                    if (dr == DialogResult.OK)
+                    {
+                        pnlControls.Controls.Clear();
+
+                        UCIntegracoes uCIntegracoes = new UCIntegracoes();
+                        pnlControls.Controls.Add(uCIntegracoes);
+                    }
+                }
+            }
+            else
+            {
+                pnlControls.Controls.Clear();
+
+                UCIntegracoes uCIntegracoes = new UCIntegracoes();
+                pnlControls.Controls.Add(uCIntegracoes);
+            }
+
+        
         }
 
         private void btnConfiguracoes_Click(object sender, EventArgs e)
         {
-            pnlControls.Controls.Clear();
+            Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
 
-            UCConfiguracoes uCConfiguracoes = new UCConfiguracoes();
+            if (Configuracoes.ObtemConfiguracoes().Geral.ExigirSenhaAcessoBotoes && !string.IsNullOrWhiteSpace(Configuracoes.ObtemConfiguracoes().Geral.SenhaAcessoBotoes))
+            {
+                using (frmSenhaAcesso frmSenhaAcesso = new frmSenhaAcesso(TipoAcessos.Botao))
+                {
+                    DialogResult dr = frmSenhaAcesso.ShowDialog();
 
-            pnlControls.Controls.Add(uCConfiguracoes);
+                    if (dr == DialogResult.OK)
+                    {
+                        pnlControls.Controls.Clear();
+
+                        UCConfiguracoes uCConfiguracoes = new UCConfiguracoes();
+
+                        pnlControls.Controls.Add(uCConfiguracoes);
+                    }
+                }
+            }
+            else
+            {
+                pnlControls.Controls.Clear();
+
+                UCConfiguracoes uCConfiguracoes = new UCConfiguracoes();
+
+                pnlControls.Controls.Add(uCConfiguracoes);
+            }
+
+           
         }
 
         private void btnNovoBackup_Click(object sender, EventArgs e)
         {
-            frmNovoBackup frmNovoBackup = new frmNovoBackup(this);
-            frmNovoBackup.ShowDialog();
+            Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
+
+            if (Configuracoes.ObtemConfiguracoes().Geral.ExigirSenhaAcessoBotoes && !string.IsNullOrWhiteSpace(Configuracoes.ObtemConfiguracoes().Geral.SenhaAcessoBotoes))
+            {
+                using (frmSenhaAcesso frmSenhaAcesso = new frmSenhaAcesso(TipoAcessos.Botao))
+                {
+                    DialogResult dr = frmSenhaAcesso.ShowDialog();
+
+                    if (dr == DialogResult.OK)
+                    {
+                        frmNovoBackup frmNovoBackup = new frmNovoBackup(this);
+                        frmNovoBackup.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                frmNovoBackup frmNovoBackup = new frmNovoBackup(this);
+                frmNovoBackup.ShowDialog();
+            }
         }
 
         private void lblSair_Click(object sender, EventArgs e)
         {
+
             if (MessageBox.Show("Tem certeza que deseja Fechar o AutoFBackup? As Rotinas Agendadas não Serão Executadas.", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                Application.Exit();
+
+                Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
+
+                if (Configuracoes.ObtemConfiguracoes().Geral.ExigirSenhaFecharApp && !string.IsNullOrWhiteSpace(Configuracoes.ObtemConfiguracoes().Geral.SenhaFecharApp))
+                {
+                    using (frmSenhaAcesso frmSenhaAcesso = new frmSenhaAcesso(TipoAcessos.Fechar))
+                    {
+                        DialogResult dr = frmSenhaAcesso.ShowDialog();
+
+                        if (dr == DialogResult.OK)
+                        {
+                            Application.Exit();
+                        }
+                    }
+                }
+                else
+                {
+                    Application.Exit();
+                }
+
             }
         }
 

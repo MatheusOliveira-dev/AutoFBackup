@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Models;
+using Shared;
+
 namespace FBackup
 {
     public partial class UCConfiguracoes : UserControl
@@ -26,6 +28,11 @@ namespace FBackup
 
             chbxBuscaAtualizacoesIni.Checked = configuracoesJson.Geral.BuscaAtualizacaoIniApp;
             chbxIniciarComOWindows.Checked = configuracoesJson.Geral.IniciarComOWindows;
+            chbxExigirSenhaAcessoBotoes.Checked = configuracoesJson.Geral.ExigirSenhaAcessoBotoes;
+            tbSenhaAcessoBotoes.Text = Helpers.Base64Decode(configuracoesJson.Geral.SenhaAcessoBotoes);
+            chbxExigirSenhaFecharApp.Checked = configuracoesJson.Geral.ExigirSenhaFecharApp;
+            tbSenhaFecharApp.Text = Helpers.Base64Decode(configuracoesJson.Geral.SenhaFecharApp);
+            chbxExibirConteudoRecomendado.Checked = configuracoesJson.Geral.ExibirConteudoRecomendado;
 
             tbDiretorioBackups.Text = configuracoesJson.Backups.DiretorioBackups;
 
@@ -81,6 +88,11 @@ namespace FBackup
 
             geralConfiguracoes.BuscaAtualizacaoIniApp = chbxBuscaAtualizacoesIni.Checked;
             geralConfiguracoes.IniciarComOWindows = chbxIniciarComOWindows.Checked;
+            geralConfiguracoes.ExigirSenhaAcessoBotoes = chbxExigirSenhaAcessoBotoes.Checked;
+            geralConfiguracoes.SenhaAcessoBotoes = Helpers.Base64Encode(tbSenhaAcessoBotoes.Text);
+            geralConfiguracoes.ExigirSenhaFecharApp = chbxExigirSenhaFecharApp.Checked;
+            geralConfiguracoes.SenhaFecharApp = Helpers.Base64Encode(tbSenhaFecharApp.Text);
+            geralConfiguracoes.ExibirConteudoRecomendado = chbxExibirConteudoRecomendado.Checked;
 
             aplicativoPreBackupConfiguracoes.Aplicativo = tbAplicativoPreBackup.Text;
             aplicativoPreBackupConfiguracoes.Argumentos = tbArgumentosPreBackup.Text;

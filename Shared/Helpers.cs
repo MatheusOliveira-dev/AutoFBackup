@@ -33,7 +33,6 @@ namespace Shared
             return System.IO.File.ReadAllText(arquivo);
         }
 
-        //get all files from a directory
         public static List<string> ObtemArquivosDiretorio(string diretorio, string extensoes)
         {
             List<string> listArquivos = new List<string>();
@@ -116,6 +115,21 @@ namespace Shared
         public static bool IniciadoComWindows()
         {
             return true;
+        }
+
+        public static string Base64Encode(string texto)
+        {
+            var textoBytes = System.Text.Encoding.UTF8.GetBytes(texto);
+            return System.Convert.ToBase64String(textoBytes);
+        }
+
+        public static string Base64Decode(string base64)
+        {
+            if (string.IsNullOrWhiteSpace(base64))
+                return string.Empty;
+
+            var base64Bytes = System.Convert.FromBase64String(base64);
+            return System.Text.Encoding.UTF8.GetString(base64Bytes);
         }
     }
 }
