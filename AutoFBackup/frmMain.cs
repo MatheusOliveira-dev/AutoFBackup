@@ -252,6 +252,11 @@ namespace FBackup
                 notifyIcon.BalloonTipText = "O AutoFBackup Continuará Sendo Executado em Segundo Plano.";
                 notifyIcon.ShowBalloonTip(1000);
                 this.Hide();
+
+                Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
+
+                if (Configuracoes.ObtemConfiguracoes().Geral.ExigirSenhaAcessoBotoes && !string.IsNullOrWhiteSpace(Configuracoes.ObtemConfiguracoes().Geral.SenhaAcessoBotoes))
+                    this.pnlControls.Controls.Clear();
             }
         }
 
@@ -305,6 +310,19 @@ namespace FBackup
             }
 
           
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
+
+            if (ModifierKeys == Keys.Alt || ModifierKeys == Keys.F4)
+            {
+                if (Configuracoes.ObtemConfiguracoes().Geral.ExigirSenhaFecharApp && !string.IsNullOrWhiteSpace(Configuracoes.ObtemConfiguracoes().Geral.SenhaFecharApp))
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

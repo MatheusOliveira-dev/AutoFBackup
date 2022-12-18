@@ -34,14 +34,15 @@ namespace FBackup
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnlControls = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAtualizarApp = new Guna.UI2.WinForms.Guna2TileButton();
+            this.pnlConteudoRecomendado = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblAutoFBackupVersoes = new System.Windows.Forms.LinkLabel();
             this.lblAutoFBackupWiki = new System.Windows.Forms.LinkLabel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.lblMQFSFacebook = new System.Windows.Forms.LinkLabel();
-            this.lblEdsonGregorio = new System.Windows.Forms.LinkLabel();
             this.lblMQFSYoutube = new System.Windows.Forms.LinkLabel();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.lblEdsonGregorio = new System.Windows.Forms.LinkLabel();
+            this.lblMQFSFacebook = new System.Windows.Forms.LinkLabel();
+            this.btnAtualizarApp = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnConfiguracoes = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnIntegracoes = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnNovoBackup = new Guna.UI2.WinForms.Guna2TileButton();
@@ -59,7 +60,6 @@ namespace FBackup
             this.lblMinimizar = new System.Windows.Forms.Label();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.pnlConteudoRecomendado = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.pnlConteudoRecomendado.SuspendLayout();
             this.SuspendLayout();
@@ -86,23 +86,29 @@ namespace FBackup
             this.panel2.Size = new System.Drawing.Size(223, 504);
             this.panel2.TabIndex = 1;
             // 
-            // btnAtualizarApp
+            // pnlConteudoRecomendado
             // 
-            this.btnAtualizarApp.CheckedState.Parent = this.btnAtualizarApp;
-            this.btnAtualizarApp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAtualizarApp.CustomImages.Parent = this.btnAtualizarApp;
-            this.btnAtualizarApp.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.btnAtualizarApp.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAtualizarApp.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizarApp.HoverState.Parent = this.btnAtualizarApp;
-            this.btnAtualizarApp.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizarApp.Image")));
-            this.btnAtualizarApp.Location = new System.Drawing.Point(119, 172);
-            this.btnAtualizarApp.Name = "btnAtualizarApp";
-            this.btnAtualizarApp.ShadowDecoration.Parent = this.btnAtualizarApp;
-            this.btnAtualizarApp.Size = new System.Drawing.Size(85, 64);
-            this.btnAtualizarApp.TabIndex = 19;
-            this.btnAtualizarApp.Text = "Atualizar App";
-            this.btnAtualizarApp.Click += new System.EventHandler(this.btnAtualizarApp_Click);
+            this.pnlConteudoRecomendado.Controls.Add(this.label2);
+            this.pnlConteudoRecomendado.Controls.Add(this.lblAutoFBackupVersoes);
+            this.pnlConteudoRecomendado.Controls.Add(this.lblAutoFBackupWiki);
+            this.pnlConteudoRecomendado.Controls.Add(this.lblMQFSYoutube);
+            this.pnlConteudoRecomendado.Controls.Add(this.bunifuSeparator1);
+            this.pnlConteudoRecomendado.Controls.Add(this.lblEdsonGregorio);
+            this.pnlConteudoRecomendado.Controls.Add(this.lblMQFSFacebook);
+            this.pnlConteudoRecomendado.Location = new System.Drawing.Point(0, 319);
+            this.pnlConteudoRecomendado.Name = "pnlConteudoRecomendado";
+            this.pnlConteudoRecomendado.Size = new System.Drawing.Size(220, 182);
+            this.pnlConteudoRecomendado.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Conteúdo Recomendado";
             // 
             // lblAutoFBackupVersoes
             // 
@@ -127,15 +133,17 @@ namespace FBackup
             this.lblAutoFBackupWiki.Text = "AutoFBackup - Wiki";
             this.lblAutoFBackupWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAutoFBackupWiki_LinkClicked);
             // 
-            // label2
+            // lblMQFSYoutube
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Conteúdo Recomendado";
+            this.lblMQFSYoutube.AutoSize = true;
+            this.lblMQFSYoutube.LinkColor = System.Drawing.Color.Red;
+            this.lblMQFSYoutube.Location = new System.Drawing.Point(3, 157);
+            this.lblMQFSYoutube.Name = "lblMQFSYoutube";
+            this.lblMQFSYoutube.Size = new System.Drawing.Size(215, 13);
+            this.lblMQFSYoutube.TabIndex = 12;
+            this.lblMQFSYoutube.TabStop = true;
+            this.lblMQFSYoutube.Text = "MQFS - Meu querido Firebird SQL (Youtube)";
+            this.lblMQFSYoutube.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMQFSYoutube_LinkClicked);
             // 
             // bunifuSeparator1
             // 
@@ -149,17 +157,6 @@ namespace FBackup
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
             // 
-            // lblMQFSFacebook
-            // 
-            this.lblMQFSFacebook.AutoSize = true;
-            this.lblMQFSFacebook.Location = new System.Drawing.Point(3, 134);
-            this.lblMQFSFacebook.Name = "lblMQFSFacebook";
-            this.lblMQFSFacebook.Size = new System.Drawing.Size(223, 13);
-            this.lblMQFSFacebook.TabIndex = 14;
-            this.lblMQFSFacebook.TabStop = true;
-            this.lblMQFSFacebook.Text = "MQFS - Meu querido Firebird SQL (Facebook)";
-            this.lblMQFSFacebook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMQFSFacebook_LinkClicked);
-            // 
             // lblEdsonGregorio
             // 
             this.lblEdsonGregorio.AutoSize = true;
@@ -171,17 +168,34 @@ namespace FBackup
             this.lblEdsonGregorio.Text = "Edson Gregorio (Facebook)";
             this.lblEdsonGregorio.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblEdsonGregorio_LinkClicked);
             // 
-            // lblMQFSYoutube
+            // lblMQFSFacebook
             // 
-            this.lblMQFSYoutube.AutoSize = true;
-            this.lblMQFSYoutube.LinkColor = System.Drawing.Color.Red;
-            this.lblMQFSYoutube.Location = new System.Drawing.Point(3, 157);
-            this.lblMQFSYoutube.Name = "lblMQFSYoutube";
-            this.lblMQFSYoutube.Size = new System.Drawing.Size(215, 13);
-            this.lblMQFSYoutube.TabIndex = 12;
-            this.lblMQFSYoutube.TabStop = true;
-            this.lblMQFSYoutube.Text = "MQFS - Meu querido Firebird SQL (Youtube)";
-            this.lblMQFSYoutube.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMQFSYoutube_LinkClicked);
+            this.lblMQFSFacebook.AutoSize = true;
+            this.lblMQFSFacebook.Location = new System.Drawing.Point(3, 134);
+            this.lblMQFSFacebook.Name = "lblMQFSFacebook";
+            this.lblMQFSFacebook.Size = new System.Drawing.Size(223, 13);
+            this.lblMQFSFacebook.TabIndex = 14;
+            this.lblMQFSFacebook.TabStop = true;
+            this.lblMQFSFacebook.Text = "MQFS - Meu querido Firebird SQL (Facebook)";
+            this.lblMQFSFacebook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMQFSFacebook_LinkClicked);
+            // 
+            // btnAtualizarApp
+            // 
+            this.btnAtualizarApp.CheckedState.Parent = this.btnAtualizarApp;
+            this.btnAtualizarApp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtualizarApp.CustomImages.Parent = this.btnAtualizarApp;
+            this.btnAtualizarApp.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.btnAtualizarApp.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAtualizarApp.ForeColor = System.Drawing.Color.White;
+            this.btnAtualizarApp.HoverState.Parent = this.btnAtualizarApp;
+            this.btnAtualizarApp.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizarApp.Image")));
+            this.btnAtualizarApp.Location = new System.Drawing.Point(119, 172);
+            this.btnAtualizarApp.Name = "btnAtualizarApp";
+            this.btnAtualizarApp.ShadowDecoration.Parent = this.btnAtualizarApp;
+            this.btnAtualizarApp.Size = new System.Drawing.Size(85, 64);
+            this.btnAtualizarApp.TabIndex = 19;
+            this.btnAtualizarApp.Text = "Atualizar App";
+            this.btnAtualizarApp.Click += new System.EventHandler(this.btnAtualizarApp_Click);
             // 
             // btnConfiguracoes
             // 
@@ -348,20 +362,6 @@ namespace FBackup
             this.bunifuElipse1.ElipseRadius = 10;
             this.bunifuElipse1.TargetControl = this.btnAtualizarApp;
             // 
-            // pnlConteudoRecomendado
-            // 
-            this.pnlConteudoRecomendado.Controls.Add(this.label2);
-            this.pnlConteudoRecomendado.Controls.Add(this.lblAutoFBackupVersoes);
-            this.pnlConteudoRecomendado.Controls.Add(this.lblAutoFBackupWiki);
-            this.pnlConteudoRecomendado.Controls.Add(this.lblMQFSYoutube);
-            this.pnlConteudoRecomendado.Controls.Add(this.bunifuSeparator1);
-            this.pnlConteudoRecomendado.Controls.Add(this.lblEdsonGregorio);
-            this.pnlConteudoRecomendado.Controls.Add(this.lblMQFSFacebook);
-            this.pnlConteudoRecomendado.Location = new System.Drawing.Point(0, 319);
-            this.pnlConteudoRecomendado.Name = "pnlConteudoRecomendado";
-            this.pnlConteudoRecomendado.Size = new System.Drawing.Size(220, 182);
-            this.pnlConteudoRecomendado.TabIndex = 0;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,6 +378,7 @@ namespace FBackup
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.SizeChanged += new System.EventHandler(this.frmMain_SizeChanged);
             this.panel2.ResumeLayout(false);

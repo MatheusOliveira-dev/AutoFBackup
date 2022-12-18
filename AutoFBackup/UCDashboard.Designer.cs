@@ -292,7 +292,7 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(299, 13);
             this.label35.TabIndex = 53;
-            this.label35.Text = "(Dê um duplo clique em qualquer rotina acima para exclui-lá)";
+            this.label35.Text = "(Dê um duplo clique em qualquer rotina acima para excluí-la)";
             // 
             // dtGridViewRotinas
             // 
