@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rdBtnEmail = new Bunifu.UI.WinForms.BunifuRadioButton();
@@ -47,6 +47,7 @@
             this.rdBtnFTP = new Bunifu.UI.WinForms.BunifuRadioButton();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.dtGridViewRotinas = new Guna.UI2.WinForms.Guna2DataGridView();
             this.column_Identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,7 +81,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.rdBtnEmail);
-            this.panel2.Location = new System.Drawing.Point(150, 47);
+            this.panel2.Location = new System.Drawing.Point(132, 47);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(30, 25);
             this.panel2.TabIndex = 4;
@@ -108,7 +109,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.Controls.Add(this.rdBtnTelegram);
-            this.panel4.Location = new System.Drawing.Point(302, 47);
+            this.panel4.Location = new System.Drawing.Point(284, 47);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(30, 25);
             this.panel4.TabIndex = 5;
@@ -138,7 +139,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(291, 75);
+            this.label1.Location = new System.Drawing.Point(273, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 6;
@@ -150,7 +151,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(146, 74);
+            this.label3.Location = new System.Drawing.Point(128, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 8;
@@ -162,7 +163,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(214, 75);
+            this.label2.Location = new System.Drawing.Point(196, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 7;
@@ -191,7 +192,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.rdBtnMegaNz);
-            this.panel3.Location = new System.Drawing.Point(224, 47);
+            this.panel3.Location = new System.Drawing.Point(206, 47);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(30, 25);
             this.panel3.TabIndex = 5;
@@ -213,7 +214,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(373, 75);
+            this.label5.Location = new System.Drawing.Point(355, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 13);
             this.label5.TabIndex = 14;
@@ -223,7 +224,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.rdBtnFTP);
-            this.panel1.Location = new System.Drawing.Point(370, 47);
+            this.panel1.Location = new System.Drawing.Point(352, 47);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(30, 25);
             this.panel1.TabIndex = 13;
@@ -272,16 +273,29 @@
             // guna2GroupBox2
             // 
             this.guna2GroupBox2.BorderRadius = 10;
+            this.guna2GroupBox2.Controls.Add(this.label6);
             this.guna2GroupBox2.Controls.Add(this.label35);
             this.guna2GroupBox2.Controls.Add(this.dtGridViewRotinas);
             this.guna2GroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2GroupBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2GroupBox2.Location = new System.Drawing.Point(24, 180);
+            this.guna2GroupBox2.Location = new System.Drawing.Point(24, 155);
             this.guna2GroupBox2.Name = "guna2GroupBox2";
             this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
-            this.guna2GroupBox2.Size = new System.Drawing.Size(519, 377);
+            this.guna2GroupBox2.Size = new System.Drawing.Size(519, 402);
             this.guna2GroupBox2.TabIndex = 19;
             this.guna2GroupBox2.Text = "Rotinas de Backup:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic);
+            this.label6.Location = new System.Drawing.Point(7, 374);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(508, 13);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "(Executar uma Rotina manualmente não alterará sua execução no horário informado d" +
+    "urante sua criação)";
             // 
             // label35
             // 
@@ -298,21 +312,21 @@
             // 
             this.dtGridViewRotinas.AllowUserToAddRows = false;
             this.dtGridViewRotinas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtGridViewRotinas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dtGridViewRotinas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtGridViewRotinas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtGridViewRotinas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.dtGridViewRotinas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtGridViewRotinas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtGridViewRotinas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewRotinas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewRotinas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtGridViewRotinas.ColumnHeadersHeight = 17;
             this.dtGridViewRotinas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.column_Identificador,
@@ -320,14 +334,14 @@
             this.column_Execucao,
             this.column_DiretorioBackups,
             this.column_NomeRotinaJSON});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtGridViewRotinas.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtGridViewRotinas.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtGridViewRotinas.EnableHeadersVisualStyles = false;
             this.dtGridViewRotinas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.dtGridViewRotinas.Location = new System.Drawing.Point(0, 46);
@@ -361,6 +375,7 @@
             this.dtGridViewRotinas.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dtGridViewRotinas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewRotinas_CellDoubleClick);
             this.dtGridViewRotinas.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewRotinas_CellMouseEnter);
+            this.dtGridViewRotinas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dtGridViewRotinas_MouseClick);
             this.dtGridViewRotinas.MouseEnter += new System.EventHandler(this.dtGridViewRotinas_MouseEnter);
             // 
             // column_Identificador
@@ -451,5 +466,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn column_Execucao;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_DiretorioBackups;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_NomeRotinaJSON;
+        private System.Windows.Forms.Label label6;
     }
 }

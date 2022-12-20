@@ -210,7 +210,7 @@
             this.tbControl.Location = new System.Drawing.Point(84, 59);
             this.tbControl.Multiline = true;
             this.tbControl.Name = "tbControl";
-            this.tbControl.SelectedIndex = 0;
+            this.tbControl.SelectedIndex = 3;
             this.tbControl.ShowToolTips = true;
             this.tbControl.Size = new System.Drawing.Size(588, 558);
             this.tbControl.TabIndex = 15;
@@ -2033,7 +2033,6 @@
             this.tbPasta_MegaNZ.Name = "tbPasta_MegaNZ";
             this.tbPasta_MegaNZ.PasswordChar = '\0';
             this.tbPasta_MegaNZ.PlaceholderText = "";
-            this.tbPasta_MegaNZ.ReadOnly = true;
             this.tbPasta_MegaNZ.SelectedText = "";
             this.tbPasta_MegaNZ.ShadowDecoration.Parent = this.tbPasta_MegaNZ;
             this.tbPasta_MegaNZ.Size = new System.Drawing.Size(365, 24);

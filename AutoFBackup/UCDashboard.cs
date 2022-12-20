@@ -63,7 +63,6 @@ namespace FBackup
                     horarioExecucaoRotina = string.Format("{0} hrs.", horaRotina);
                 }
 
-                
 
                 dtGridViewRotinas.Rows.Add(identificadorBancoDeDados, tipoRotina, horarioExecucaoRotina, diretorioBackups, arquivo);
             }
@@ -97,6 +96,42 @@ namespace FBackup
         private void dtGridViewRotinas_MouseEnter(object sender, EventArgs e)
         {
             
+        }
+
+        private void dtGridViewRotinas_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dtGridViewRotinas.Rows.Count > 0 && dtGridViewRotinas.SelectedRows.Count > 0 && e.Button == MouseButtons.Right)
+            {
+                ContextMenuStrip m = new ContextMenuStrip();
+
+                int currentMouseOverRow = dtGridViewRotinas.HitTest(e.X, e.Y).RowIndex;
+
+                if (currentMouseOverRow >= 0)
+                {
+                    m.Items.Add("Executar Rotina Agora").Name = "ExecutarRotinaAgora";
+                }
+
+                m.Show(dtGridViewRotinas, new Point(e.X, e.Y));
+
+                m.ItemClicked += M_ItemClicked;
+            }
+        }
+
+        private void M_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+            switch (e.ClickedItem.Name.ToString())
+            {
+                case "ExecutarRotinaAgora":
+
+                    Root_Backup root_Backup = JsonConvert.DeserializeObject<Root_Backup>(Shared.Helpers.LeArquivo(dtGridViewRotinas.SelectedRows[0].Cells["column_NomeRotinaJSON"].Value.ToString()));
+
+                    Backup.Backup.ExecutaJobBackup executaJobBackup = new Backup.Backup.ExecutaJobBackup(root_Backup);
+
+                    Task.Run(() => executaJobBackup.Execute());
+                    
+                    break;
+            }
         }
     }
 }

@@ -39,7 +39,7 @@ namespace Firebird
             catch (Exception ex)
             {
                 Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", diretorioBackups, uidRotinaBackup),
-                    string.Format("Erro ao Exclusão de Backups antigos no diretório local -> {0}", ex.Message));
+                    string.Format("Erro na Exclusão de Backups antigos no diretório local -> {0}", ex.Message));
             }
 
         }

@@ -231,8 +231,8 @@ namespace Backup
                 string usuario = integracoesEmail.ObtemIntegracaoEmail().Credenciais.Usuario;
                 string senha = integracoesEmail.ObtemIntegracaoEmail().Credenciais.Senha;
                 bool ssl = integracoesEmail.ObtemIntegracaoEmail().Credenciais.SSL;
-                string destinatarios = integracoesEmail.ObtemIntegracaoEmail().Envio.Destinatarios;
-                string assunto = integracoesEmail.ObtemIntegracaoEmail().Envio.Assunto;
+                string destinatarios = root_Backup.Integracoes.Notificacoes.Email.Envio.Destinatarios;
+                string assunto = root_Backup.Integracoes.Notificacoes.Email.Envio.Assunto;
 
                 Email.Notificacao emailNotificacao = new Email.Notificacao(host, porta, usuario, senha, ssl,
                     destinatarios, root_Backup.Integracoes.Notificacoes.Email.Envio.Opcoes.ReceberLogTxt,
@@ -276,7 +276,7 @@ namespace Backup
                 string usuario = integracoesFTP.ObtemIntegracaoFTP().Credenciais.Usuario;
                 string senha = integracoesFTP.ObtemIntegracaoFTP().Credenciais.Senha;
 
-                string diretorioUploadRemoto = integracoesFTP.ObtemIntegracaoFTP().Envio.Diretorio;
+                string diretorioUploadRemoto = root_Backup.Integracoes.Uploads.FTP.Envio.Diretorio;
 
                 ftpUpload.ExecutaUpload(host, porta, usuario, senha, diretorioUploadRemoto, uidRotinaBackup,
                     diretorioBackups, compactaBackupZip);
@@ -298,7 +298,7 @@ namespace Backup
                 string usuario = integracoesFTP.ObtemIntegracaoFTP().Credenciais.Usuario;
                 string senha = integracoesFTP.ObtemIntegracaoFTP().Credenciais.Senha;
 
-                string diretorioUploadRemoto = integracoesFTP.ObtemIntegracaoFTP().Envio.Diretorio;
+                string diretorioUploadRemoto = root_Backup.Integracoes.Uploads.FTP.Envio.Diretorio;
                 string diretorioBackupsLocal = root_Backup.CriacaoBackup.Diretorio_Backup;
 
                 ftpDelete.ExcluiBackupsAntigos(host, porta, usuario, senha, diretorioUploadRemoto,
@@ -342,8 +342,8 @@ namespace Backup
                 string usuario = integracoesEmail.ObtemIntegracaoEmail().Credenciais.Usuario;
                 string senha = integracoesEmail.ObtemIntegracaoEmail().Credenciais.Senha;
                 bool ssl = integracoesEmail.ObtemIntegracaoEmail().Credenciais.SSL;
-                string destinatarios = integracoesEmail.ObtemIntegracaoEmail().Envio.Destinatarios;
-                string assunto = integracoesEmail.ObtemIntegracaoEmail().Envio.Assunto;
+                string destinatarios = root_Backup.Integracoes.Notificacoes.Email.Envio.Destinatarios;
+                string assunto = root_Backup.Integracoes.Notificacoes.Email.Envio.Assunto;
 
                 string identificadorBancoDeDados = root_Backup.BancoDeDados.Identificador;
 
@@ -453,7 +453,6 @@ namespace Backup
                 bool compactaBackupZip = _root_Backup.CriacaoBackup.Opcoes.FlagsBackup.Contains("Compactar");
 
                 ExecutaAplicativoPreBackup(_root_Backup, uidRotinaBackup);
-
 
                 ExecutaGfix(_root_Backup, uidRotinaBackup);
 

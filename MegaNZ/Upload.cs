@@ -30,15 +30,10 @@ namespace MegaNZ
             {
                 client.Login(email, senha);
 
-                IEnumerable<INode> nodes = client.GetNodes();
+                IEnumerable<INode> nodes = client.GetNodes().ToList();
+                INode myFolder = nodes.Where(x => x.Type == NodeType.Directory && x.Name.Trim().ToLower() == pasta.Trim().ToLower()).FirstOrDefault();
+                INode myFile = client.UploadFile(backupParaUpload, myFolder);
 
-                List<INode> megaFolders = nodes.Where(n => n.Type == NodeType.Directory).ToList();
-
-                INode myFolderOnMega = megaFolders.Where(folder => folder.Name == pasta).FirstOrDefault();
-
-                INode root = nodes.Single(x => x.Type == NodeType.Root);
-
-                INode myFile = client.UploadFile(backupParaUpload, myFolderOnMega);
             }
             catch (Exception ex)
             {
