@@ -57,7 +57,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label30 = new System.Windows.Forms.Label();
             this.gpbxPorHora = new System.Windows.Forms.GroupBox();
-            this.label23 = new System.Windows.Forms.Label();
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.dpDownFrequenciaBackupHoraMinuto = new Bunifu.Framework.UI.BunifuDropdown();
             this.label22 = new System.Windows.Forms.Label();
             this.nmUpDownHorasFreqPorHora = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -210,7 +211,7 @@
             this.tbControl.Location = new System.Drawing.Point(84, 59);
             this.tbControl.Multiline = true;
             this.tbControl.Name = "tbControl";
-            this.tbControl.SelectedIndex = 3;
+            this.tbControl.SelectedIndex = 0;
             this.tbControl.ShowToolTips = true;
             this.tbControl.Size = new System.Drawing.Size(588, 558);
             this.tbControl.TabIndex = 15;
@@ -327,7 +328,7 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.panel7.Controls.Add(this.label32);
-            this.panel7.Location = new System.Drawing.Point(8, 268);
+            this.panel7.Location = new System.Drawing.Point(8, 302);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(529, 21);
             this.panel7.TabIndex = 63;
@@ -352,7 +353,7 @@
             this.gpbxSemanalmente.Controls.Add(this.lstBoxDiasSemanaFreqSemanal);
             this.gpbxSemanalmente.Controls.Add(this.label25);
             this.gpbxSemanalmente.Controls.Add(this.label27);
-            this.gpbxSemanalmente.Location = new System.Drawing.Point(8, 262);
+            this.gpbxSemanalmente.Location = new System.Drawing.Point(8, 296);
             this.gpbxSemanalmente.Name = "gpbxSemanalmente";
             this.gpbxSemanalmente.Size = new System.Drawing.Size(529, 139);
             this.gpbxSemanalmente.TabIndex = 64;
@@ -471,7 +472,7 @@
             this.gpbxDiariamente.Controls.Add(this.nmUpDownHorasFreqDiaria);
             this.gpbxDiariamente.Location = new System.Drawing.Point(278, 203);
             this.gpbxDiariamente.Name = "gpbxDiariamente";
-            this.gpbxDiariamente.Size = new System.Drawing.Size(259, 59);
+            this.gpbxDiariamente.Size = new System.Drawing.Size(259, 93);
             this.gpbxDiariamente.TabIndex = 62;
             this.gpbxDiariamente.TabStop = false;
             // 
@@ -576,39 +577,66 @@
             this.label30.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.label30.Location = new System.Drawing.Point(3, 3);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(52, 13);
+            this.label30.Size = new System.Drawing.Size(94, 13);
             this.label30.TabIndex = 65;
-            this.label30.Text = "Por Hora";
+            this.label30.Text = "Por Hora/Minuto";
             // 
             // gpbxPorHora
             // 
             this.gpbxPorHora.BackColor = System.Drawing.Color.Transparent;
-            this.gpbxPorHora.Controls.Add(this.label23);
+            this.gpbxPorHora.Controls.Add(this.chbxExecutaRotinaIniAppFreqHoraMinuto);
+            this.gpbxPorHora.Controls.Add(this.dpDownFrequenciaBackupHoraMinuto);
             this.gpbxPorHora.Controls.Add(this.label22);
             this.gpbxPorHora.Controls.Add(this.nmUpDownHorasFreqPorHora);
             this.gpbxPorHora.Location = new System.Drawing.Point(8, 203);
             this.gpbxPorHora.Name = "gpbxPorHora";
-            this.gpbxPorHora.Size = new System.Drawing.Size(264, 59);
+            this.gpbxPorHora.Size = new System.Drawing.Size(264, 93);
             this.gpbxPorHora.TabIndex = 60;
             this.gpbxPorHora.TabStop = false;
             // 
-            // label23
+            // chbxExecutaRotinaIniAppFreqHoraMinuto
             // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label23.Location = new System.Drawing.Point(166, 34);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(42, 13);
-            this.label23.TabIndex = 44;
-            this.label23.Text = "hora(s)";
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.AutoSize = true;
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.BackColor = System.Drawing.Color.Transparent;
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.CheckedState.BorderRadius = 2;
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.CheckedState.BorderThickness = 0;
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.Location = new System.Drawing.Point(31, 58);
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.Name = "chbxExecutaRotinaIniAppFreqHoraMinuto";
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.Size = new System.Drawing.Size(191, 30);
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.TabIndex = 58;
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.Text = "Executar após Criação da Rotina \r\ne na Inicialização do AutoFBackup";
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.UncheckedState.BorderRadius = 2;
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.UncheckedState.BorderThickness = 0;
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExecutaRotinaIniAppFreqHoraMinuto.UseVisualStyleBackColor = false;
+            // 
+            // dpDownFrequenciaBackupHoraMinuto
+            // 
+            this.dpDownFrequenciaBackupHoraMinuto.BackColor = System.Drawing.Color.Transparent;
+            this.dpDownFrequenciaBackupHoraMinuto.BorderRadius = 3;
+            this.dpDownFrequenciaBackupHoraMinuto.DisabledColor = System.Drawing.Color.Gray;
+            this.dpDownFrequenciaBackupHoraMinuto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpDownFrequenciaBackupHoraMinuto.ForeColor = System.Drawing.Color.White;
+            this.dpDownFrequenciaBackupHoraMinuto.items = new string[] {
+        "Hora(s)",
+        "Minuto(s)"};
+            this.dpDownFrequenciaBackupHoraMinuto.Location = new System.Drawing.Point(150, 27);
+            this.dpDownFrequenciaBackupHoraMinuto.Name = "dpDownFrequenciaBackupHoraMinuto";
+            this.dpDownFrequenciaBackupHoraMinuto.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.dpDownFrequenciaBackupHoraMinuto.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.dpDownFrequenciaBackupHoraMinuto.selectedIndex = -1;
+            this.dpDownFrequenciaBackupHoraMinuto.Size = new System.Drawing.Size(98, 25);
+            this.dpDownFrequenciaBackupHoraMinuto.TabIndex = 57;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label22.Location = new System.Drawing.Point(47, 34);
+            this.label22.Location = new System.Drawing.Point(29, 34);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(44, 13);
             this.label22.TabIndex = 43;
@@ -628,7 +656,7 @@
             this.nmUpDownHorasFreqPorHora.FocusedState.Parent = this.nmUpDownHorasFreqPorHora;
             this.nmUpDownHorasFreqPorHora.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nmUpDownHorasFreqPorHora.ForeColor = System.Drawing.Color.Black;
-            this.nmUpDownHorasFreqPorHora.Location = new System.Drawing.Point(94, 27);
+            this.nmUpDownHorasFreqPorHora.Location = new System.Drawing.Point(76, 27);
             this.nmUpDownHorasFreqPorHora.Minimum = new decimal(new int[] {
             1,
             0,
@@ -676,7 +704,7 @@
             this.dpDownFrequenciaBackups.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpDownFrequenciaBackups.ForeColor = System.Drawing.Color.White;
             this.dpDownFrequenciaBackups.items = new string[] {
-        "Por Hora",
+        "Por Hora/Minuto",
         "Diário",
         "Semanal"};
             this.dpDownFrequenciaBackups.Location = new System.Drawing.Point(251, 161);
@@ -2310,7 +2338,6 @@
         private System.Windows.Forms.GroupBox gpbxDiariamente;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private Guna.UI2.WinForms.Guna2NumericUpDown nmUpDownHorasFreqPorHora;
         private System.Windows.Forms.Label label25;
@@ -2380,5 +2407,7 @@
         private System.Windows.Forms.LinkLabel lblAvisoArgumentosGfix;
         private Guna.UI2.WinForms.Guna2TextBox tbArgumentosGFIX;
         private Guna.UI2.WinForms.Guna2CheckBox chbxAguardarConclusaoAplicativoPreBackup;
+        private Bunifu.Framework.UI.BunifuDropdown dpDownFrequenciaBackupHoraMinuto;
+        private Guna.UI2.WinForms.Guna2CheckBox chbxExecutaRotinaIniAppFreqHoraMinuto;
     }
 }

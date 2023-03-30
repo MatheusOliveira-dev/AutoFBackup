@@ -277,6 +277,7 @@ namespace FBackup
             frequencia_Backup.Hora = frequenciaBackups.Item2;
             frequencia_Backup.Minuto = frequenciaBackups.Item3;
             frequencia_Backup.DiasSemana = frequenciaBackups.Item4;
+            frequencia_Backup.ExecutaNaInicializacaoApp = chbxExecutaRotinaIniAppFreqHoraMinuto.Checked;
 
             aplicativoPreBackup_Backup.AguardaConclusao = chbxAguardarConclusaoAplicativoPreBackup.Checked;
             aplicativoPreBackup_Backup.Aplicativo = tbAplicativoPreBackup.Text;
@@ -395,6 +396,9 @@ namespace FBackup
 
             this.frmMain.Re_InicializaRotinas = true;
 
+
+            MessageBox.Show("Rotina de Backup Criada com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
             this.Close();
         }
 
@@ -404,7 +408,11 @@ namespace FBackup
             
             if (dpDownFrequenciaBackups.selectedIndex == 0)
             {
-                return Tuple.Create("Hora", nmUpDownHorasFreqPorHora.Value.ToString(), string.Empty, diasSemana);
+
+                if (dpDownFrequenciaBackupHoraMinuto.selectedIndex == 0)
+                    return Tuple.Create("HoraMinuto", nmUpDownHorasFreqPorHora.Value.ToString(), string.Empty, diasSemana);
+                else
+                    return Tuple.Create("HoraMinuto", string.Empty, nmUpDownHorasFreqPorHora.Value.ToString(), diasSemana);
             }
             else if (dpDownFrequenciaBackups.selectedIndex == 1)
             {
@@ -537,6 +545,8 @@ namespace FBackup
         }
         private void frmNovoBackup_Load(object sender, EventArgs e)
         {
+            dpDownFrequenciaBackupHoraMinuto.selectedIndex = 0;
+
             CarregaConfiguracoes();
             CarregaIntegracoes();
         }
@@ -627,6 +637,8 @@ namespace FBackup
                 gpbxDiariamente.Enabled = false;
                 gpbxSemanalmente.Enabled = true;
             }
+
+            chbxExecutaRotinaIniAppFreqHoraMinuto.Checked = false;
         }
 
         private void btnBuscarChatID_Click(object sender, EventArgs e)

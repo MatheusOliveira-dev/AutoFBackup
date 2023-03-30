@@ -14,7 +14,7 @@ namespace FTP
     {
         public void ExecutaUpload(string host, string porta, string usuario,
             string senha, string diretorioUploadRemoto, string uidRotinaBackup, string diretorioBackups, 
-            bool compactado)
+            bool compactado, bool isTesteUpload = false, string arquivoTesteUpload = "")
         {
             string backupParaUpload = string.Format(@"{0}\{1}{2}", diretorioBackups, uidRotinaBackup, compactado ? ".zip" : ".fbk");
             string nomeBackupUpload = compactado ? uidRotinaBackup + ".zip" : uidRotinaBackup + ".fbk";
@@ -41,21 +41,30 @@ namespace FTP
             {
                 client.AutoConnect();
 
-                client.UploadFile(backupParaUpload, string.Format("{0}/{1}", diretorioUploadRemoto, nomeBackupUpload));
+                if (!isTesteUpload)
+                    client.UploadFile(backupParaUpload, string.Format("{0}/{1}", diretorioUploadRemoto, nomeBackupUpload));
+                else
+                    client.UploadFile(arquivoTesteUpload, string.Format("{0}/{1}", diretorioUploadRemoto, arquivoTesteUpload));
 
-                
             }
             catch (Exception ex)
             {
-                Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", diretorioBackups, uidRotinaBackup),
-                    string.Format("Erro ao Realizar o Upload do Backup para o FTP -> {0}", ex.Message));
+
+                if (!isTesteUpload)
+                {
+                    Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", diretorioBackups, uidRotinaBackup),
+                    string.Format("Erro ao Realizar o Upload do Backup para o FTP.\n\nException: {0}\n\nInnerException: {1}",
+                    ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty));
+                }
+                else
+                {
+                    throw ex;
+                }
             }
             finally
             {
                 client.Disconnect();
             }
-
-            
         }
 
         private void Client_ValidateCertificate(FtpClient control, FtpSslValidationEventArgs e)

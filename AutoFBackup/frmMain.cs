@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -13,6 +14,7 @@ using AutoUpdaterDotNET;
 using FBackup.Enums;
 using FluentScheduler;
 using Models;
+using Newtonsoft.Json;
 using static Backup.Backup;
 using static Models.Backup;
 
@@ -23,15 +25,41 @@ namespace FBackup
         public frmMain()
         {
             InitializeComponent();
-            InicializaApp();
 
             this.AplicaArgumentos();
+
+            InicializaApp();
         }
 
         private void AplicaArgumentos()
         {
             if (Program.iniciarMinimizado)
+            {
                 this.WindowState = FormWindowState.Minimized;
+                AplicaConfiguracoesMinimizaApp();
+            }
+              
+            
+            if (!string.IsNullOrWhiteSpace(Program.arquivoJSONRotinaBackup))
+            {
+                if (!File.Exists(Program.arquivoJSONRotinaBackup))
+                    Environment.Exit(1);
+
+                this.Opacity = 0;
+                this.ShowInTaskbar = false;
+                this.ShowIcon = false;
+
+                Root_Backup root_Backup = JsonConvert.DeserializeObject<Root_Backup>(Shared.Helpers.LeArquivo(Program.arquivoJSONRotinaBackup));
+
+                Backup.Backup.ExecutaJobBackup executaJobBackup = new Backup.Backup.ExecutaJobBackup(root_Backup);
+
+                Task task = Task.Run(() => executaJobBackup.Execute());
+
+                task.Wait();
+
+                Environment.Exit(0);
+
+            }
             
         }
 
@@ -41,12 +69,10 @@ namespace FBackup
             {
                 if (value)
                 {
-
                     JobManager.RemoveAllJobs();
 
                     Backup.Backup backup = new Backup.Backup();
                     JobManager.Initialize(new RegistroTarefasAgendadas(backup.ObtemRotinasBackups()));
-
 
                     Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
 
@@ -60,13 +86,30 @@ namespace FBackup
 
         private void InicializaApp()
         {
+
+            Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
+            Configuracoes.CriaConfiguracoesPadraoSeNecessario();
+
+            if (Configuracoes.ObtemConfiguracoes() != null && Configuracoes.ObtemConfiguracoes().Geral.BloquearMultiplasInstancias && !Program.emModoCLI)
+            {
+                if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1)
+                {
+                    MessageBox.Show("Já existe uma Instância do Aplicativo em Execução.\n\nFechando...", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (Application.MessageLoop)
+                        Application.Exit();
+                    else
+                        Environment.Exit(1);
+                }
+            }
+
             lblVersaoAutoFBackup.Text = Shared.Helpers.ObtemVersaoAutoFBackup();
 
             Shared.Helpers.CriaDiretorio("Integracoes");
             Shared.Helpers.CriaDiretorio("Rotinas");
+            Shared.Helpers.CriaDiretorio("Backups");
+            Shared.Helpers.CriaDiretorio(@"TestesIntegracoes\MegaNZ");
+            Shared.Helpers.CriaDiretorio(@"TestesIntegracoes\FTP");
 
-            Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
-            Configuracoes.CriaConfiguracoesPadraoSeNecessario();
 
             Shared.Helpers.HabilitaDesabilitaInicializacaoComWindows(Configuracoes.ObtemConfiguracoes().Geral.IniciarComOWindows);
 
@@ -76,7 +119,8 @@ namespace FBackup
                 atualizacoes.AtualizaAplicacao();
             }
 
-            Re_InicializaRotinas = true;
+            if (!Program.emModoCLI)
+                Re_InicializaRotinas = true;
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -242,13 +286,13 @@ namespace FBackup
             this.notifyIcon.Visible = false;
         }
 
-        private void frmMain_SizeChanged(object sender, EventArgs e)
+        private void AplicaConfiguracoesMinimizaApp()
         {
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.notifyIcon.Visible = true;
 
-                notifyIcon.Icon = SystemIcons.Shield;
+                notifyIcon.Icon = SystemIcons.Application;
                 notifyIcon.BalloonTipText = "O AutoFBackup Continuará Sendo Executado em Segundo Plano.";
                 notifyIcon.ShowBalloonTip(1000);
                 this.Hide();
@@ -258,6 +302,10 @@ namespace FBackup
                 if (Configuracoes.ObtemConfiguracoes().Geral.ExigirSenhaAcessoBotoes && !string.IsNullOrWhiteSpace(Configuracoes.ObtemConfiguracoes().Geral.SenhaAcessoBotoes))
                     this.pnlControls.Controls.Clear();
             }
+        }
+        private void frmMain_SizeChanged(object sender, EventArgs e)
+        {
+            AplicaConfiguracoesMinimizaApp();
         }
 
         private void lblEdsonGregorio_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

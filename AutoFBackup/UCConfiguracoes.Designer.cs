@@ -33,6 +33,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbControl = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.chbxExibirConteudoRecomendado = new Guna.UI2.WinForms.Guna2CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbSenhaFecharApp = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -79,7 +80,7 @@
             this.bunifuElipseBtnAppPreBackup = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipseBtnAppPosBackup = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipseBtnDiretorioGFIX = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.chbxExibirConteudoRecomendado = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbxBloquearMultiplasInstancias = new Guna.UI2.WinForms.Guna2CheckBox();
             this.tbControl.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -117,6 +118,7 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.chbxBloquearMultiplasInstancias);
             this.metroTabPage1.Controls.Add(this.chbxExibirConteudoRecomendado);
             this.metroTabPage1.Controls.Add(this.label10);
             this.metroTabPage1.Controls.Add(this.tbSenhaFecharApp);
@@ -138,6 +140,25 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // chbxExibirConteudoRecomendado
+            // 
+            this.chbxExibirConteudoRecomendado.AutoSize = true;
+            this.chbxExibirConteudoRecomendado.BackColor = System.Drawing.Color.Transparent;
+            this.chbxExibirConteudoRecomendado.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExibirConteudoRecomendado.CheckedState.BorderRadius = 2;
+            this.chbxExibirConteudoRecomendado.CheckedState.BorderThickness = 0;
+            this.chbxExibirConteudoRecomendado.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxExibirConteudoRecomendado.Location = new System.Drawing.Point(9, 207);
+            this.chbxExibirConteudoRecomendado.Name = "chbxExibirConteudoRecomendado";
+            this.chbxExibirConteudoRecomendado.Size = new System.Drawing.Size(186, 17);
+            this.chbxExibirConteudoRecomendado.TabIndex = 22;
+            this.chbxExibirConteudoRecomendado.Text = "Exibir Conteúdo Recomendado";
+            this.chbxExibirConteudoRecomendado.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExibirConteudoRecomendado.UncheckedState.BorderRadius = 2;
+            this.chbxExibirConteudoRecomendado.UncheckedState.BorderThickness = 0;
+            this.chbxExibirConteudoRecomendado.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxExibirConteudoRecomendado.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
@@ -875,24 +896,24 @@
             this.bunifuElipseBtnDiretorioGFIX.ElipseRadius = 10;
             this.bunifuElipseBtnDiretorioGFIX.TargetControl = this.btnDiretorioGFIX;
             // 
-            // chbxExibirConteudoRecomendado
+            // chbxBloquearMultiplasInstancias
             // 
-            this.chbxExibirConteudoRecomendado.AutoSize = true;
-            this.chbxExibirConteudoRecomendado.BackColor = System.Drawing.Color.Transparent;
-            this.chbxExibirConteudoRecomendado.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxExibirConteudoRecomendado.CheckedState.BorderRadius = 2;
-            this.chbxExibirConteudoRecomendado.CheckedState.BorderThickness = 0;
-            this.chbxExibirConteudoRecomendado.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxExibirConteudoRecomendado.Location = new System.Drawing.Point(9, 207);
-            this.chbxExibirConteudoRecomendado.Name = "chbxExibirConteudoRecomendado";
-            this.chbxExibirConteudoRecomendado.Size = new System.Drawing.Size(186, 17);
-            this.chbxExibirConteudoRecomendado.TabIndex = 22;
-            this.chbxExibirConteudoRecomendado.Text = "Exibir Conteúdo Recomendado";
-            this.chbxExibirConteudoRecomendado.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbxExibirConteudoRecomendado.UncheckedState.BorderRadius = 2;
-            this.chbxExibirConteudoRecomendado.UncheckedState.BorderThickness = 0;
-            this.chbxExibirConteudoRecomendado.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbxExibirConteudoRecomendado.UseVisualStyleBackColor = false;
+            this.chbxBloquearMultiplasInstancias.AutoSize = true;
+            this.chbxBloquearMultiplasInstancias.BackColor = System.Drawing.Color.Transparent;
+            this.chbxBloquearMultiplasInstancias.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxBloquearMultiplasInstancias.CheckedState.BorderRadius = 2;
+            this.chbxBloquearMultiplasInstancias.CheckedState.BorderThickness = 0;
+            this.chbxBloquearMultiplasInstancias.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxBloquearMultiplasInstancias.Location = new System.Drawing.Point(9, 234);
+            this.chbxBloquearMultiplasInstancias.Name = "chbxBloquearMultiplasInstancias";
+            this.chbxBloquearMultiplasInstancias.Size = new System.Drawing.Size(177, 17);
+            this.chbxBloquearMultiplasInstancias.TabIndex = 23;
+            this.chbxBloquearMultiplasInstancias.Text = "Bloquear Múltiplas Instâncias";
+            this.chbxBloquearMultiplasInstancias.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxBloquearMultiplasInstancias.UncheckedState.BorderRadius = 2;
+            this.chbxBloquearMultiplasInstancias.UncheckedState.BorderThickness = 0;
+            this.chbxBloquearMultiplasInstancias.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxBloquearMultiplasInstancias.UseVisualStyleBackColor = false;
             // 
             // UCConfiguracoes
             // 
@@ -972,5 +993,6 @@
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2TextBox tbSenhaAcessoBotoes;
         private Guna.UI2.WinForms.Guna2CheckBox chbxExibirConteudoRecomendado;
+        private Guna.UI2.WinForms.Guna2CheckBox chbxBloquearMultiplasInstancias;
     }
 }

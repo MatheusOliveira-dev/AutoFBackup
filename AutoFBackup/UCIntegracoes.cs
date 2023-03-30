@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -329,6 +331,8 @@ namespace FBackup
             CriaAtualizaIntegracaoEmail();
             CriaAtualizaIntegracaoMegaNZ();
             CriaAtualizaIntegracaoFTP();
+
+            MessageBox.Show("Integrações Criadas/Atualizadas com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
 
@@ -474,6 +478,237 @@ namespace FBackup
         private void lblExplicacaoExclusaoBackupsAntigos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("O AutoFBackup excluirá qualquer arquivo que possua uma extensão do tipo ZIP ou FBK e se enquadre na regra de Exclusão de Dias informada.\nPortanto, cuidado ao salvar arquivos pessoais no Diretório de Backups Remoto se essa opção estiver ativa.", "Exclusão de Backups Antigos", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+        }
+
+        private void btnTesteUploadFTP_Click(object sender, EventArgs e)
+        {
+            if (!ValidaFTP())
+            {
+                MessageBox.Show("Para realizar o Teste de Upload com o FTP, todas as informações necessárias devem estar preenchidas.", "Teste de Upload - FTP", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+            }
+
+            if (MessageBox.Show("O AutoFBackup tentará realizar o Upload de um Arquivo Teste (.txt) para o diretório remoto do FTP utilizando as credenciais especificadas.\n\nDeseja continuar?", "Teste de Upload para o FTP", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                string arquivoTesteUploadFTP = string.Format(@"TestesIntegracoes\FTP\teste_upload_ftp_{0}.txt", Guid.NewGuid().ToString("N"));
+
+                File.AppendAllText(arquivoTesteUploadFTP, string.Format("[OK] - Teste de Upload para o FTP {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString()));
+
+
+                Task.Run(() =>
+                {
+                    try
+                    {
+
+                        this.Invoke(new Action(delegate
+                        {
+                            btnTesteUploadFTP.Enabled = false;
+                        }));
+
+                        this.Invoke(new Action(delegate
+                        {
+                            winIndicatorFTPTeste.Visible = true;
+                        }));
+
+                        FTP.Upload upload = new FTP.Upload();
+                        upload.ExecutaUpload(tbHost_FTP.Text.Trim(), nmUpDownPorta_FTP.Value.ToString(),
+                            tbUsuario_FTP.Text.Trim(), tbSenha_FTP.Text.Trim(), tbDiretorio_FTP.Text.Trim(), string.Empty, string.Empty, false, true, arquivoTesteUploadFTP);
+
+                        MessageBox.Show("Upload realizado com sucesso!", "Teste de Upload para o FTP - Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(string.Format("Erro ao Realizar o Teste de Upload para o FTP.\n\n Exception: {0}\n\nInnerException: {1}",
+                        ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty), "Teste de Upload para o FTP - Erro", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    }
+                    finally
+                    {
+
+                        this.Invoke(new Action(delegate
+                        {
+                            btnTesteUploadFTP.Enabled = true;
+                        }));
+
+                        this.Invoke(new Action(delegate
+                        {
+                            winIndicatorFTPTeste.Visible = false;
+                        }));
+                    }
+                });
+            }
+        }
+
+        private void btnTesteMegaNZ_Click(object sender, EventArgs e)
+        {
+            if (!ValidaMegaNZ())
+            {
+                MessageBox.Show("Para realizar o Teste de Upload com o Mega.NZ, todas as informações necessárias devem estar preenchidas.", "Teste de Upload - MegaNZ", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+            }
+
+            if (MessageBox.Show("O AutoFBackup tentará realizar o Upload de um Arquivo Teste (.txt) para o diretório remoto (na raiz) do Mega.nz utilizando as credenciais especificadas.\n\nDeseja continuar?", "Teste de Upload para o MegaNZ", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                string arquivoTesteUploadMegaNZ = string.Format(@"TestesIntegracoes\MegaNZ\teste_upload_meganz_{0}.txt", Guid.NewGuid().ToString("N"));
+
+                File.AppendAllText(arquivoTesteUploadMegaNZ, string.Format("[OK] - Teste de Upload para o Mega.NZ {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString()));
+
+
+                Task.Run(() =>
+                {
+                    try
+                    {
+
+                        this.Invoke(new Action(delegate
+                        {
+                            btnTesteMegaNZ.Enabled = false;
+                        }));
+
+                        this.Invoke(new Action(delegate
+                        {
+                            winIndicatorMegaNZTeste.Visible = true;
+                        }));
+
+                        MegaNZ.Upload upload = new MegaNZ.Upload();
+
+                        upload.ExecutaUpload(tbEmail_MegaNZ.Text.Trim(), tbSenha_MegaNZ.Text.Trim(),
+                            tbPasta_MegaNZ.Text.Trim(), string.Empty, string.Empty, false, true, arquivoTesteUploadMegaNZ);
+
+                        MessageBox.Show("Upload realizado com sucesso!", "Teste de Upload para o Mega.NZ - Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(string.Format("Erro ao Realizar o Teste de Upload para o Mega.NZ.\n\n Exception: {0}\n\nInnerException: {1}",
+                        ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty), "Teste de Upload para o Mega.NZ - Erro", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    }
+                    finally
+                    {
+
+                        this.Invoke(new Action(delegate
+                        {
+                            btnTesteMegaNZ.Enabled = true;
+                        }));
+
+                        this.Invoke(new Action(delegate
+                        {
+                            winIndicatorMegaNZTeste.Visible = false;
+                        }));
+                    }
+                });
+            }
+        }
+
+        private void btnTesteEmail_Click(object sender, EventArgs e)
+        {
+
+            if (!ValidaEmail())
+            {
+                MessageBox.Show("Para realizar o Teste de Envio com o E-mail, todas as informações necessárias devem estar preenchidas.", "Teste de Envio com o E-mail", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+            }
+
+            if (MessageBox.Show("O AutoFBackup tentará realizar o Envio de um E-mail Teste para os destinatários informados, utilizando as respectivas credenciais.\n\nDeseja continuar?", "Teste de Envio com o E-mail", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        this.Invoke(new Action(delegate
+                        {
+                            btnTesteEmail.Enabled = false;
+                        }));
+
+                        this.Invoke(new Action(delegate
+                        {
+                            winIndicatorEmailTeste.Visible = true;
+                        }));
+
+                        Email.Notificacao notificacao = new Email.Notificacao(tbHost_Email.Text.Trim(), nmUpDownPorta_Email.Value.ToString(),
+                       tbUsuario_Email.Text.Trim(), tbSenha_Email.Text.Trim(),
+                       chbxSSL_Email.Checked, tbDestinatarios_Email.Text.Trim(), false, "Teste de Envio de E-mail (AutoFBackup)", string.Empty,
+                       string.Empty, string.Empty, string.Empty, false, true);
+
+                        notificacao.EnviaNotificacao();
+
+                        MessageBox.Show("E-mail enviado com sucesso!", "Teste de Envio com o E-mail - Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(string.Format("Erro ao Realizar o Teste de Envio com o E-mail.\n\n Exception: {0}\n\nInnerException: {1}",
+                        ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty), "Teste de Envio com o E-mail - Erro", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    }
+                    finally
+                    {
+
+                        this.Invoke(new Action(delegate
+                        {
+                            btnTesteEmail.Enabled = true;
+                        }));
+
+                        this.Invoke(new Action(delegate
+                        {
+                            winIndicatorEmailTeste.Visible = false;
+                        }));
+                    }
+                });
+            }
+        }
+
+        private void btnTesteTelegram_Click(object sender, EventArgs e)
+        {
+            if (!ValidaTelegram())
+            {
+                MessageBox.Show("Para realizar o Teste de Envio com o Telegram, todas as informações necessárias devem estar preenchidas.", "Teste de Envio com o Telegram", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+            }
+
+            if (MessageBox.Show("O AutoFBackup tentará realizar o Envio de uma Mensagem para o CHAT ID informado, utilizando o AccessToken do Bot.\n\nDeseja continuar?", "Teste de Envio com o Telegram", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        this.Invoke(new Action(delegate
+                        {
+                            btnTesteTelegram.Enabled = false;
+                        }));
+
+                        this.Invoke(new Action(delegate
+                        {
+                            winIndicatorTelegramTeste.Visible = true;
+                        }));
+
+                        Telegram.Notificacao notificacao = new Telegram.Notificacao(tbAccessTokenBot_Telegram.Text.Trim(),
+                            tbChatIDDestino_Telegram.Text.Trim(), string.Empty, string.Empty,
+                            string.Empty, string.Empty, false, true);
+
+                        notificacao.EnviaMensagemSucesso();
+
+                        MessageBox.Show("Mensagem enviada com sucesso!", "Teste de Envio com o Telegram - Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(string.Format("Erro ao Realizar o Teste de Envio com o Telegram.\n\n Exception: {0}\n\nInnerException: {1}",
+                        ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty), "Teste de Envio com o Telegram - Erro", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    }
+                    finally
+                    {
+
+                        this.Invoke(new Action(delegate
+                        {
+                            btnTesteTelegram.Enabled = true;
+                        }));
+
+                        this.Invoke(new Action(delegate
+                        {
+                            winIndicatorTelegramTeste.Visible = false;
+                        }));
+                    }
+                });
+            }
         }
     }
 }

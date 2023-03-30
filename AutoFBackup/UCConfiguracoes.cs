@@ -69,6 +69,8 @@ namespace FBackup
                 tbDiretorioGFIX.Text = configuracoesJson.Backups.ExecutaGfix.CaminhoGfix;
                 tbArgumentosGFIX.Text = configuracoesJson.Backups.ExecutaGfix.ArgumentosGfix;
             }
+
+            chbxBloquearMultiplasInstancias.Checked = configuracoesJson.Geral.BloquearMultiplasInstancias;
         }
         private void UCConfiguracoes_Load(object sender, EventArgs e)
         {
@@ -95,6 +97,7 @@ namespace FBackup
             geralConfiguracoes.ExigirSenhaFecharApp = chbxExigirSenhaFecharApp.Checked;
             geralConfiguracoes.SenhaFecharApp = Helpers.Base64Encode(tbSenhaFecharApp.Text);
             geralConfiguracoes.ExibirConteudoRecomendado = chbxExibirConteudoRecomendado.Checked;
+            geralConfiguracoes.BloquearMultiplasInstancias = chbxBloquearMultiplasInstancias.Checked;
 
             aplicativoPreBackupConfiguracoes.Aplicativo = tbAplicativoPreBackup.Text;
             aplicativoPreBackupConfiguracoes.Argumentos = tbArgumentosPreBackup.Text;
@@ -131,6 +134,9 @@ namespace FBackup
             configuracoes.CriaAtualizaConfiguracoes(rootConfiguracoes);
 
             Shared.Helpers.HabilitaDesabilitaInicializacaoComWindows(rootConfiguracoes.Geral.IniciarComOWindows);
+
+            MessageBox.Show("Configurações Salvas com Sucesso!\n\nÉ recomendado reiniciar a Aplicação quando possível para que todas as alterações surtam efeito.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {

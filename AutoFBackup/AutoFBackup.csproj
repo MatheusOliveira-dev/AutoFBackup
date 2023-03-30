@@ -64,13 +64,11 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuToolTip">
       <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu4.1.1\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>E:\Programacao\Visual Studio Packages Extras\Bunifu_UI_v1.5.3.dll</HintPath>
-    </Reference>
     <Reference Include="FluentScheduler, Version=5.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentScheduler.5.5.1\lib\netstandard2.0\FluentScheduler.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2">
+    <Reference Include="Guna.UI2, Version=2.0.0.3, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>E:\Programacao\Visual Studio Packages Extras\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">

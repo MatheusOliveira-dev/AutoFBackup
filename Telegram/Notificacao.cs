@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,9 +23,10 @@ namespace Telegram
         private string _uidRotinaBackup = string.Empty;
         private string _conclusaoBackup = string.Empty;
         private bool _compactado;
+        private bool _isTesteEnvio;
 
         public Notificacao(string accessTokenBot, string chatIdDestino, string identificador, string diretorioBackups,
-            string uidRotinaBackup, string conclusaoBackup, bool compactado)
+            string uidRotinaBackup, string conclusaoBackup, bool compactado, bool isTesteEnvio = false)
         {
             _accessTokenBot = accessTokenBot;
             _chatIdDestino = chatIdDestino;
@@ -32,12 +35,13 @@ namespace Telegram
             _uidRotinaBackup = uidRotinaBackup;
             _conclusaoBackup = conclusaoBackup;
             _compactado = compactado;
+            _isTesteEnvio = isTesteEnvio;
         }
         public void EnviaMensagemSucesso()
         {
             string compactadoSimNao = _compactado ? "Sim" : "Não";
 
-            string mensagem = string.Format("[ℹ] *{0}*\n\n" +
+            string mensagem = _isTesteEnvio ? "[✅] *Teste de Envio de Mensagem bem sucedido.*" : string.Format("[ℹ] *{0}*\n\n" +
                 "[✅] *Backup Realizado com Sucesso*\n\n" +
                 "*Uid da Rotina*: {4}\n\n" +
                 "*Local*: {1}\n\n" +
@@ -58,11 +62,30 @@ namespace Telegram
             try
             {
                 var response = client.GetAsync(request).Result;
+
+                JObject obj = JObject.Parse(response.Content);
+
+                if (!(bool)obj["ok"])
+                {
+                    throw new Exception(response.Content.ToString());
+                }
+
             }
             catch (Exception ex)
             {
-                Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", _diretorioBackups, _uidRotinaBackup),
-                    string.Format("Erro ao Enviar a Mensagem de Notificação (Sucesso) para o Telegram -> {0}", ex.Message));
+
+                if (!_isTesteEnvio)
+                {
+                    Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", _diretorioBackups, _uidRotinaBackup),
+                    string.Format("Erro ao Enviar a Mensagem de Notificação (Sucesso) para o Telegram.\n\nException: {0}\n\nInnerException: {1}",
+                    ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty));
+                }
+                else
+                {
+                    throw ex;
+                }
+
+                
             }
 
         }
@@ -86,11 +109,19 @@ namespace Telegram
                 .AddQueryParameter("text", Shared.Helpers.FormataMensagemParaEnvioTelegram(mensagem), encode: true);
 
                 var response = client.GetAsync(request).Result;
+
+                JObject obj = JObject.Parse(response.Content);
+
+                if (!(bool)obj["ok"])
+                {
+                    throw new Exception(response.Content.ToString());
+                }
             }
             catch (Exception ex)
             {
                 Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", _diretorioBackups, _uidRotinaBackup),
-                    string.Format("Erro ao Enviar a Mensagem de Notificação (Erro) para o Telegram -> {0}", ex.Message));
+                    string.Format("Erro ao Enviar a Mensagem de Notificação (Erro) para o Telegram.\n\nException: {0}\n\nInnerException: {1}",
+                    ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty));  
             }
         }
 
@@ -109,13 +140,22 @@ namespace Telegram
                         request.Content = multipartContent;
 
                         var response = await httpClient.SendAsync(request);
+
+                        JObject obj = JObject.Parse(response.Content.ToString());
+
+                        if (!(bool)obj["ok"])
+                        {
+                            throw new Exception(response.Content.ToString());
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
+
                 Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", _diretorioBackups, _uidRotinaBackup),
-                    string.Format("Erro ao Enviar o Arquivo de Log: {0} para o Telegram -> {1}", tipoLog, ex.Message));
+                    string.Format("Erro ao Enviar o Arquivo de Log {0} para o Telegram.\n\nException: {1}\n\nInnerException: {2}", 
+                    tipoLog, ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty));
             }
 
         }

@@ -25,6 +25,12 @@ namespace Configuracoes
 
                 geralConfiguracoes.BuscaAtualizacaoIniApp = true;
                 geralConfiguracoes.IniciarComOWindows = false;
+                geralConfiguracoes.BloquearMultiplasInstancias = false;
+                geralConfiguracoes.ExibirConteudoRecomendado = false;
+                geralConfiguracoes.ExigirSenhaAcessoBotoes = false;
+                geralConfiguracoes.SenhaAcessoBotoes = string.Empty;
+                geralConfiguracoes.ExigirSenhaFecharApp = false;
+                geralConfiguracoes.SenhaFecharApp = string.Empty;
 
                 aplicativoPreBackupConfiguracoes.Aplicativo = "";
                 aplicativoPreBackupConfiguracoes.Argumentos = "";
@@ -39,12 +45,14 @@ namespace Configuracoes
                 executaGfixConfiguracoes.CaminhoGfix = "";
                 executaGfixConfiguracoes.ArgumentosGfix = "-mend -full -ignore";
 
-                backupsConfiguracoes.DiretorioBackups = Application.StartupPath;
+                backupsConfiguracoes.DiretorioBackups = $"{Application.StartupPath}\\Backups";
 
-                List<string> flagsBackup = new List<string>();
-                flagsBackup.Add("NoGarbageCollect");
-                flagsBackup.Add("IgnoreLimbo");
-                flagsBackup.Add("IgnoreChecksums");
+                List<string> flagsBackup = new List<string>
+                {
+                    "NoGarbageCollect",
+                    "IgnoreLimbo",
+                    "IgnoreChecksums"
+                };
 
                 rootConfiguracoes.Geral = geralConfiguracoes;
                 backupsConfiguracoes.AplicativoPreBackup = aplicativoPreBackupConfiguracoes;

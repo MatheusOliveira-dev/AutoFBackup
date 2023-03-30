@@ -35,6 +35,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.chbxEmail = new Guna.UI2.WinForms.Guna2CheckBox();
             this.gpbxEmail = new System.Windows.Forms.GroupBox();
+            this.winIndicatorEmailTeste = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this.btnTesteEmail = new Guna.UI2.WinForms.Guna2TileButton();
             this.chbxNotificacaoErro_Email = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbxLogBackup_Email = new Guna.UI2.WinForms.Guna2CheckBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -54,6 +56,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.chbxTelegram = new Guna.UI2.WinForms.Guna2CheckBox();
             this.gpbxTelegram = new System.Windows.Forms.GroupBox();
+            this.winIndicatorTelegramTeste = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this.btnTesteTelegram = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnBuscarChatID_Telegram = new Guna.UI2.WinForms.Guna2TileButton();
             this.chbxNotificacaoErro_Telegram = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbxLogBackup_Telegram = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -65,6 +69,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.chbxFTP = new Guna.UI2.WinForms.Guna2CheckBox();
             this.gpbxFTP = new System.Windows.Forms.GroupBox();
+            this.winIndicatorFTPTeste = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this.btnTesteUploadFTP = new Guna.UI2.WinForms.Guna2TileButton();
             this.lblExplicacaoExclusaoBackupsAntigos = new System.Windows.Forms.LinkLabel();
             this.label19 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -84,6 +90,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.chbxMega = new Guna.UI2.WinForms.Guna2CheckBox();
             this.gpbxMega = new System.Windows.Forms.GroupBox();
+            this.winIndicatorMegaNZTeste = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this.btnTesteMegaNZ = new Guna.UI2.WinForms.Guna2TileButton();
             this.label35 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tbPasta_MegaNZ = new Guna.UI2.WinForms.Guna2TextBox();
@@ -95,6 +103,10 @@
             this.bunifuElipseBtnSalvar = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuElipseBtnBuscarChatID = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipseBtnTesteFTP = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipseBtnTesteMegaNZ = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipseBtnTesteEmail = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipseBtnTesteTelegram = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.tbControl.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -119,7 +131,7 @@
             this.tbControl.Location = new System.Drawing.Point(13, 61);
             this.tbControl.Multiline = true;
             this.tbControl.Name = "tbControl";
-            this.tbControl.SelectedIndex = 0;
+            this.tbControl.SelectedIndex = 1;
             this.tbControl.ShowToolTips = true;
             this.tbControl.Size = new System.Drawing.Size(555, 446);
             this.tbControl.TabIndex = 0;
@@ -180,6 +192,8 @@
             // gpbxEmail
             // 
             this.gpbxEmail.BackColor = System.Drawing.Color.Transparent;
+            this.gpbxEmail.Controls.Add(this.winIndicatorEmailTeste);
+            this.gpbxEmail.Controls.Add(this.btnTesteEmail);
             this.gpbxEmail.Controls.Add(this.chbxNotificacaoErro_Email);
             this.gpbxEmail.Controls.Add(this.chbxLogBackup_Email);
             this.gpbxEmail.Controls.Add(this.label17);
@@ -203,6 +217,35 @@
             this.gpbxEmail.TabIndex = 10;
             this.gpbxEmail.TabStop = false;
             // 
+            // winIndicatorEmailTeste
+            // 
+            this.winIndicatorEmailTeste.AutoStart = true;
+            this.winIndicatorEmailTeste.CircleSize = 1F;
+            this.winIndicatorEmailTeste.Location = new System.Drawing.Point(439, 135);
+            this.winIndicatorEmailTeste.Name = "winIndicatorEmailTeste";
+            this.winIndicatorEmailTeste.NumberOfCircles = 4;
+            this.winIndicatorEmailTeste.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.winIndicatorEmailTeste.Size = new System.Drawing.Size(21, 21);
+            this.winIndicatorEmailTeste.TabIndex = 60;
+            this.winIndicatorEmailTeste.Visible = false;
+            // 
+            // btnTesteEmail
+            // 
+            this.btnTesteEmail.CheckedState.Parent = this.btnTesteEmail;
+            this.btnTesteEmail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTesteEmail.CustomImages.Parent = this.btnTesteEmail;
+            this.btnTesteEmail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.btnTesteEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnTesteEmail.ForeColor = System.Drawing.Color.White;
+            this.btnTesteEmail.HoverState.Parent = this.btnTesteEmail;
+            this.btnTesteEmail.Image = ((System.Drawing.Image)(resources.GetObject("btnTesteEmail.Image")));
+            this.btnTesteEmail.Location = new System.Drawing.Point(392, 133);
+            this.btnTesteEmail.Name = "btnTesteEmail";
+            this.btnTesteEmail.ShadowDecoration.Parent = this.btnTesteEmail;
+            this.btnTesteEmail.Size = new System.Drawing.Size(43, 24);
+            this.btnTesteEmail.TabIndex = 61;
+            this.btnTesteEmail.Click += new System.EventHandler(this.btnTesteEmail_Click);
+            // 
             // chbxNotificacaoErro_Email
             // 
             this.chbxNotificacaoErro_Email.AutoSize = true;
@@ -212,7 +255,7 @@
             this.chbxNotificacaoErro_Email.CheckedState.BorderThickness = 0;
             this.chbxNotificacaoErro_Email.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
             this.chbxNotificacaoErro_Email.ForeColor = System.Drawing.Color.Black;
-            this.chbxNotificacaoErro_Email.Location = new System.Drawing.Point(14, 200);
+            this.chbxNotificacaoErro_Email.Location = new System.Drawing.Point(14, 210);
             this.chbxNotificacaoErro_Email.Name = "chbxNotificacaoErro_Email";
             this.chbxNotificacaoErro_Email.Size = new System.Drawing.Size(501, 17);
             this.chbxNotificacaoErro_Email.TabIndex = 59;
@@ -233,7 +276,7 @@
             this.chbxLogBackup_Email.CheckedState.BorderThickness = 0;
             this.chbxLogBackup_Email.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
             this.chbxLogBackup_Email.ForeColor = System.Drawing.Color.Black;
-            this.chbxLogBackup_Email.Location = new System.Drawing.Point(14, 180);
+            this.chbxLogBackup_Email.Location = new System.Drawing.Point(14, 190);
             this.chbxLogBackup_Email.Name = "chbxLogBackup_Email";
             this.chbxLogBackup_Email.Size = new System.Drawing.Size(266, 17);
             this.chbxLogBackup_Email.TabIndex = 58;
@@ -249,11 +292,11 @@
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label17.Location = new System.Drawing.Point(338, 134);
+            this.label17.Location = new System.Drawing.Point(93, 162);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(171, 26);
+            this.label17.Size = new System.Drawing.Size(330, 13);
             this.label17.TabIndex = 56;
-            this.label17.Text = "(Mais de um E-mail é permitido. \r\nApenas separe-os por vírgula).";
+            this.label17.Text = "(Mais de um E-mail é permitido.  Apenas separe-os por vírgula).";
             // 
             // label16
             // 
@@ -286,7 +329,7 @@
             this.tbDestinatarios_Email.PlaceholderText = "";
             this.tbDestinatarios_Email.SelectedText = "";
             this.tbDestinatarios_Email.ShadowDecoration.Parent = this.tbDestinatarios_Email;
-            this.tbDestinatarios_Email.Size = new System.Drawing.Size(234, 24);
+            this.tbDestinatarios_Email.Size = new System.Drawing.Size(290, 24);
             this.tbDestinatarios_Email.TabIndex = 54;
             // 
             // label15
@@ -525,6 +568,8 @@
             // gpbxTelegram
             // 
             this.gpbxTelegram.BackColor = System.Drawing.Color.Transparent;
+            this.gpbxTelegram.Controls.Add(this.winIndicatorTelegramTeste);
+            this.gpbxTelegram.Controls.Add(this.btnTesteTelegram);
             this.gpbxTelegram.Controls.Add(this.btnBuscarChatID_Telegram);
             this.gpbxTelegram.Controls.Add(this.chbxNotificacaoErro_Telegram);
             this.gpbxTelegram.Controls.Add(this.chbxLogBackup_Telegram);
@@ -539,6 +584,35 @@
             this.gpbxTelegram.TabIndex = 8;
             this.gpbxTelegram.TabStop = false;
             // 
+            // winIndicatorTelegramTeste
+            // 
+            this.winIndicatorTelegramTeste.AutoStart = true;
+            this.winIndicatorTelegramTeste.CircleSize = 1F;
+            this.winIndicatorTelegramTeste.Location = new System.Drawing.Point(490, 67);
+            this.winIndicatorTelegramTeste.Name = "winIndicatorTelegramTeste";
+            this.winIndicatorTelegramTeste.NumberOfCircles = 4;
+            this.winIndicatorTelegramTeste.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.winIndicatorTelegramTeste.Size = new System.Drawing.Size(21, 21);
+            this.winIndicatorTelegramTeste.TabIndex = 63;
+            this.winIndicatorTelegramTeste.Visible = false;
+            // 
+            // btnTesteTelegram
+            // 
+            this.btnTesteTelegram.CheckedState.Parent = this.btnTesteTelegram;
+            this.btnTesteTelegram.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTesteTelegram.CustomImages.Parent = this.btnTesteTelegram;
+            this.btnTesteTelegram.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.btnTesteTelegram.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnTesteTelegram.ForeColor = System.Drawing.Color.White;
+            this.btnTesteTelegram.HoverState.Parent = this.btnTesteTelegram;
+            this.btnTesteTelegram.Image = ((System.Drawing.Image)(resources.GetObject("btnTesteTelegram.Image")));
+            this.btnTesteTelegram.Location = new System.Drawing.Point(442, 67);
+            this.btnTesteTelegram.Name = "btnTesteTelegram";
+            this.btnTesteTelegram.ShadowDecoration.Parent = this.btnTesteTelegram;
+            this.btnTesteTelegram.Size = new System.Drawing.Size(43, 24);
+            this.btnTesteTelegram.TabIndex = 64;
+            this.btnTesteTelegram.Click += new System.EventHandler(this.btnTesteTelegram_Click);
+            // 
             // btnBuscarChatID_Telegram
             // 
             this.btnBuscarChatID_Telegram.CheckedState.Parent = this.btnBuscarChatID_Telegram;
@@ -549,7 +623,7 @@
             this.btnBuscarChatID_Telegram.ForeColor = System.Drawing.Color.White;
             this.btnBuscarChatID_Telegram.HoverState.Parent = this.btnBuscarChatID_Telegram;
             this.btnBuscarChatID_Telegram.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarChatID_Telegram.Image")));
-            this.btnBuscarChatID_Telegram.Location = new System.Drawing.Point(471, 68);
+            this.btnBuscarChatID_Telegram.Location = new System.Drawing.Point(383, 68);
             this.btnBuscarChatID_Telegram.Name = "btnBuscarChatID_Telegram";
             this.btnBuscarChatID_Telegram.ShadowDecoration.Parent = this.btnBuscarChatID_Telegram;
             this.btnBuscarChatID_Telegram.Size = new System.Drawing.Size(40, 22);
@@ -628,7 +702,7 @@
             this.tbChatIDDestino_Telegram.PlaceholderText = "";
             this.tbChatIDDestino_Telegram.SelectedText = "";
             this.tbChatIDDestino_Telegram.ShadowDecoration.Parent = this.tbChatIDDestino_Telegram;
-            this.tbChatIDDestino_Telegram.Size = new System.Drawing.Size(359, 24);
+            this.tbChatIDDestino_Telegram.Size = new System.Drawing.Size(271, 24);
             this.tbChatIDDestino_Telegram.TabIndex = 49;
             // 
             // label18
@@ -717,6 +791,8 @@
             // gpbxFTP
             // 
             this.gpbxFTP.BackColor = System.Drawing.Color.Transparent;
+            this.gpbxFTP.Controls.Add(this.winIndicatorFTPTeste);
+            this.gpbxFTP.Controls.Add(this.btnTesteUploadFTP);
             this.gpbxFTP.Controls.Add(this.lblExplicacaoExclusaoBackupsAntigos);
             this.gpbxFTP.Controls.Add(this.label19);
             this.gpbxFTP.Controls.Add(this.label9);
@@ -740,6 +816,35 @@
             this.gpbxFTP.TabIndex = 8;
             this.gpbxFTP.TabStop = false;
             // 
+            // winIndicatorFTPTeste
+            // 
+            this.winIndicatorFTPTeste.AutoStart = true;
+            this.winIndicatorFTPTeste.CircleSize = 1F;
+            this.winIndicatorFTPTeste.Location = new System.Drawing.Point(485, 103);
+            this.winIndicatorFTPTeste.Name = "winIndicatorFTPTeste";
+            this.winIndicatorFTPTeste.NumberOfCircles = 4;
+            this.winIndicatorFTPTeste.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.winIndicatorFTPTeste.Size = new System.Drawing.Size(21, 21);
+            this.winIndicatorFTPTeste.TabIndex = 53;
+            this.winIndicatorFTPTeste.Visible = false;
+            // 
+            // btnTesteUploadFTP
+            // 
+            this.btnTesteUploadFTP.CheckedState.Parent = this.btnTesteUploadFTP;
+            this.btnTesteUploadFTP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTesteUploadFTP.CustomImages.Parent = this.btnTesteUploadFTP;
+            this.btnTesteUploadFTP.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.btnTesteUploadFTP.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnTesteUploadFTP.ForeColor = System.Drawing.Color.White;
+            this.btnTesteUploadFTP.HoverState.Parent = this.btnTesteUploadFTP;
+            this.btnTesteUploadFTP.Image = ((System.Drawing.Image)(resources.GetObject("btnTesteUploadFTP.Image")));
+            this.btnTesteUploadFTP.Location = new System.Drawing.Point(438, 101);
+            this.btnTesteUploadFTP.Name = "btnTesteUploadFTP";
+            this.btnTesteUploadFTP.ShadowDecoration.Parent = this.btnTesteUploadFTP;
+            this.btnTesteUploadFTP.Size = new System.Drawing.Size(43, 24);
+            this.btnTesteUploadFTP.TabIndex = 53;
+            this.btnTesteUploadFTP.Click += new System.EventHandler(this.btnTesteUploadFTP_Click);
+            // 
             // lblExplicacaoExclusaoBackupsAntigos
             // 
             this.lblExplicacaoExclusaoBackupsAntigos.AutoSize = true;
@@ -760,7 +865,7 @@
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic);
-            this.label19.Location = new System.Drawing.Point(310, 129);
+            this.label19.Location = new System.Drawing.Point(296, 129);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(136, 13);
             this.label19.TabIndex = 45;
@@ -797,7 +902,7 @@
             this.tbDiretorio_FTP.PlaceholderText = "";
             this.tbDiretorio_FTP.SelectedText = "";
             this.tbDiretorio_FTP.ShadowDecoration.Parent = this.tbDiretorio_FTP;
-            this.tbDiretorio_FTP.Size = new System.Drawing.Size(379, 24);
+            this.tbDiretorio_FTP.Size = new System.Drawing.Size(365, 24);
             this.tbDiretorio_FTP.TabIndex = 43;
             // 
             // chbxPassivo_FTP
@@ -951,7 +1056,7 @@
             this.tbSenha_FTP.PlaceholderText = "";
             this.tbSenha_FTP.SelectedText = "";
             this.tbSenha_FTP.ShadowDecoration.Parent = this.tbSenha_FTP;
-            this.tbSenha_FTP.Size = new System.Drawing.Size(166, 24);
+            this.tbSenha_FTP.Size = new System.Drawing.Size(152, 24);
             this.tbSenha_FTP.TabIndex = 23;
             // 
             // label3
@@ -1055,6 +1160,8 @@
             // gpbxMega
             // 
             this.gpbxMega.BackColor = System.Drawing.Color.Transparent;
+            this.gpbxMega.Controls.Add(this.winIndicatorMegaNZTeste);
+            this.gpbxMega.Controls.Add(this.btnTesteMegaNZ);
             this.gpbxMega.Controls.Add(this.label35);
             this.gpbxMega.Controls.Add(this.label10);
             this.gpbxMega.Controls.Add(this.tbPasta_MegaNZ);
@@ -1068,6 +1175,35 @@
             this.gpbxMega.Size = new System.Drawing.Size(529, 161);
             this.gpbxMega.TabIndex = 6;
             this.gpbxMega.TabStop = false;
+            // 
+            // winIndicatorMegaNZTeste
+            // 
+            this.winIndicatorMegaNZTeste.AutoStart = true;
+            this.winIndicatorMegaNZTeste.CircleSize = 1F;
+            this.winIndicatorMegaNZTeste.Location = new System.Drawing.Point(485, 79);
+            this.winIndicatorMegaNZTeste.Name = "winIndicatorMegaNZTeste";
+            this.winIndicatorMegaNZTeste.NumberOfCircles = 4;
+            this.winIndicatorMegaNZTeste.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.winIndicatorMegaNZTeste.Size = new System.Drawing.Size(21, 21);
+            this.winIndicatorMegaNZTeste.TabIndex = 54;
+            this.winIndicatorMegaNZTeste.Visible = false;
+            // 
+            // btnTesteMegaNZ
+            // 
+            this.btnTesteMegaNZ.CheckedState.Parent = this.btnTesteMegaNZ;
+            this.btnTesteMegaNZ.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTesteMegaNZ.CustomImages.Parent = this.btnTesteMegaNZ;
+            this.btnTesteMegaNZ.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.btnTesteMegaNZ.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnTesteMegaNZ.ForeColor = System.Drawing.Color.White;
+            this.btnTesteMegaNZ.HoverState.Parent = this.btnTesteMegaNZ;
+            this.btnTesteMegaNZ.Image = ((System.Drawing.Image)(resources.GetObject("btnTesteMegaNZ.Image")));
+            this.btnTesteMegaNZ.Location = new System.Drawing.Point(438, 77);
+            this.btnTesteMegaNZ.Name = "btnTesteMegaNZ";
+            this.btnTesteMegaNZ.ShadowDecoration.Parent = this.btnTesteMegaNZ;
+            this.btnTesteMegaNZ.Size = new System.Drawing.Size(43, 24);
+            this.btnTesteMegaNZ.TabIndex = 55;
+            this.btnTesteMegaNZ.Click += new System.EventHandler(this.btnTesteMegaNZ_Click);
             // 
             // label35
             // 
@@ -1220,6 +1356,26 @@
             this.bunifuElipseBtnBuscarChatID.ElipseRadius = 10;
             this.bunifuElipseBtnBuscarChatID.TargetControl = this.btnBuscarChatID_Telegram;
             // 
+            // bunifuElipseBtnTesteFTP
+            // 
+            this.bunifuElipseBtnTesteFTP.ElipseRadius = 10;
+            this.bunifuElipseBtnTesteFTP.TargetControl = this.btnTesteUploadFTP;
+            // 
+            // bunifuElipseBtnTesteMegaNZ
+            // 
+            this.bunifuElipseBtnTesteMegaNZ.ElipseRadius = 10;
+            this.bunifuElipseBtnTesteMegaNZ.TargetControl = this.btnTesteMegaNZ;
+            // 
+            // bunifuElipseBtnTesteEmail
+            // 
+            this.bunifuElipseBtnTesteEmail.ElipseRadius = 10;
+            this.bunifuElipseBtnTesteEmail.TargetControl = this.btnTesteEmail;
+            // 
+            // bunifuElipseBtnTesteTelegram
+            // 
+            this.bunifuElipseBtnTesteTelegram.ElipseRadius = 10;
+            this.bunifuElipseBtnTesteTelegram.TargetControl = this.btnTesteTelegram;
+            // 
             // UCIntegracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1325,5 +1481,17 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.LinkLabel lblExplicacaoExclusaoBackupsAntigos;
+        private Guna.UI2.WinForms.Guna2TileButton btnTesteUploadFTP;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipseBtnTesteFTP;
+        private Guna.UI2.WinForms.Guna2WinProgressIndicator winIndicatorFTPTeste;
+        private Guna.UI2.WinForms.Guna2WinProgressIndicator winIndicatorMegaNZTeste;
+        private Guna.UI2.WinForms.Guna2TileButton btnTesteMegaNZ;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipseBtnTesteMegaNZ;
+        private Guna.UI2.WinForms.Guna2WinProgressIndicator winIndicatorEmailTeste;
+        private Guna.UI2.WinForms.Guna2TileButton btnTesteEmail;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipseBtnTesteEmail;
+        private Guna.UI2.WinForms.Guna2WinProgressIndicator winIndicatorTelegramTeste;
+        private Guna.UI2.WinForms.Guna2TileButton btnTesteTelegram;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipseBtnTesteTelegram;
     }
 }

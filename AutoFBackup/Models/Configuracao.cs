@@ -15,6 +15,7 @@ namespace Models
         public bool ExigirSenhaFecharApp { get; set; }
         public string SenhaFecharApp { get; set; }
         public bool ExibirConteudoRecomendado { get; set; }
+        public bool BloquearMultiplasInstancias { get; set; }
     }
 
     public class AplicativoPreBackupConfiguracoes

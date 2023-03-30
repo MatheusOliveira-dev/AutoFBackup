@@ -23,10 +23,11 @@ namespace Email
         private string _uidRotinaBackup = string.Empty;
         private string _conclusaoBackup = string.Empty;
         private bool _compactado;
+        private bool _isTesteEnvio;
         public Notificacao(string host, string porta, string usuario,
             string senha, bool ssl, string destinatarios, bool envialogTxt, string assunto,
             string identificador, string diretorioBackups,
-            string uidRotinaBackup, string conclusaoBackup, bool compactado)
+            string uidRotinaBackup, string conclusaoBackup, bool compactado, bool isTesteEnvio = false)
 
         {
             this._host = host;
@@ -42,6 +43,7 @@ namespace Email
             this._uidRotinaBackup = uidRotinaBackup;
             this._conclusaoBackup = conclusaoBackup;
             this._compactado = compactado;
+            this._isTesteEnvio = isTesteEnvio;
         }
 
         public void EnviaNotificacao()
@@ -67,7 +69,7 @@ namespace Email
 
             string compactadoSimNao = _compactado ? "Sim" : "Não";
 
-            mail.Body = string.Format("ℹ {0}\n\n" +
+            mail.Body = _isTesteEnvio ? "✅ Teste de Envio de E-mail bem sucedido." : string.Format("ℹ {0}\n\n" +
              "✅ Backup Realizado com Sucesso.\n\n" +
              "Uid da Rotina: {5}\n" +
              "Local: {1}\n" +
@@ -94,8 +96,17 @@ namespace Email
             }
             catch (Exception ex)
             {
-                Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", _diretorioBackups, _uidRotinaBackup),
-                    string.Format("Erro no Envio de Notificação (Sucesso) por E-mail -> {0}", ex.Message));
+                if (!_isTesteEnvio)
+                {
+                    Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", _diretorioBackups, _uidRotinaBackup),
+                    string.Format("Erro no Envio de Notificação (Sucesso) por E-mail.\n\nException: {0}\n\nInnerException: {1}",
+                     ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty));
+                }
+                else
+                {
+                    throw ex;
+                }
+                   
             }
 
 
@@ -137,7 +148,8 @@ namespace Email
             catch (Exception ex)
             {
                 Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", _diretorioBackups, _uidRotinaBackup),
-                    string.Format("Erro no Envio de Notificação (Erro) por E-mail -> {0}", ex.Message));
+                  string.Format("Erro no Envio de Notificação (Erro) por E-mail.\n\nException: {0}\n\nInnerException: {1}",
+                   ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty));
             }
 
         }

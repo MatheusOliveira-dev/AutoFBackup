@@ -45,6 +45,7 @@ namespace Backup
                     int hora = Shared.Helpers.ConverteStringParaNumero(root_Backup.CriacaoBackup.Frequencia.Hora);
                     int minutos = Shared.Helpers.ConverteStringParaNumero(root_Backup.CriacaoBackup.Frequencia.Minuto);
                     string tipo = root_Backup.CriacaoBackup.Frequencia.Tipo;
+                    bool executaIniAppHoraMinuto = root_Backup.CriacaoBackup.Frequencia.ExecutaNaInicializacaoApp;
 
                     List<string> diasSemana = root_Backup.CriacaoBackup.Frequencia.DiasSemana;
 
@@ -58,7 +59,51 @@ namespace Backup
                                 .ToRunEvery(hora)
                                 .Hours();
                             break;
-                       
+
+                        case "HoraMinuto":
+                            if (!string.IsNullOrWhiteSpace(root_Backup.CriacaoBackup.Frequencia.Minuto) && minutos > 0)
+                            {
+                                if (executaIniAppHoraMinuto)
+                                {
+                                    Schedule(() => new ExecutaJobBackup(root_Backup))
+                                       .NonReentrant()
+                                       .WithName(nomeJob)
+                                       .ToRunNow()
+                                       .AndEvery(minutos)
+                                       .Minutes();
+                                }
+                                else
+                                {
+                                    Schedule(() => new ExecutaJobBackup(root_Backup))
+                                       .NonReentrant()
+                                       .WithName(nomeJob)
+                                       .ToRunEvery(minutos)
+                                       .Minutes();
+                                }
+                            }
+                            else
+                            {
+                                if (executaIniAppHoraMinuto)
+                                {
+                                    Schedule(() => new ExecutaJobBackup(root_Backup))
+                                       .NonReentrant()
+                                       .WithName(nomeJob)
+                                       .ToRunNow()
+                                       .AndEvery(hora)
+                                       .Hours();
+                                }
+                                else
+                                {
+                                    Schedule(() => new ExecutaJobBackup(root_Backup))
+                                       .NonReentrant()
+                                       .WithName(nomeJob)
+                                       .ToRunEvery(hora)
+                                       .Hours();
+                                }
+                            }
+
+                            break;
+
                         case "Diaria":
                             Schedule(() => new ExecutaJobBackup(root_Backup))
                                 .NonReentrant()

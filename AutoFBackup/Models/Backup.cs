@@ -22,6 +22,7 @@ namespace Models
         {
             public string Tipo { get; set; }
             public string Hora { get; set; }
+            public bool ExecutaNaInicializacaoApp { get; set; }
             public string Minuto { get; set; }
             public List<string> DiasSemana { get; set; }
         }
