@@ -252,7 +252,7 @@ namespace Backup
                 Telegram.Notificacao telegramNotificacao = new Telegram.Notificacao(accessTokenBot, chatIDDestino,
                     identificadorBancoDeDados, diretorioBackups, uidRotinaBackup, conclusaoBackup, backupCompactado);
 
-                telegramNotificacao.EnviaMensagemSucesso();
+                await telegramNotificacao.EnviaMensagemSucesso();
 
                 if (root_Backup.Integracoes.Notificacoes.Telegram.Envio.Opcoes.ReceberLogTxt)
                 {
@@ -369,7 +369,7 @@ namespace Backup
                 Telegram.Notificacao telegramNotificacao = new Telegram.Notificacao(accessTokenBot, chatIDDestino,
                     identificadorBancoDeDados, diretorioBackups, uidRotinaBackup, string.Empty, false);
 
-                telegramNotificacao.EnviaMensagemErro();
+                await telegramNotificacao.EnviaMensagemErro();
 
                 await telegramNotificacao.EnviaLogTxtAsync("LogErroBackup");
             }

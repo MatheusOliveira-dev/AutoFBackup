@@ -39,12 +39,13 @@ namespace FTP
 
             try
             {
+
                 client.AutoConnect();
 
                 if (!isTesteUpload)
                     client.UploadFile(backupParaUpload, string.Format("{0}/{1}", diretorioUploadRemoto, nomeBackupUpload));
                 else
-                    client.UploadFile(arquivoTesteUpload, string.Format("{0}/{1}", diretorioUploadRemoto, arquivoTesteUpload));
+                    client.UploadFile(arquivoTesteUpload, string.Format("{0}/{1}", diretorioUploadRemoto, arquivoTesteUpload.Split('\\')[2].ToString()));
 
             }
             catch (Exception ex)

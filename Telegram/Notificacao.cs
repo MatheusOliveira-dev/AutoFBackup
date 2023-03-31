@@ -10,6 +10,9 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telegram.Bot;
+using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.InputFiles;
 
 namespace Telegram
 {
@@ -37,11 +40,13 @@ namespace Telegram
             _compactado = compactado;
             _isTesteEnvio = isTesteEnvio;
         }
-        public void EnviaMensagemSucesso()
+        public async Task EnviaMensagemSucesso()
         {
             string compactadoSimNao = _compactado ? "Sim" : "Não";
 
-            string mensagem = _isTesteEnvio ? "[✅] *Teste de Envio de Mensagem bem sucedido.*" : string.Format("[ℹ] *{0}*\n\n" +
+            var bot = new TelegramBotClient(_accessTokenBot);
+            var chatId = _chatIdDestino;
+            var mensagem = _isTesteEnvio ? "[✅] *Teste de Envio de Mensagem bem sucedido.*" : string.Format("[ℹ] *{0}*\n\n" +
                 "[✅] *Backup Realizado com Sucesso*\n\n" +
                 "*Uid da Rotina*: {4}\n\n" +
                 "*Local*: {1}\n\n" +
@@ -52,70 +57,26 @@ namespace Telegram
                 _identificador, _diretorioBackups, _uidRotinaBackup, _conclusaoBackup, _uidRotinaBackup, compactadoSimNao);
 
 
-            var client = new RestClient(string.Format("{0}{1}/", BaseAPI.HostApi, _accessTokenBot));
-            var request = new RestRequest("sendMessage")
-            .AddQueryParameter("chat_id", _chatIdDestino)
-            .AddQueryParameter("parse_mode", "MarkdownV2")
-            .AddQueryParameter("text", Shared.Helpers.FormataMensagemParaEnvioTelegram(mensagem), encode: true);
-
-
-            try
-            {
-                var response = client.GetAsync(request).Result;
-
-                JObject obj = JObject.Parse(response.Content);
-
-                if (!(bool)obj["ok"])
-                {
-                    throw new Exception(response.Content.ToString());
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                if (!_isTesteEnvio)
-                {
-                    Shared.Helpers.EscreveArquivo(string.Format(@"{0}\LOGERRO-{1}.txt", _diretorioBackups, _uidRotinaBackup),
-                    string.Format("Erro ao Enviar a Mensagem de Notificação (Sucesso) para o Telegram.\n\nException: {0}\n\nInnerException: {1}",
-                    ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty));
-                }
-                else
-                {
-                    throw ex;
-                }
-
-                
-            }
-
+            await bot.SendTextMessageAsync(chatId, mensagem, ParseMode.Markdown);
         }
 
 
-        public void EnviaMensagemErro()
+        public async Task EnviaMensagemErro()
         {
             try
             {
-                string mensagem = string.Format("[ℹ] - *{0}*\n\n" +
+                var bot = new TelegramBotClient(_accessTokenBot);
+                var chatId = _chatIdDestino;
+
+                var mensagem = string.Format("[ℹ] - *{0}*\n\n" +
                "[❌] *Erro ao Realizar o Backup*.\n\n" +
                "*Uid da Rotina*: {1}\n\n" +
                "*Consulte o Log de Erro no Diretório de Backup da Rotina para mais Informações*\n\n" +
                 "_Você receberá a seguir o Log de Erro ao Criar o Backup, aguarde 🕓_\n\n",
                _identificador, _uidRotinaBackup);
 
-                var client = new RestClient(string.Format("{0}{1}/", BaseAPI.HostApi, _accessTokenBot));
-                var request = new RestRequest("sendMessage")
-                .AddQueryParameter("chat_id", _chatIdDestino)
-                .AddQueryParameter("parse_mode", "MarkdownV2")
-                .AddQueryParameter("text", Shared.Helpers.FormataMensagemParaEnvioTelegram(mensagem), encode: true);
+                await bot.SendTextMessageAsync(chatId, mensagem, ParseMode.Markdown);
 
-                var response = client.GetAsync(request).Result;
-
-                JObject obj = JObject.Parse(response.Content);
-
-                if (!(bool)obj["ok"])
-                {
-                    throw new Exception(response.Content.ToString());
-                }
             }
             catch (Exception ex)
             {
@@ -129,26 +90,18 @@ namespace Telegram
         {
             try
             {
-                using (var httpClient = new HttpClient())
+
+                var bot = new TelegramBotClient(_accessTokenBot);
+                var chatId = _chatIdDestino;
+                var arquivoLog = string.Format(@"{0}\{1}-{2}.txt", _diretorioBackups, tipoLog, _uidRotinaBackup);
+
+                using (FileStream fileStream = new FileStream(arquivoLog, FileMode.Open, FileAccess.Read))
                 {
-                    using (var request = new HttpRequestMessage(new HttpMethod("POST"), string.Format(string.Format("{0}{1}/sendDocument", BaseAPI.HostApi, _accessTokenBot))))
-                    {
-                        var multipartContent = new MultipartFormDataContent();
-                        multipartContent.Add(new StringContent(_chatIdDestino), "chat_id");
-                        multipartContent.Add(new ByteArrayContent(File.ReadAllBytes(string.Format(@"{0}\{1}-{2}.txt", _diretorioBackups, tipoLog, _uidRotinaBackup))),
-                            "document", Path.GetFileName(string.Format(@"{0}\{1}-{2}.txt", _diretorioBackups, tipoLog, _uidRotinaBackup)));
-                        request.Content = multipartContent;
-
-                        var response = await httpClient.SendAsync(request);
-
-                        JObject obj = JObject.Parse(response.Content.ToString());
-
-                        if (!(bool)obj["ok"])
-                        {
-                            throw new Exception(response.Content.ToString());
-                        }
-                    }
+                    var inputFile = new InputOnlineFile(fileStream, Path.GetFileName(string.Format(@"{0}\{1}-{2}.txt", _diretorioBackups, tipoLog, _uidRotinaBackup)));
+                    await bot.SendDocumentAsync(chatId, inputFile);
+                    fileStream.Dispose();
                 }
+                
             }
             catch (Exception ex)
             {

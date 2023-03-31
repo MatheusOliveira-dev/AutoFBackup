@@ -113,7 +113,7 @@ namespace FBackup
 
             Shared.Helpers.HabilitaDesabilitaInicializacaoComWindows(Configuracoes.ObtemConfiguracoes().Geral.IniciarComOWindows);
 
-            if (Configuracoes.ObtemConfiguracoes() != null && Configuracoes.ObtemConfiguracoes().Geral.BuscaAtualizacaoIniApp)
+            if (Configuracoes.ObtemConfiguracoes() != null && Configuracoes.ObtemConfiguracoes().Geral.BuscaAtualizacaoIniApp && !Program.emModoCLI)
             {
                 Atualizacoes.Atualizacoes atualizacoes = new Atualizacoes.Atualizacoes();
                 atualizacoes.AtualizaAplicacao();

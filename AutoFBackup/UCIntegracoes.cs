@@ -503,10 +503,6 @@ namespace FBackup
                         this.Invoke(new Action(delegate
                         {
                             btnTesteUploadFTP.Enabled = false;
-                        }));
-
-                        this.Invoke(new Action(delegate
-                        {
                             winIndicatorFTPTeste.Visible = true;
                         }));
 
@@ -528,10 +524,6 @@ namespace FBackup
                         this.Invoke(new Action(delegate
                         {
                             btnTesteUploadFTP.Enabled = true;
-                        }));
-
-                        this.Invoke(new Action(delegate
-                        {
                             winIndicatorFTPTeste.Visible = false;
                         }));
                     }
@@ -562,10 +554,6 @@ namespace FBackup
                         this.Invoke(new Action(delegate
                         {
                             btnTesteMegaNZ.Enabled = false;
-                        }));
-
-                        this.Invoke(new Action(delegate
-                        {
                             winIndicatorMegaNZTeste.Visible = true;
                         }));
 
@@ -588,12 +576,9 @@ namespace FBackup
                         this.Invoke(new Action(delegate
                         {
                             btnTesteMegaNZ.Enabled = true;
-                        }));
-
-                        this.Invoke(new Action(delegate
-                        {
                             winIndicatorMegaNZTeste.Visible = false;
                         }));
+
                     }
                 });
             }
@@ -617,10 +602,6 @@ namespace FBackup
                         this.Invoke(new Action(delegate
                         {
                             btnTesteEmail.Enabled = false;
-                        }));
-
-                        this.Invoke(new Action(delegate
-                        {
                             winIndicatorEmailTeste.Visible = true;
                         }));
 
@@ -645,10 +626,6 @@ namespace FBackup
                         this.Invoke(new Action(delegate
                         {
                             btnTesteEmail.Enabled = true;
-                        }));
-
-                        this.Invoke(new Action(delegate
-                        {
                             winIndicatorEmailTeste.Visible = false;
                         }));
                     }
@@ -656,7 +633,7 @@ namespace FBackup
             }
         }
 
-        private void btnTesteTelegram_Click(object sender, EventArgs e)
+        private async void btnTesteTelegram_Click(object sender, EventArgs e)
         {
             if (!ValidaTelegram())
             {
@@ -666,48 +643,39 @@ namespace FBackup
 
             if (MessageBox.Show("O AutoFBackup tentará realizar o Envio de uma Mensagem para o CHAT ID informado, utilizando o AccessToken do Bot.\n\nDeseja continuar?", "Teste de Envio com o Telegram", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                Task.Run(() =>
+                try
                 {
-                    try
+                    this.Invoke(new Action(delegate
                     {
-                        this.Invoke(new Action(delegate
-                        {
-                            btnTesteTelegram.Enabled = false;
-                        }));
+                        btnTesteTelegram.Enabled = false;
+                        winIndicatorTelegramTeste.Visible = true;
+                        btnBuscarChatID_Telegram.Enabled = false;
+                    }));
 
-                        this.Invoke(new Action(delegate
-                        {
-                            winIndicatorTelegramTeste.Visible = true;
-                        }));
+                    Telegram.Notificacao notificacao = new Telegram.Notificacao(tbAccessTokenBot_Telegram.Text.Trim(),
+                        tbChatIDDestino_Telegram.Text.Trim(), string.Empty, string.Empty,
+                        string.Empty, string.Empty, false, true);
 
-                        Telegram.Notificacao notificacao = new Telegram.Notificacao(tbAccessTokenBot_Telegram.Text.Trim(),
-                            tbChatIDDestino_Telegram.Text.Trim(), string.Empty, string.Empty,
-                            string.Empty, string.Empty, false, true);
+                    await notificacao.EnviaMensagemSucesso();
 
-                        notificacao.EnviaMensagemSucesso();
+                    MessageBox.Show("Mensagem enviada com sucesso!", "Teste de Envio com o Telegram - Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
-                        MessageBox.Show("Mensagem enviada com sucesso!", "Teste de Envio com o Telegram - Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(string.Format("Erro ao Realizar o Teste de Envio com o Telegram.\n\n Exception: {0}\n\nInnerException: {1}",
+                    ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty), "Teste de Envio com o Telegram - Erro", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
+                finally
+                {
 
-                    }
-                    catch (Exception ex)
+                    this.Invoke(new Action(delegate
                     {
-                        MessageBox.Show(string.Format("Erro ao Realizar o Teste de Envio com o Telegram.\n\n Exception: {0}\n\nInnerException: {1}",
-                        ex.Message, ex.InnerException != null ? ex.InnerException.Message : string.Empty), "Teste de Envio com o Telegram - Erro", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    }
-                    finally
-                    {
-
-                        this.Invoke(new Action(delegate
-                        {
-                            btnTesteTelegram.Enabled = true;
-                        }));
-
-                        this.Invoke(new Action(delegate
-                        {
-                            winIndicatorTelegramTeste.Visible = false;
-                        }));
-                    }
-                });
+                        btnTesteTelegram.Enabled = true;
+                        btnBuscarChatID_Telegram.Enabled = true;
+                        winIndicatorTelegramTeste.Visible = false;
+                    }));
+                }
             }
         }
     }
