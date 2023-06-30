@@ -38,7 +38,7 @@ assignees: ''
 
 ### Informações de Ambiente
 
-* Versão Firebird:
+* Versão Firebird (Versão Exata -> x.x.x):
 * Versão do Windows:
 
 
@@ -46,4 +46,4 @@ assignees: ''
 [Screenshots, logs, documentações de referência, etc]
 
 ## Possível Solução
-[Possui alguma ideia de como corrigir o problema? nos conte!]
+[Possui alguma ideia de como corrigir o problema? Se sim, como?]
