@@ -67,6 +67,16 @@ Se você tem sugestões de como tornar o projeto melhor, por favor, sigas os pas
 5. Faça o Push para a Branch (`git push origin feature/MinhaNovaFuncionalidade`)
 6. Abra um Pull Request
 
+## Doações
+
+O projeto é **gratuito** e **sempre será**. 
+
+No entanto, se ele te auxiliou de alguma forma, considere fazer uma doação. Todo e qualquer valor é bem-vindo. 
+Agradeço antecipadamente se o seu desejo for de incentivar o projeto financeiramente como forma de motivação ou agradecimento.
+
+- Chave PIX Nubank: **c70ee929-8230-45e7-9f71-766a16f1407d**
+
+
 ## Licença
 
 Distribuído sob a licença MIT. Veja `LICENSE.txt` para mais informações.
