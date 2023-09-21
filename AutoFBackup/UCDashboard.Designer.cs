@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rdBtnEmail = new Bunifu.UI.WinForms.BunifuRadioButton();
@@ -51,9 +51,10 @@
             this.label35 = new System.Windows.Forms.Label();
             this.dtGridViewRotinas = new Guna.UI2.WinForms.Guna2DataGridView();
             this.column_Identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_TipoRotina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_TipoFreqRotina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_Execucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_DiretorioBackups = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_Diretorio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_NomeRotinaJSON = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -283,7 +284,7 @@
             this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
             this.guna2GroupBox2.Size = new System.Drawing.Size(519, 402);
             this.guna2GroupBox2.TabIndex = 19;
-            this.guna2GroupBox2.Text = "Rotinas de Backup:";
+            this.guna2GroupBox2.Text = "Rotinas:";
             // 
             // label6
             // 
@@ -312,36 +313,37 @@
             // 
             this.dtGridViewRotinas.AllowUserToAddRows = false;
             this.dtGridViewRotinas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dtGridViewRotinas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dtGridViewRotinas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtGridViewRotinas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtGridViewRotinas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.dtGridViewRotinas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtGridViewRotinas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtGridViewRotinas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewRotinas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewRotinas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewRotinas.ColumnHeadersHeight = 17;
             this.dtGridViewRotinas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.column_Identificador,
-            this.column_Tipo,
+            this.column_TipoRotina,
+            this.column_TipoFreqRotina,
             this.column_Execucao,
-            this.column_DiretorioBackups,
+            this.column_Diretorio,
             this.column_NomeRotinaJSON});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtGridViewRotinas.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtGridViewRotinas.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtGridViewRotinas.EnableHeadersVisualStyles = false;
             this.dtGridViewRotinas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.dtGridViewRotinas.Location = new System.Drawing.Point(0, 46);
@@ -361,7 +363,7 @@
             this.dtGridViewRotinas.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.dtGridViewRotinas.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
             this.dtGridViewRotinas.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtGridViewRotinas.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtGridViewRotinas.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtGridViewRotinas.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dtGridViewRotinas.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtGridViewRotinas.ThemeStyle.HeaderStyle.Height = 17;
@@ -386,13 +388,20 @@
             this.column_Identificador.ReadOnly = true;
             this.column_Identificador.Width = 97;
             // 
-            // column_Tipo
+            // column_TipoRotina
             // 
-            this.column_Tipo.FillWeight = 150F;
-            this.column_Tipo.HeaderText = "Tipo";
-            this.column_Tipo.Name = "column_Tipo";
-            this.column_Tipo.ReadOnly = true;
-            this.column_Tipo.Width = 53;
+            this.column_TipoRotina.HeaderText = "Tipo de Rotina";
+            this.column_TipoRotina.Name = "column_TipoRotina";
+            this.column_TipoRotina.ReadOnly = true;
+            this.column_TipoRotina.Width = 106;
+            // 
+            // column_TipoFreqRotina
+            // 
+            this.column_TipoFreqRotina.FillWeight = 150F;
+            this.column_TipoFreqRotina.HeaderText = "Frequência";
+            this.column_TipoFreqRotina.Name = "column_TipoFreqRotina";
+            this.column_TipoFreqRotina.ReadOnly = true;
+            this.column_TipoFreqRotina.Width = 88;
             // 
             // column_Execucao
             // 
@@ -402,20 +411,20 @@
             this.column_Execucao.ReadOnly = true;
             this.column_Execucao.Width = 80;
             // 
-            // column_DiretorioBackups
+            // column_Diretorio
             // 
-            this.column_DiretorioBackups.HeaderText = "Diretório de Backups";
-            this.column_DiretorioBackups.Name = "column_DiretorioBackups";
-            this.column_DiretorioBackups.ReadOnly = true;
-            this.column_DiretorioBackups.Width = 139;
+            this.column_Diretorio.HeaderText = "Diretório de Backups / Monitoramento Replicação de Dados";
+            this.column_Diretorio.Name = "column_Diretorio";
+            this.column_Diretorio.ReadOnly = true;
+            this.column_Diretorio.Width = 346;
             // 
             // column_NomeRotinaJSON
             // 
             this.column_NomeRotinaJSON.FillWeight = 200F;
-            this.column_NomeRotinaJSON.HeaderText = "JSON Rotina Backup";
+            this.column_NomeRotinaJSON.HeaderText = "JSON Rotina";
             this.column_NomeRotinaJSON.Name = "column_NomeRotinaJSON";
             this.column_NomeRotinaJSON.ReadOnly = true;
-            this.column_NomeRotinaJSON.Width = 137;
+            this.column_NomeRotinaJSON.Width = 95;
             // 
             // UCDashboard
             // 
@@ -460,12 +469,13 @@
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
         private Guna.UI2.WinForms.Guna2DataGridView dtGridViewRotinas;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_Identificador;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column_Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column_TipoRotina;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column_TipoFreqRotina;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_Execucao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column_DiretorioBackups;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column_Diretorio;
         private System.Windows.Forms.DataGridViewTextBoxColumn column_NomeRotinaJSON;
-        private System.Windows.Forms.Label label6;
     }
 }

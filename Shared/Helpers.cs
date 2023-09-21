@@ -20,10 +20,32 @@ namespace Shared
             System.IO.File.WriteAllText(arquivo, conteudo);
         }
 
-        public static void EscreveArquivo(string arquivo, string conteudo)
+        public static void EscreveArquivo(string arquivo, string conteudo, string tipoArquivo = "ERRO")
         {
 
-            conteudo = string.Format("\n\n[X] {0} [{1}-{2}]", conteudo, DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+            string symbolTipoArquivo = string.Empty;
+
+            switch (tipoArquivo.ToUpper())
+            {
+                case "ERRO":
+                    symbolTipoArquivo = "X";
+                    break;
+
+                case "SUCESSO":
+                    symbolTipoArquivo = "OK";
+                    break;
+
+                case "INFORMACAO":
+                    symbolTipoArquivo = "*";
+                    break;
+
+                case "AVISO":
+                    symbolTipoArquivo = "!!";
+                    break;
+
+            }
+
+            conteudo = string.Format("\n\n[{0}] {1} [{2}-{3}]", symbolTipoArquivo, conteudo, DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
 
             System.IO.File.AppendAllText(arquivo, conteudo);
         }

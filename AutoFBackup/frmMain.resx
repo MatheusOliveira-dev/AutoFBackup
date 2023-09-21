@@ -121,7 +121,7 @@
   <data name="btnAtualizarApp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAABF9JREFUeF7tm19klXEYx2dmZpLM7GJmsotdzCRJF0kySbrIJMkkSWYyyS6SSUwy
+        vwAADr8BOAVTJAAABF9JREFUeF7tm19klXEYx2dmZpLM7GJmsotdzCRJF0kySbrIJMkkSWYyyS6SSUwy
         6SIzXXQxkyRJsovMJMkuupjsIukiSZIkSZIkWZ/vOc+Z09s5Z+c95/d733fnPR++svO+7/PnnPf3/6lh
         vbCysrIPnbQ/0wfJ30LfUY99lB5Iuhl9ReIJarRL6YCE9frnM2qX0gEJX8/mvUq6mgLJvsuk/S/paAok
         uS2TbmFO2221C0leyuZakPXVFAi2EfWhIXQBTaEZdBNpmNO/N9AkGkEH0CtUiscouU2B4FrRUXQXfUY+
@@ -281,7 +281,7 @@
     <value>363, 18</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>136</value>
+    <value>109</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

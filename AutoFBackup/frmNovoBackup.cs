@@ -22,6 +22,7 @@ namespace FBackup
         {
             InitializeComponent();
             dpDownFrequenciaBackups.selectedIndex = 0;
+            dpDownExtensaoArquivoBackup.selectedIndex = 0;
             tbControl.SelectedIndex = 0;
             this.frmMain = frmMain;
         }
@@ -247,7 +248,7 @@ namespace FBackup
 
         private void CriaRotinaBackup()
         {
-            Backup.Backup backup = new Backup.Backup();
+            Rotinas.Rotinas rotinas = new Rotinas.Rotinas();
 
             Root_Backup rootBackup = new Root_Backup();
 
@@ -270,8 +271,9 @@ namespace FBackup
 
 
             criacaoBackup_Backup.Diretorio_Backup = tbDiretorioBackups.Text;
+            
 
-            Tuple<string, string, string, List<string>> frequenciaBackups = ObtemDadosFrequenciaBackupSelecionada();
+            Tuple<string, string, string, List<string>> frequenciaBackups = ObtemDadosFrequenciaSelecionada();
 
             frequencia_Backup.Tipo = frequenciaBackups.Item1;
             frequencia_Backup.Hora = frequenciaBackups.Item2;
@@ -288,7 +290,7 @@ namespace FBackup
 
             backupsAntigosLocal_Backup.Ativo = chbxExcluirBackupsAntigos.Checked;
             backupsAntigosLocal_Backup.Dias = nmUpDownDiasExcluirBackupsAntigos.Value.ToString();
-
+            backupsAntigosLocal_Backup.HabilitarExclusaoExtensoesDifBkp = chbxHabilitarExclusaoExtensoesDifFbkLocal.Checked;
 
             executaGfix_Backup.Ativo = chbxExecutaGFIX.Checked;
             executaGfix_Backup.CaminhoGfix = tbDiretorioGFIX.Text;
@@ -306,6 +308,7 @@ namespace FBackup
             opcoes_CriacaoBackup_Backup.AplicativoPosBackup = aplicativoPosBackup_Backup;
             opcoes_CriacaoBackup_Backup.ExcluirBackupsAntigosLocal = backupsAntigosLocal_Backup;
             opcoes_CriacaoBackup_Backup.ExecutaGfix = executaGfix_Backup;
+            opcoes_CriacaoBackup_Backup.ExtensaoBackup = dpDownExtensaoArquivoBackup.selectedValue.ToString();
 
             criacaoBackup_Backup.Opcoes = opcoes_CriacaoBackup_Backup;
 
@@ -379,6 +382,7 @@ namespace FBackup
 
             excluirBackupsAntigos_FTP_Backup.Ativo = chbxExcluiBackupsAntigos_FTP.Checked;
             excluirBackupsAntigos_FTP_Backup.Dias = DiasExcluirBackupsAntigos_FTP.Value.ToString();
+            excluirBackupsAntigos_FTP_Backup.HabilitarExclusaoExtensoesDifBkp = chbxHabilitarExclusaoExtensoesDifFbkFTP.Checked;
 
             opcoes_FTP_Backup.ExcluirBackupsAntigos = excluirBackupsAntigos_FTP_Backup;
 
@@ -392,7 +396,7 @@ namespace FBackup
 
             rootBackup.Integracoes = integracoes_Backup;
 
-            backup.CriaRotinaBackup(rootBackup);
+            rotinas.CriaArquivoRotina(rootBackup, true);
 
             this.frmMain.Re_InicializaRotinas = true;
 
@@ -402,7 +406,7 @@ namespace FBackup
             this.Close();
         }
 
-        private Tuple<string, string, string, List<string>> ObtemDadosFrequenciaBackupSelecionada()
+        private Tuple<string, string, string, List<string>> ObtemDadosFrequenciaSelecionada()
         {
             List<string> diasSemana = new List<string>();
             
@@ -463,6 +467,7 @@ namespace FBackup
 
             chbxExcluirBackupsAntigos.Checked = configuracoesJson.Backups.ExcluirBackupsAntigosLocal.Ativo;
             nmUpDownDiasExcluirBackupsAntigos.Value = Shared.Helpers.ConverteStringParaNumero(configuracoesJson.Backups.ExcluirBackupsAntigosLocal.Dias);
+            chbxHabilitarExclusaoExtensoesDifFbkLocal.Checked = configuracoesJson.Backups.ExcluirBackupsAntigosLocal.HabilitarExclusaoExtensoesDifFbk;
 
             if (configuracoesJson.Backups.ExecutaGfix != null)
             {
@@ -470,6 +475,21 @@ namespace FBackup
                 tbDiretorioGFIX.Text = configuracoesJson.Backups.ExecutaGfix.CaminhoGfix;
                 tbArgumentosGFIX.Text = configuracoesJson.Backups.ExecutaGfix.ArgumentosGfix;
             }
+
+            if (configuracoesJson.Backups.ExtensaoBackup != null)
+            {
+                switch (configuracoesJson.Backups.ExtensaoBackup.ToUpper())
+                {
+                    case ".FBK":
+                        dpDownExtensaoArquivoBackup.selectedIndex = 0;
+                        break;
+                    case ".BCK":
+                        dpDownExtensaoArquivoBackup.selectedIndex = 1;
+                        break;
+                }
+            }
+
+           
         }
         private void CarregaIntegracaoTelegram()
         {
@@ -533,6 +553,7 @@ namespace FBackup
                 chbxExcluiBackupsAntigos_FTP.Checked = rootFTP.Envio.Opcoes.ExcluirBackupsAntigos.Ativo;
                 DiasExcluirBackupsAntigos_FTP.Value = Shared.Helpers.ConverteStringParaNumero(rootFTP.Envio.Opcoes.ExcluirBackupsAntigos.Dias);
                 tbDiretorio_FTP.Text = rootFTP.Envio.Diretorio;
+                chbxHabilitarExclusaoExtensoesDifFbkFTP.Checked = rootFTP.Envio.Opcoes.ExcluirBackupsAntigos.HabilitarExclusaoExtensoesDifFbk;
             }
         }
 
@@ -675,11 +696,15 @@ namespace FBackup
         private void lblExplicacaoExclusaoBackupsAntigos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("O AutoFBackup excluirá qualquer arquivo que possua uma extensão do tipo ZIP ou FBK e se enquadre na regra de Exclusão de Dias informada.\nPortanto, cuidado ao salvar arquivos pessoais no Diretório de Backups Remoto se essa opção estiver ativa.", "Exclusão de Backups Antigos", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            MessageBox.Show("Se marcado a opção: 'Habilitar Exclusão de Arquivos de Backup com extensão diferente de .FBK', arquivos da exntesão .BCK que se enquadrem na regra de Exclusão de Dias informada também serão excluídos", "Exclusão de Backups Antigos - Outras Extensões", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
         }
 
         private void lblExplicacaoExclusaoBackupsAntigos1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("O AutoFBackup excluirá qualquer arquivo que possua uma extensão do tipo ZIP ou FBK e se enquadre na Regra de Exclusão de Dias informada.\nPortanto, cuidado ao salvar arquivos pessoais no Diretório de Backups Local se essa opção estiver ativa.", "Exclusão de Backups Antigos", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            MessageBox.Show("Se marcado a opção: 'Habilitar Exclusão de Arquivos de Backup com extensão diferente de .FBK', arquivos da exntesão .BCK que se enquadrem na regra de Exclusão de Dias informada também serão excluídos", "Exclusão de Backups Antigos - Outras Extensões", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
         }
 
         private void lblAvisoGfix_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -742,6 +767,16 @@ namespace FBackup
                 "-use: use full or reserve space for versions\n" +
                 "-validate: validate database structure\n" +
                 "-write: write synchronously or asynchronously\n\n\nFonte: https://www.firebirdsql.org/pdfmanual/html/gfix-cmdline.html", "Argumentos do GFIX", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+        }
+
+        private void dpDownExtensaoArquivoBackup_onItemSelected(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dpDownFrequenciaBackupHoraMinuto_onItemSelected(object sender, EventArgs e)
+        {
+
         }
     }
 }

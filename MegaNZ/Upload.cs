@@ -10,7 +10,7 @@ namespace MegaNZ
     public class Upload
     {
         public void ExecutaUpload(string email, string senha, string pasta, 
-            string diretorioBackups, string uidRotinaBackup, bool compactado,
+            string diretorioBackups, string uidRotinaBackup, bool compactado, string extensaoBackup,
             bool isTesteUpload = false, string arquivoTesteUpload = "")
         {
 
@@ -22,7 +22,7 @@ namespace MegaNZ
             }
             else
             {
-                backupParaUpload += ".fbk";
+                backupParaUpload += extensaoBackup;
             }
 
             MegaApiClient client = new MegaApiClient();
@@ -52,7 +52,8 @@ namespace MegaNZ
             }
             finally
             {
-                client.Logout();
+                if (client.IsLoggedIn)
+                    client.Logout();
             }
         }
     }

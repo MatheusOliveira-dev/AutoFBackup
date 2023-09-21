@@ -15,7 +15,6 @@ using FBackup.Enums;
 using FluentScheduler;
 using Models;
 using Newtonsoft.Json;
-using static Backup.Backup;
 using static Models.Backup;
 
 namespace FBackup
@@ -51,7 +50,7 @@ namespace FBackup
 
                 Root_Backup root_Backup = JsonConvert.DeserializeObject<Root_Backup>(Shared.Helpers.LeArquivo(Program.arquivoJSONRotinaBackup));
 
-                Backup.Backup.ExecutaJobBackup executaJobBackup = new Backup.Backup.ExecutaJobBackup(root_Backup);
+                Rotinas.Rotinas.ExecutaJobRotina executaJobBackup = new Rotinas.Rotinas.ExecutaJobRotina(root_Backup, true);
 
                 Task task = Task.Run(() => executaJobBackup.Execute());
 
@@ -71,8 +70,8 @@ namespace FBackup
                 {
                     JobManager.RemoveAllJobs();
 
-                    Backup.Backup backup = new Backup.Backup();
-                    JobManager.Initialize(new RegistroTarefasAgendadas(backup.ObtemRotinasBackups()));
+                    Rotinas.Rotinas rotinas = new Rotinas.Rotinas();
+                    JobManager.Initialize(new Rotinas.Rotinas.RegistroTarefasAgendadas(rotinas.ObtemArquivosRotinas()));
 
                     Configuracoes.Configuracoes Configuracoes = new Configuracoes.Configuracoes();
 
@@ -230,19 +229,19 @@ namespace FBackup
             {
                 using (frmSenhaAcesso frmSenhaAcesso = new frmSenhaAcesso(TipoAcessos.Botao))
                 {
-                    DialogResult dr = frmSenhaAcesso.ShowDialog();
+                    DialogResult drSenhaAcesso = frmSenhaAcesso.ShowDialog();
 
-                    if (dr == DialogResult.OK)
+                    if (drSenhaAcesso == DialogResult.OK)
                     {
-                        frmNovoBackup frmNovoBackup = new frmNovoBackup(this);
-                        frmNovoBackup.ShowDialog();
+                        frmEscolhaTipoRotina frmEscolhaTipoRotina = new frmEscolhaTipoRotina(this);
+                        frmEscolhaTipoRotina.ShowDialog();
                     }
                 }
             }
             else
             {
-                frmNovoBackup frmNovoBackup = new frmNovoBackup(this);
-                frmNovoBackup.ShowDialog();
+                frmEscolhaTipoRotina frmEscolhaTipoRotina = new frmEscolhaTipoRotina(this);
+                frmEscolhaTipoRotina.ShowDialog();
             }
         }
 

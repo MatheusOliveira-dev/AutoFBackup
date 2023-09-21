@@ -33,6 +33,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbControl = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.chbxBloquearMultiplasInstancias = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbxExibirConteudoRecomendado = new Guna.UI2.WinForms.Guna2CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbSenhaFecharApp = new Guna.UI2.WinForms.Guna2TextBox();
@@ -43,6 +44,9 @@
             this.chbxIniciarComOWindows = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbxBuscaAtualizacoesIni = new Guna.UI2.WinForms.Guna2CheckBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.dpDownExtensaoArquivoBackup = new Bunifu.Framework.UI.BunifuDropdown();
             this.chbxAguardarConclusaoAplicativoPreBackup = new Guna.UI2.WinForms.Guna2CheckBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.chbxExecutaGFIX = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -80,7 +84,6 @@
             this.bunifuElipseBtnAppPreBackup = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipseBtnAppPosBackup = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipseBtnDiretorioGFIX = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.chbxBloquearMultiplasInstancias = new Guna.UI2.WinForms.Guna2CheckBox();
             this.tbControl.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -108,7 +111,7 @@
             this.tbControl.Location = new System.Drawing.Point(8, 43);
             this.tbControl.Multiline = true;
             this.tbControl.Name = "tbControl";
-            this.tbControl.SelectedIndex = 0;
+            this.tbControl.SelectedIndex = 1;
             this.tbControl.ShowToolTips = true;
             this.tbControl.Size = new System.Drawing.Size(560, 464);
             this.tbControl.TabIndex = 14;
@@ -140,6 +143,25 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // chbxBloquearMultiplasInstancias
+            // 
+            this.chbxBloquearMultiplasInstancias.AutoSize = true;
+            this.chbxBloquearMultiplasInstancias.BackColor = System.Drawing.Color.Transparent;
+            this.chbxBloquearMultiplasInstancias.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxBloquearMultiplasInstancias.CheckedState.BorderRadius = 2;
+            this.chbxBloquearMultiplasInstancias.CheckedState.BorderThickness = 0;
+            this.chbxBloquearMultiplasInstancias.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxBloquearMultiplasInstancias.Location = new System.Drawing.Point(9, 234);
+            this.chbxBloquearMultiplasInstancias.Name = "chbxBloquearMultiplasInstancias";
+            this.chbxBloquearMultiplasInstancias.Size = new System.Drawing.Size(177, 17);
+            this.chbxBloquearMultiplasInstancias.TabIndex = 23;
+            this.chbxBloquearMultiplasInstancias.Text = "Bloquear Múltiplas Instâncias";
+            this.chbxBloquearMultiplasInstancias.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxBloquearMultiplasInstancias.UncheckedState.BorderRadius = 2;
+            this.chbxBloquearMultiplasInstancias.UncheckedState.BorderThickness = 0;
+            this.chbxBloquearMultiplasInstancias.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxBloquearMultiplasInstancias.UseVisualStyleBackColor = false;
             // 
             // chbxExibirConteudoRecomendado
             // 
@@ -308,6 +330,9 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.label23);
+            this.metroTabPage2.Controls.Add(this.chbxHabilitarExclusaoExtensoesDifFbkLocal);
+            this.metroTabPage2.Controls.Add(this.dpDownExtensaoArquivoBackup);
             this.metroTabPage2.Controls.Add(this.chbxAguardarConclusaoAplicativoPreBackup);
             this.metroTabPage2.Controls.Add(this.panel8);
             this.metroTabPage2.Controls.Add(this.gpbxGFIX);
@@ -342,6 +367,55 @@
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label23.Location = new System.Drawing.Point(5, 399);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(169, 13);
+            this.label23.TabIndex = 66;
+            this.label23.Text = "Formato do Arquivo de Backup:";
+            // 
+            // chbxHabilitarExclusaoExtensoesDifFbkLocal
+            // 
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.AutoSize = true;
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.BackColor = System.Drawing.Color.Transparent;
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.CheckedState.BorderRadius = 2;
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.CheckedState.BorderThickness = 0;
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.Location = new System.Drawing.Point(326, 393);
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.Name = "chbxHabilitarExclusaoExtensoesDifFbkLocal";
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.Size = new System.Drawing.Size(227, 30);
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.TabIndex = 24;
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.Text = "Habilitar Exclusão de Arquivos de Backup \r\ncom extensão diferente de .FBK";
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.UncheckedState.BorderRadius = 2;
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.UncheckedState.BorderThickness = 0;
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxHabilitarExclusaoExtensoesDifFbkLocal.UseVisualStyleBackColor = false;
+            // 
+            // dpDownExtensaoArquivoBackup
+            // 
+            this.dpDownExtensaoArquivoBackup.BackColor = System.Drawing.Color.Transparent;
+            this.dpDownExtensaoArquivoBackup.BorderRadius = 3;
+            this.dpDownExtensaoArquivoBackup.DisabledColor = System.Drawing.Color.Gray;
+            this.dpDownExtensaoArquivoBackup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpDownExtensaoArquivoBackup.ForeColor = System.Drawing.Color.White;
+            this.dpDownExtensaoArquivoBackup.items = new string[] {
+        ".fbk",
+        ".bck"};
+            this.dpDownExtensaoArquivoBackup.Location = new System.Drawing.Point(177, 395);
+            this.dpDownExtensaoArquivoBackup.Name = "dpDownExtensaoArquivoBackup";
+            this.dpDownExtensaoArquivoBackup.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.dpDownExtensaoArquivoBackup.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.dpDownExtensaoArquivoBackup.selectedIndex = -1;
+            this.dpDownExtensaoArquivoBackup.Size = new System.Drawing.Size(78, 25);
+            this.dpDownExtensaoArquivoBackup.TabIndex = 65;
+            this.dpDownExtensaoArquivoBackup.onItemSelected += new System.EventHandler(this.dpDownExtensaoArquivoBackup_onItemSelected);
+            // 
             // chbxAguardarConclusaoAplicativoPreBackup
             // 
             this.chbxAguardarConclusaoAplicativoPreBackup.AutoSize = true;
@@ -351,7 +425,7 @@
             this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.BorderThickness = 0;
             this.chbxAguardarConclusaoAplicativoPreBackup.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
             this.chbxAguardarConclusaoAplicativoPreBackup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxAguardarConclusaoAplicativoPreBackup.Location = new System.Drawing.Point(422, 280);
+            this.chbxAguardarConclusaoAplicativoPreBackup.Location = new System.Drawing.Point(422, 259);
             this.chbxAguardarConclusaoAplicativoPreBackup.Name = "chbxAguardarConclusaoAplicativoPreBackup";
             this.chbxAguardarConclusaoAplicativoPreBackup.Size = new System.Drawing.Size(131, 17);
             this.chbxAguardarConclusaoAplicativoPreBackup.TabIndex = 64;
@@ -367,7 +441,7 @@
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.panel8.Controls.Add(this.chbxExecutaGFIX);
             this.panel8.Controls.Add(this.lblAvisoGfix);
-            this.panel8.Location = new System.Drawing.Point(104, 176);
+            this.panel8.Location = new System.Drawing.Point(104, 159);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(386, 31);
             this.panel8.TabIndex = 63;
@@ -420,9 +494,9 @@
             this.gpbxGFIX.Controls.Add(this.label37);
             this.gpbxGFIX.Controls.Add(this.label36);
             this.gpbxGFIX.Enabled = false;
-            this.gpbxGFIX.Location = new System.Drawing.Point(104, 169);
+            this.gpbxGFIX.Location = new System.Drawing.Point(104, 160);
             this.gpbxGFIX.Name = "gpbxGFIX";
-            this.gpbxGFIX.Size = new System.Drawing.Size(386, 102);
+            this.gpbxGFIX.Size = new System.Drawing.Size(386, 92);
             this.gpbxGFIX.TabIndex = 58;
             this.gpbxGFIX.TabStop = false;
             // 
@@ -433,7 +507,7 @@
             this.lblAvisoArgumentosGfix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblAvisoArgumentosGfix.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.lblAvisoArgumentosGfix.LinkColor = System.Drawing.Color.Red;
-            this.lblAvisoArgumentosGfix.Location = new System.Drawing.Point(334, 74);
+            this.lblAvisoArgumentosGfix.Location = new System.Drawing.Point(334, 64);
             this.lblAvisoArgumentosGfix.Name = "lblAvisoArgumentosGfix";
             this.lblAvisoArgumentosGfix.Size = new System.Drawing.Size(28, 19);
             this.lblAvisoArgumentosGfix.TabIndex = 62;
@@ -456,7 +530,7 @@
             this.tbArgumentosGFIX.ForeColor = System.Drawing.Color.Black;
             this.tbArgumentosGFIX.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbArgumentosGFIX.HoverState.Parent = this.tbArgumentosGFIX;
-            this.tbArgumentosGFIX.Location = new System.Drawing.Point(84, 72);
+            this.tbArgumentosGFIX.Location = new System.Drawing.Point(84, 62);
             this.tbArgumentosGFIX.Name = "tbArgumentosGFIX";
             this.tbArgumentosGFIX.PasswordChar = '\0';
             this.tbArgumentosGFIX.PlaceholderText = "";
@@ -480,7 +554,7 @@
             this.tbDiretorioGFIX.ForeColor = System.Drawing.Color.Black;
             this.tbDiretorioGFIX.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbDiretorioGFIX.HoverState.Parent = this.tbDiretorioGFIX;
-            this.tbDiretorioGFIX.Location = new System.Drawing.Point(84, 44);
+            this.tbDiretorioGFIX.Location = new System.Drawing.Point(84, 34);
             this.tbDiretorioGFIX.Name = "tbDiretorioGFIX";
             this.tbDiretorioGFIX.PasswordChar = '\0';
             this.tbDiretorioGFIX.PlaceholderText = "";
@@ -500,7 +574,7 @@
             this.btnDiretorioGFIX.ForeColor = System.Drawing.Color.White;
             this.btnDiretorioGFIX.HoverState.Parent = this.btnDiretorioGFIX;
             this.btnDiretorioGFIX.Image = ((System.Drawing.Image)(resources.GetObject("btnDiretorioGFIX.Image")));
-            this.btnDiretorioGFIX.Location = new System.Drawing.Point(334, 44);
+            this.btnDiretorioGFIX.Location = new System.Drawing.Point(334, 34);
             this.btnDiretorioGFIX.Name = "btnDiretorioGFIX";
             this.btnDiretorioGFIX.ShadowDecoration.Parent = this.btnDiretorioGFIX;
             this.btnDiretorioGFIX.Size = new System.Drawing.Size(46, 24);
@@ -512,7 +586,7 @@
             this.label37.AutoSize = true;
             this.label37.BackColor = System.Drawing.Color.Transparent;
             this.label37.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label37.Location = new System.Drawing.Point(25, 44);
+            this.label37.Location = new System.Drawing.Point(25, 34);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(53, 26);
             this.label37.TabIndex = 59;
@@ -523,7 +597,7 @@
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.Color.Transparent;
             this.label36.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label36.Location = new System.Drawing.Point(8, 72);
+            this.label36.Location = new System.Drawing.Point(8, 62);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(70, 26);
             this.label36.TabIndex = 58;
@@ -534,7 +608,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label2.Location = new System.Drawing.Point(-3, 76);
+            this.label2.Location = new System.Drawing.Point(-3, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 26);
             this.label2.TabIndex = 41;
@@ -545,7 +619,7 @@
             this.lblExplicacaoFlags.AutoSize = true;
             this.lblExplicacaoFlags.BackColor = System.Drawing.Color.Transparent;
             this.lblExplicacaoFlags.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExplicacaoFlags.Location = new System.Drawing.Point(491, 89);
+            this.lblExplicacaoFlags.Location = new System.Drawing.Point(491, 80);
             this.lblExplicacaoFlags.Name = "lblExplicacaoFlags";
             this.lblExplicacaoFlags.Size = new System.Drawing.Size(62, 26);
             this.lblExplicacaoFlags.TabIndex = 35;
@@ -559,7 +633,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label8.Location = new System.Drawing.Point(365, 401);
+            this.label8.Location = new System.Drawing.Point(317, 373);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(188, 13);
             this.label8.TabIndex = 34;
@@ -579,10 +653,10 @@
             this.nmUpDownDiasExcluirBackupsAntigos.FocusedState.Parent = this.nmUpDownDiasExcluirBackupsAntigos;
             this.nmUpDownDiasExcluirBackupsAntigos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nmUpDownDiasExcluirBackupsAntigos.ForeColor = System.Drawing.Color.Black;
-            this.nmUpDownDiasExcluirBackupsAntigos.Location = new System.Drawing.Point(291, 394);
+            this.nmUpDownDiasExcluirBackupsAntigos.Location = new System.Drawing.Point(263, 366);
             this.nmUpDownDiasExcluirBackupsAntigos.Name = "nmUpDownDiasExcluirBackupsAntigos";
             this.nmUpDownDiasExcluirBackupsAntigos.ShadowDecoration.Parent = this.nmUpDownDiasExcluirBackupsAntigos;
-            this.nmUpDownDiasExcluirBackupsAntigos.Size = new System.Drawing.Size(68, 26);
+            this.nmUpDownDiasExcluirBackupsAntigos.Size = new System.Drawing.Size(49, 26);
             this.nmUpDownDiasExcluirBackupsAntigos.TabIndex = 33;
             this.nmUpDownDiasExcluirBackupsAntigos.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
             // 
@@ -595,7 +669,7 @@
             this.chbxExcluirBackupsAntigos.CheckedState.BorderThickness = 0;
             this.chbxExcluirBackupsAntigos.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
             this.chbxExcluirBackupsAntigos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxExcluirBackupsAntigos.Location = new System.Drawing.Point(28, 400);
+            this.chbxExcluirBackupsAntigos.Location = new System.Drawing.Point(8, 372);
             this.chbxExcluirBackupsAntigos.Name = "chbxExcluirBackupsAntigos";
             this.chbxExcluirBackupsAntigos.Size = new System.Drawing.Size(257, 17);
             this.chbxExcluirBackupsAntigos.TabIndex = 32;
@@ -611,7 +685,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label6.Location = new System.Drawing.Point(25, 372);
+            this.label6.Location = new System.Drawing.Point(25, 344);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 13);
             this.label6.TabIndex = 31;
@@ -631,7 +705,7 @@
             this.tbArgumentosPosBackup.ForeColor = System.Drawing.Color.Black;
             this.tbArgumentosPosBackup.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbArgumentosPosBackup.HoverState.Parent = this.tbArgumentosPosBackup;
-            this.tbArgumentosPosBackup.Location = new System.Drawing.Point(104, 367);
+            this.tbArgumentosPosBackup.Location = new System.Drawing.Point(104, 339);
             this.tbArgumentosPosBackup.Name = "tbArgumentosPosBackup";
             this.tbArgumentosPosBackup.PasswordChar = '\0';
             this.tbArgumentosPosBackup.PlaceholderText = "";
@@ -650,7 +724,7 @@
             this.btnDiretorioAppPosBackup.ForeColor = System.Drawing.Color.White;
             this.btnDiretorioAppPosBackup.HoverState.Parent = this.btnDiretorioAppPosBackup;
             this.btnDiretorioAppPosBackup.Image = ((System.Drawing.Image)(resources.GetObject("btnDiretorioAppPosBackup.Image")));
-            this.btnDiretorioAppPosBackup.Location = new System.Drawing.Point(496, 337);
+            this.btnDiretorioAppPosBackup.Location = new System.Drawing.Point(496, 312);
             this.btnDiretorioAppPosBackup.Name = "btnDiretorioAppPosBackup";
             this.btnDiretorioAppPosBackup.ShadowDecoration.Parent = this.btnDiretorioAppPosBackup;
             this.btnDiretorioAppPosBackup.Size = new System.Drawing.Size(46, 24);
@@ -662,7 +736,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label7.Location = new System.Drawing.Point(-4, 335);
+            this.label7.Location = new System.Drawing.Point(-4, 309);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 26);
             this.label7.TabIndex = 28;
@@ -683,7 +757,7 @@
             this.tbAplicativoPosBackup.ForeColor = System.Drawing.Color.Black;
             this.tbAplicativoPosBackup.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbAplicativoPosBackup.HoverState.Parent = this.tbAplicativoPosBackup;
-            this.tbAplicativoPosBackup.Location = new System.Drawing.Point(104, 337);
+            this.tbAplicativoPosBackup.Location = new System.Drawing.Point(104, 311);
             this.tbAplicativoPosBackup.Name = "tbAplicativoPosBackup";
             this.tbAplicativoPosBackup.PasswordChar = '\0';
             this.tbAplicativoPosBackup.PlaceholderText = "";
@@ -697,7 +771,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label5.Location = new System.Drawing.Point(25, 311);
+            this.label5.Location = new System.Drawing.Point(25, 288);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 13);
             this.label5.TabIndex = 26;
@@ -717,7 +791,7 @@
             this.tbArgumentosPreBackup.ForeColor = System.Drawing.Color.Black;
             this.tbArgumentosPreBackup.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbArgumentosPreBackup.HoverState.Parent = this.tbArgumentosPreBackup;
-            this.tbArgumentosPreBackup.Location = new System.Drawing.Point(104, 306);
+            this.tbArgumentosPreBackup.Location = new System.Drawing.Point(104, 283);
             this.tbArgumentosPreBackup.Name = "tbArgumentosPreBackup";
             this.tbArgumentosPreBackup.PasswordChar = '\0';
             this.tbArgumentosPreBackup.PlaceholderText = "";
@@ -736,7 +810,7 @@
             this.btnDiretorioAppPreBackup.ForeColor = System.Drawing.Color.White;
             this.btnDiretorioAppPreBackup.HoverState.Parent = this.btnDiretorioAppPreBackup;
             this.btnDiretorioAppPreBackup.Image = ((System.Drawing.Image)(resources.GetObject("btnDiretorioAppPreBackup.Image")));
-            this.btnDiretorioAppPreBackup.Location = new System.Drawing.Point(368, 276);
+            this.btnDiretorioAppPreBackup.Location = new System.Drawing.Point(368, 255);
             this.btnDiretorioAppPreBackup.Name = "btnDiretorioAppPreBackup";
             this.btnDiretorioAppPreBackup.ShadowDecoration.Parent = this.btnDiretorioAppPreBackup;
             this.btnDiretorioAppPreBackup.Size = new System.Drawing.Size(46, 24);
@@ -748,7 +822,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label3.Location = new System.Drawing.Point(-1, 274);
+            this.label3.Location = new System.Drawing.Point(-1, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 26);
             this.label3.TabIndex = 23;
@@ -769,7 +843,7 @@
             this.tbAplicativoPreBackup.ForeColor = System.Drawing.Color.Black;
             this.tbAplicativoPreBackup.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbAplicativoPreBackup.HoverState.Parent = this.tbAplicativoPreBackup;
-            this.tbAplicativoPreBackup.Location = new System.Drawing.Point(104, 276);
+            this.tbAplicativoPreBackup.Location = new System.Drawing.Point(104, 255);
             this.tbAplicativoPreBackup.Name = "tbAplicativoPreBackup";
             this.tbAplicativoPreBackup.PasswordChar = '\0';
             this.tbAplicativoPreBackup.PlaceholderText = "";
@@ -792,7 +866,7 @@
             "NonTransportable",
             "OldDescriptions",
             "Compactar"});
-            this.lstBoxFlagsBackup.Location = new System.Drawing.Point(104, 43);
+            this.lstBoxFlagsBackup.Location = new System.Drawing.Point(104, 34);
             this.lstBoxFlagsBackup.Name = "lstBoxFlagsBackup";
             this.lstBoxFlagsBackup.Size = new System.Drawing.Size(386, 123);
             this.lstBoxFlagsBackup.TabIndex = 20;
@@ -807,7 +881,7 @@
             this.btnDiretorioBackups.ForeColor = System.Drawing.Color.White;
             this.btnDiretorioBackups.HoverState.Parent = this.btnDiretorioBackups;
             this.btnDiretorioBackups.Image = ((System.Drawing.Image)(resources.GetObject("btnDiretorioBackups.Image")));
-            this.btnDiretorioBackups.Location = new System.Drawing.Point(496, 10);
+            this.btnDiretorioBackups.Location = new System.Drawing.Point(496, 6);
             this.btnDiretorioBackups.Name = "btnDiretorioBackups";
             this.btnDiretorioBackups.ShadowDecoration.Parent = this.btnDiretorioBackups;
             this.btnDiretorioBackups.Size = new System.Drawing.Size(46, 24);
@@ -819,7 +893,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label1.Location = new System.Drawing.Point(0, 16);
+            this.label1.Location = new System.Drawing.Point(0, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 13);
             this.label1.TabIndex = 18;
@@ -839,7 +913,7 @@
             this.tbDiretorioBackups.ForeColor = System.Drawing.Color.Black;
             this.tbDiretorioBackups.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbDiretorioBackups.HoverState.Parent = this.tbDiretorioBackups;
-            this.tbDiretorioBackups.Location = new System.Drawing.Point(104, 10);
+            this.tbDiretorioBackups.Location = new System.Drawing.Point(104, 6);
             this.tbDiretorioBackups.Name = "tbDiretorioBackups";
             this.tbDiretorioBackups.PasswordChar = '\0';
             this.tbDiretorioBackups.PlaceholderText = "";
@@ -895,25 +969,6 @@
             // 
             this.bunifuElipseBtnDiretorioGFIX.ElipseRadius = 10;
             this.bunifuElipseBtnDiretorioGFIX.TargetControl = this.btnDiretorioGFIX;
-            // 
-            // chbxBloquearMultiplasInstancias
-            // 
-            this.chbxBloquearMultiplasInstancias.AutoSize = true;
-            this.chbxBloquearMultiplasInstancias.BackColor = System.Drawing.Color.Transparent;
-            this.chbxBloquearMultiplasInstancias.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxBloquearMultiplasInstancias.CheckedState.BorderRadius = 2;
-            this.chbxBloquearMultiplasInstancias.CheckedState.BorderThickness = 0;
-            this.chbxBloquearMultiplasInstancias.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
-            this.chbxBloquearMultiplasInstancias.Location = new System.Drawing.Point(9, 234);
-            this.chbxBloquearMultiplasInstancias.Name = "chbxBloquearMultiplasInstancias";
-            this.chbxBloquearMultiplasInstancias.Size = new System.Drawing.Size(177, 17);
-            this.chbxBloquearMultiplasInstancias.TabIndex = 23;
-            this.chbxBloquearMultiplasInstancias.Text = "Bloquear Múltiplas Instâncias";
-            this.chbxBloquearMultiplasInstancias.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbxBloquearMultiplasInstancias.UncheckedState.BorderRadius = 2;
-            this.chbxBloquearMultiplasInstancias.UncheckedState.BorderThickness = 0;
-            this.chbxBloquearMultiplasInstancias.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbxBloquearMultiplasInstancias.UseVisualStyleBackColor = false;
             // 
             // UCConfiguracoes
             // 
@@ -994,5 +1049,8 @@
         private Guna.UI2.WinForms.Guna2TextBox tbSenhaAcessoBotoes;
         private Guna.UI2.WinForms.Guna2CheckBox chbxExibirConteudoRecomendado;
         private Guna.UI2.WinForms.Guna2CheckBox chbxBloquearMultiplasInstancias;
+        private System.Windows.Forms.Label label23;
+        private Bunifu.Framework.UI.BunifuDropdown dpDownExtensaoArquivoBackup;
+        private Guna.UI2.WinForms.Guna2CheckBox chbxHabilitarExclusaoExtensoesDifFbkLocal;
     }
 }

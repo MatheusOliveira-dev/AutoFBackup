@@ -42,6 +42,7 @@ namespace Models
 
         public class ExcluirBackupsAntigosLocal_Backup
         {
+            public bool HabilitarExclusaoExtensoesDifBkp { get; set; }
             public bool Ativo { get; set; }
             public string Dias { get; set; }
         }
@@ -54,6 +55,7 @@ namespace Models
         }
         public class Opcoes_CriacaoBackup_Backup
         {
+            public string ExtensaoBackup { get; set; }
             public List<string> FlagsBackup { get; set; }
             public AplicativoPreBackup_Backup AplicativoPreBackup { get; set; }
             public AplicativoPosBackup_Backup AplicativoPosBackup { get; set; }
@@ -126,6 +128,7 @@ namespace Models
 
         public class ExcluirBackupsAntigos_FTP_Backup
         {
+            public bool HabilitarExclusaoExtensoesDifBkp { get; set; }
             public bool Ativo { get; set; }
             public string Dias { get; set; }
         }

@@ -9,12 +9,17 @@ namespace Firebird
 {
     public class Delete
     {
-        public void ExcluiBackupsAntigos(string diretorioBackups, string diasExcluir, string uidRotinaBackup)
+        public void ExcluiBackupsAntigos(string diretorioBackups, string diasExcluir, string uidRotinaBackup, 
+            bool habilitaExclusaoArquivosExtensaoDifFbk)
         {
 
             try
             {
-                List<string> listArquivosBackup = Shared.Helpers.ObtemArquivosDiretorio(diretorioBackups, "*.zip, *.fbk");
+
+
+                List<string> listArquivosBackup = habilitaExclusaoArquivosExtensaoDifFbk ? 
+                    Shared.Helpers.ObtemArquivosDiretorio(diretorioBackups, "*.zip, *.fbk, *.bck") :
+                    Shared.Helpers.ObtemArquivosDiretorio(diretorioBackups, "*.zip, *.fbk");
 
                 int _diasExcluir = Shared.Helpers.ConverteStringParaNumero(diasExcluir);
 

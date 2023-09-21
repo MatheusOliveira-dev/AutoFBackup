@@ -17,6 +17,7 @@ namespace Models
 
     public class ExcluirBackupsAntigosFTP
     {
+        public bool HabilitarExclusaoExtensoesDifFbk { get; set; }
         public bool Ativo { get; set; }
         public string Dias { get; set; }
     }

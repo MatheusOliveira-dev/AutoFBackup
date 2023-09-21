@@ -306,6 +306,7 @@ namespace FBackup
 
                 excluirBackupsAntigosFTP.Ativo = chbxExcluiBackupsAntigos_FTP.Checked;
                 excluirBackupsAntigosFTP.Dias = DiasExcluirBackupsAntigos_FTP.Value.ToString();
+                excluirBackupsAntigosFTP.HabilitarExclusaoExtensoesDifFbk = chbxHabilitarExclusaoExtensoesDifFbkFTP.Checked;
 
                 envioFTP.Diretorio = tbDiretorio_FTP.Text;
 
@@ -407,6 +408,7 @@ namespace FBackup
                 chbxExcluiBackupsAntigos_FTP.Checked = rootFTP.Envio.Opcoes.ExcluirBackupsAntigos.Ativo;
                 DiasExcluirBackupsAntigos_FTP.Value = Shared.Helpers.ConverteStringParaNumero(rootFTP.Envio.Opcoes.ExcluirBackupsAntigos.Dias);
                 tbDiretorio_FTP.Text = rootFTP.Envio.Diretorio;
+                chbxHabilitarExclusaoExtensoesDifFbkFTP.Checked = rootFTP.Envio.Opcoes.ExcluirBackupsAntigos.HabilitarExclusaoExtensoesDifFbk;
             }
         }
 
@@ -478,6 +480,8 @@ namespace FBackup
         private void lblExplicacaoExclusaoBackupsAntigos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("O AutoFBackup excluirá qualquer arquivo que possua uma extensão do tipo ZIP ou FBK e se enquadre na regra de Exclusão de Dias informada.\nPortanto, cuidado ao salvar arquivos pessoais no Diretório de Backups Remoto se essa opção estiver ativa.", "Exclusão de Backups Antigos", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            MessageBox.Show("Se marcado a opção: 'Habilitar Exclusão de Arquivos de Backup com extensão diferente de .FBK', arquivos da exntesão .BCK que se enquadrem na regra de Exclusão de Dias informada também serão excluídos", "Exclusão de Backups Antigos - Outras Extensões", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
         }
 
         private void btnTesteUploadFTP_Click(object sender, EventArgs e)
@@ -506,9 +510,10 @@ namespace FBackup
                             winIndicatorFTPTeste.Visible = true;
                         }));
 
-                        FTP.Upload upload = new FTP.Upload();
-                        upload.ExecutaUpload(tbHost_FTP.Text.Trim(), nmUpDownPorta_FTP.Value.ToString(),
-                            tbUsuario_FTP.Text.Trim(), tbSenha_FTP.Text.Trim(), tbDiretorio_FTP.Text.Trim(), string.Empty, string.Empty, false, true, arquivoTesteUploadFTP);
+                        FTP.Upload upload = new FTP.Upload(tbHost_FTP.Text.Trim(), nmUpDownPorta_FTP.Value.ToString(),
+                            tbUsuario_FTP.Text.Trim(), tbSenha_FTP.Text.Trim(), tbDiretorio_FTP.Text.Trim(), string.Empty, 
+                            false, string.Empty, string.Empty, false, string.Empty, true, arquivoTesteUploadFTP);
+                        upload.ExecutaUpload();
 
                         MessageBox.Show("Upload realizado com sucesso!", "Teste de Upload para o FTP - Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
@@ -560,7 +565,7 @@ namespace FBackup
                         MegaNZ.Upload upload = new MegaNZ.Upload();
 
                         upload.ExecutaUpload(tbEmail_MegaNZ.Text.Trim(), tbSenha_MegaNZ.Text.Trim(),
-                            tbPasta_MegaNZ.Text.Trim(), string.Empty, string.Empty, false, true, arquivoTesteUploadMegaNZ);
+                            tbPasta_MegaNZ.Text.Trim(), string.Empty, string.Empty, false, string.Empty, true, arquivoTesteUploadMegaNZ);
 
                         MessageBox.Show("Upload realizado com sucesso!", "Teste de Upload para o Mega.NZ - Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
@@ -608,9 +613,9 @@ namespace FBackup
                         Email.Notificacao notificacao = new Email.Notificacao(tbHost_Email.Text.Trim(), nmUpDownPorta_Email.Value.ToString(),
                        tbUsuario_Email.Text.Trim(), tbSenha_Email.Text.Trim(),
                        chbxSSL_Email.Checked, tbDestinatarios_Email.Text.Trim(), false, "Teste de Envio de E-mail (AutoFBackup)", string.Empty,
-                       string.Empty, string.Empty, string.Empty, false, true);
+                       string.Empty, string.Empty, string.Empty, false, false, string.Empty, string.Empty, true);
 
-                        notificacao.EnviaNotificacao();
+                        notificacao.EnviaNotificacao(0, 0);
 
                         MessageBox.Show("E-mail enviado com sucesso!", "Teste de Envio com o E-mail - Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
@@ -654,9 +659,9 @@ namespace FBackup
 
                     Telegram.Notificacao notificacao = new Telegram.Notificacao(tbAccessTokenBot_Telegram.Text.Trim(),
                         tbChatIDDestino_Telegram.Text.Trim(), string.Empty, string.Empty,
-                        string.Empty, string.Empty, false, true);
+                        string.Empty, false, string.Empty, string.Empty, true);
 
-                    await notificacao.EnviaMensagemSucesso();
+                    await notificacao.EnviaMensagemSucesso(false, 0, 0);
 
                     MessageBox.Show("Mensagem enviada com sucesso!", "Teste de Envio com o Telegram - Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 

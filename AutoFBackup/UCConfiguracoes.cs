@@ -62,7 +62,8 @@ namespace FBackup
 
             chbxExcluirBackupsAntigos.Checked = configuracoesJson.Backups.ExcluirBackupsAntigosLocal.Ativo;
             nmUpDownDiasExcluirBackupsAntigos.Value = Shared.Helpers.ConverteStringParaNumero(configuracoesJson.Backups.ExcluirBackupsAntigosLocal.Dias);
-        
+            chbxHabilitarExclusaoExtensoesDifFbkLocal.Checked = configuracoesJson.Backups.ExcluirBackupsAntigosLocal.HabilitarExclusaoExtensoesDifFbk;
+
             if (configuracoesJson.Backups.ExecutaGfix != null)
             {
                 chbxExecutaGFIX.Checked = configuracoesJson.Backups.ExecutaGfix.Ativo;
@@ -71,6 +72,26 @@ namespace FBackup
             }
 
             chbxBloquearMultiplasInstancias.Checked = configuracoesJson.Geral.BloquearMultiplasInstancias;
+
+            if (configuracoesJson.Backups.ExtensaoBackup != null)
+            {
+                switch (configuracoesJson.Backups.ExtensaoBackup.ToUpper())
+                {
+                    case ".FBK":
+                        dpDownExtensaoArquivoBackup.selectedIndex = 0;
+                        break;
+                    case ".BCK":
+                        dpDownExtensaoArquivoBackup.selectedIndex = 1;
+                        break;
+                }
+            }
+            else
+            {
+                dpDownExtensaoArquivoBackup.selectedIndex = 0;
+            }
+
+
+            
         }
         private void UCConfiguracoes_Load(object sender, EventArgs e)
         {
@@ -108,13 +129,14 @@ namespace FBackup
 
             excluirBackupsAntigosLocalConfiguracoes.Ativo = chbxExcluirBackupsAntigos.Checked;
             excluirBackupsAntigosLocalConfiguracoes.Dias = nmUpDownDiasExcluirBackupsAntigos.Value.ToString();
-
+            excluirBackupsAntigosLocalConfiguracoes.HabilitarExclusaoExtensoesDifFbk = chbxHabilitarExclusaoExtensoesDifFbkLocal.Checked;
 
             executaGfixConfiguracoes.Ativo = chbxExecutaGFIX.Checked;
             executaGfixConfiguracoes.CaminhoGfix = tbDiretorioGFIX.Text;
             executaGfixConfiguracoes.ArgumentosGfix = tbArgumentosGFIX.Text;
 
             backupsConfiguracoes.DiretorioBackups = tbDiretorioBackups.Text;
+            backupsConfiguracoes.ExtensaoBackup = dpDownExtensaoArquivoBackup.selectedValue.ToString();
 
             List<string> flagsBackup = new List<string>();
 
@@ -259,6 +281,11 @@ namespace FBackup
         private void lblAvisoGfix_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Há suporte para essa opção apenas se o AutoFBackup estiver sendo executado no mesmo computador onde o Banco de Dados está localizado.", "GFIX", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+        }
+
+        private void dpDownExtensaoArquivoBackup_onItemSelected(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilities.BunifuRadioButton.Transitions;
+using static FBackup.Models.ReplicacaoDeDados;
 using static Models.Backup;
 
 namespace FBackup
@@ -42,19 +44,41 @@ namespace FBackup
             
             foreach (string arquivo in listArquivosRotinas)
             {
-                Root_Backup root_Backup = JsonConvert.DeserializeObject<Root_Backup>(Shared.Helpers.LeArquivo(arquivo));
 
-                string identificadorBancoDeDados = root_Backup.BancoDeDados.Identificador;
-                string tipoRotina = root_Backup.CriacaoBackup.Frequencia.Tipo;
+                bool isRotinaBackup = Rotinas.Rotinas.IsRotinaBackup(Shared.Helpers.LeArquivo(arquivo));
 
-                string diretorioBackups = root_Backup.CriacaoBackup.Diretorio_Backup;
+                Root_Backup rootRotina_Backup = null;
+                Root_ReplicacaoDeDados rootRotina_ReplicacaoDeDados = null; 
+
+                if (isRotinaBackup)
+                    rootRotina_Backup = JsonConvert.DeserializeObject<Root_Backup>(Shared.Helpers.LeArquivo(arquivo));
+                else
+                    rootRotina_ReplicacaoDeDados = JsonConvert.DeserializeObject<Root_ReplicacaoDeDados>(Shared.Helpers.LeArquivo(arquivo));
+
+
+                string identificadorRotina = isRotinaBackup 
+                    ? rootRotina_Backup.BancoDeDados.Identificador
+                    : rootRotina_ReplicacaoDeDados.Principal.Identificador;
                 
-                string horaRotina = root_Backup.CriacaoBackup.Frequencia.Hora;
-                string minutoRotina = root_Backup.CriacaoBackup.Frequencia.Minuto;
+                string tipoFrequenciaRotina = isRotinaBackup 
+                    ? rootRotina_Backup.CriacaoBackup.Frequencia.Tipo
+                    : rootRotina_ReplicacaoDeDados.Principal.Frequencia.Tipo;
+
+                string diretorioBackups = isRotinaBackup 
+                    ? rootRotina_Backup.CriacaoBackup.Diretorio_Backup 
+                    : rootRotina_ReplicacaoDeDados.DiretoriosEEnvio.DiretorioLocalOrigem;
+                
+                string horaRotina = isRotinaBackup 
+                    ? rootRotina_Backup.CriacaoBackup.Frequencia.Hora
+                    : rootRotina_ReplicacaoDeDados.Principal.Frequencia.Hora;
+
+                string minutoRotina = isRotinaBackup 
+                    ? rootRotina_Backup.CriacaoBackup.Frequencia.Minuto
+                    : rootRotina_ReplicacaoDeDados.Principal.Frequencia.Minuto;
 
                 string horarioExecucaoRotina = string.Empty;
 
-                if (tipoRotina != "Hora")
+                if (tipoFrequenciaRotina != "Hora")
                 {
                     horarioExecucaoRotina = string.Format("{0} hrs. {1} mins.", horaRotina, minutoRotina);
                 }
@@ -64,7 +88,7 @@ namespace FBackup
                 }
 
 
-                dtGridViewRotinas.Rows.Add(identificadorBancoDeDados, tipoRotina, horarioExecucaoRotina, diretorioBackups, arquivo);
+                dtGridViewRotinas.Rows.Add(identificadorRotina, isRotinaBackup ? "Arquivo de Backup" : "Replicação de Dados", tipoFrequenciaRotina, horarioExecucaoRotina, diretorioBackups, arquivo);
             }
         }
         private void UCDashboard_Load(object sender, EventArgs e)
@@ -124,11 +148,13 @@ namespace FBackup
             {
                 case "ExecutarRotinaAgora":
 
-                    Root_Backup root_Backup = JsonConvert.DeserializeObject<Root_Backup>(Shared.Helpers.LeArquivo(dtGridViewRotinas.SelectedRows[0].Cells["column_NomeRotinaJSON"].Value.ToString()));
+                    dynamic rootRotina = Shared.Helpers.LeArquivo(dtGridViewRotinas.SelectedRows[0].Cells["column_NomeRotinaJSON"].Value.ToString());
 
-                    Backup.Backup.ExecutaJobBackup executaJobBackup = new Backup.Backup.ExecutaJobBackup(root_Backup);
+                    bool isRotinaBackup = Rotinas.Rotinas.IsRotinaBackup(rootRotina);
 
-                    Task.Run(() => executaJobBackup.Execute());
+                    Rotinas.Rotinas.ExecutaJobRotina executaJobRotina = new Rotinas.Rotinas.ExecutaJobRotina(rootRotina, isRotinaBackup);
+
+                    Task.Run(() => executaJobRotina.Execute());
                     
                     break;
             }

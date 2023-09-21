@@ -17,9 +17,10 @@ namespace Firebird
 		private List<string> _flagsBackup;
 		private string _uidRotinaBackup;
 		private string _diretorioBackups;
+		private string _extensaoBackups;
 
 		public Backup(bool geraLog, bool compactarZip, string dadosDaConexao, List<string> flagsBackup, 
-			string uidRotinaBackup, string diretorioBackups)
+			string uidRotinaBackup, string diretorioBackups, string extensaoBackups)
         {
 			_geraLog = geraLog;
 			_compactarZip = compactarZip;
@@ -27,7 +28,8 @@ namespace Firebird
 			_flagsBackup = flagsBackup;
 			_uidRotinaBackup = uidRotinaBackup;
 			_diretorioBackups = diretorioBackups;
-		}
+			_extensaoBackups = extensaoBackups;
+        }
 
 		public bool ExecutaBackup()
         {
@@ -72,7 +74,7 @@ namespace Firebird
 					}					
 				}
 
-				backupSvc.BackupFiles.Add(new FbBackupFile(string.Format(@"{0}\{1}.fbk", _diretorioBackups, _uidRotinaBackup), 2048));
+				backupSvc.BackupFiles.Add(new FbBackupFile(string.Format(@"{0}\{1}{2}", _diretorioBackups, _uidRotinaBackup, _extensaoBackups), 2048));
 				backupSvc.Verbose = true;
 
 				backupSvc.ServiceOutput += new EventHandler<ServiceOutputEventArgs>(BackupSvc_ServiceOutput);
@@ -110,7 +112,7 @@ namespace Firebird
 				{
 					using (ZipFile zip = new ZipFile())
 					{
-						zip.AddFile(string.Format(@"{0}\{1}.fbk", _diretorioBackups, _uidRotinaBackup), "");
+						zip.AddFile(string.Format(@"{0}\{1}{2}", _diretorioBackups, _uidRotinaBackup, _extensaoBackups), "");
 						zip.Save(string.Format(@"{0}\{1}.zip", _diretorioBackups, _uidRotinaBackup));
 					}
 				}

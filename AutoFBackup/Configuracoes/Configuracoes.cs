@@ -31,6 +31,7 @@ namespace Configuracoes
                 geralConfiguracoes.SenhaAcessoBotoes = string.Empty;
                 geralConfiguracoes.ExigirSenhaFecharApp = false;
                 geralConfiguracoes.SenhaFecharApp = string.Empty;
+                
 
                 aplicativoPreBackupConfiguracoes.Aplicativo = "";
                 aplicativoPreBackupConfiguracoes.Argumentos = "";
@@ -60,6 +61,7 @@ namespace Configuracoes
                 backupsConfiguracoes.ExcluirBackupsAntigosLocal = excluirBackupsAntigosLocalConfiguracoes;
                 backupsConfiguracoes.ExecutaGfix = executaGfixConfiguracoes;
                 backupsConfiguracoes.FlagsBackup = flagsBackup;
+                backupsConfiguracoes.ExtensaoBackup = ".fbk";
                 rootConfiguracoes.Backups = backupsConfiguracoes;
 
                 this.CriaAtualizaConfiguracoes(rootConfiguracoes);

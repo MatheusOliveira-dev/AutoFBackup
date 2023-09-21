@@ -14,7 +14,8 @@ namespace FTP
 
         public void ExcluiBackupsAntigos(string host, string porta, string usuario,
             string senha, string diretorioBackupsRemoto, string diasExcluir, 
-            string uidRotinaBackup, string diretorioBackupsLocal)
+            string uidRotinaBackup, string diretorioBackupsLocal,
+            bool habilitaExclusaoArquivosExtensaoDifFbk)
         {
 
             int portaFTP = Shared.Helpers.ConverteStringParaNumero(porta);
@@ -46,12 +47,27 @@ namespace FTP
 
                         if (item.Type == FtpFileSystemObjectType.File)
                         {
-                            if ((client.GetModifiedTime(item.FullName) < DateTime.Now.AddDays(-_diasExcluir)) &&
-                                (item.FullName.ToLower().EndsWith("zip") ||
-                                item.FullName.ToLower().EndsWith("fbk")))
+                            if (habilitaExclusaoArquivosExtensaoDifFbk)
                             {
-                                client.DeleteFile(item.FullName);
+                                if ((client.GetModifiedTime(item.FullName) < DateTime.Now.AddDays(-_diasExcluir)) &&
+                               (item.FullName.ToLower().EndsWith("zip") ||
+                               item.FullName.ToLower().EndsWith("fbk") ||
+                               item.FullName.ToLower().EndsWith("bck")))
+                                {
+                                    client.DeleteFile(item.FullName);
+                                }
                             }
+                            else
+                            {
+                                if ((client.GetModifiedTime(item.FullName) < DateTime.Now.AddDays(-_diasExcluir)) &&
+                               (item.FullName.ToLower().EndsWith("zip") ||
+                               item.FullName.ToLower().EndsWith("fbk")))
+                                {
+                                    client.DeleteFile(item.FullName);
+                                }
+                            }
+
+                           
                         }
                     }
                 }

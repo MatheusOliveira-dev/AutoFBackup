@@ -107,6 +107,7 @@
             this.bunifuElipseBtnTesteMegaNZ = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipseBtnTesteEmail = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipseBtnTesteTelegram = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP = new Guna.UI2.WinForms.Guna2CheckBox();
             this.tbControl.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -791,6 +792,7 @@
             // gpbxFTP
             // 
             this.gpbxFTP.BackColor = System.Drawing.Color.Transparent;
+            this.gpbxFTP.Controls.Add(this.chbxHabilitarExclusaoExtensoesDifFbkFTP);
             this.gpbxFTP.Controls.Add(this.winIndicatorFTPTeste);
             this.gpbxFTP.Controls.Add(this.btnTesteUploadFTP);
             this.gpbxFTP.Controls.Add(this.lblExplicacaoExclusaoBackupsAntigos);
@@ -851,7 +853,7 @@
             this.lblExplicacaoExclusaoBackupsAntigos.BackColor = System.Drawing.Color.Transparent;
             this.lblExplicacaoExclusaoBackupsAntigos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExplicacaoExclusaoBackupsAntigos.LinkColor = System.Drawing.Color.Red;
-            this.lblExplicacaoExclusaoBackupsAntigos.Location = new System.Drawing.Point(126, 181);
+            this.lblExplicacaoExclusaoBackupsAntigos.Location = new System.Drawing.Point(425, 164);
             this.lblExplicacaoExclusaoBackupsAntigos.Name = "lblExplicacaoExclusaoBackupsAntigos";
             this.lblExplicacaoExclusaoBackupsAntigos.Size = new System.Drawing.Size(52, 13);
             this.lblExplicacaoExclusaoBackupsAntigos.TabIndex = 46;
@@ -967,7 +969,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label8.Location = new System.Drawing.Point(354, 162);
+            this.label8.Location = new System.Drawing.Point(354, 157);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 40;
@@ -987,7 +989,7 @@
             this.DiasExcluirBackupsAntigos_FTP.FocusedState.Parent = this.DiasExcluirBackupsAntigos_FTP;
             this.DiasExcluirBackupsAntigos_FTP.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DiasExcluirBackupsAntigos_FTP.ForeColor = System.Drawing.Color.Black;
-            this.DiasExcluirBackupsAntigos_FTP.Location = new System.Drawing.Point(280, 155);
+            this.DiasExcluirBackupsAntigos_FTP.Location = new System.Drawing.Point(280, 150);
             this.DiasExcluirBackupsAntigos_FTP.Name = "DiasExcluirBackupsAntigos_FTP";
             this.DiasExcluirBackupsAntigos_FTP.ShadowDecoration.Parent = this.DiasExcluirBackupsAntigos_FTP;
             this.DiasExcluirBackupsAntigos_FTP.Size = new System.Drawing.Size(68, 26);
@@ -1003,7 +1005,7 @@
             this.chbxExcluiBackupsAntigos_FTP.CheckedState.BorderThickness = 0;
             this.chbxExcluiBackupsAntigos_FTP.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
             this.chbxExcluiBackupsAntigos_FTP.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxExcluiBackupsAntigos_FTP.Location = new System.Drawing.Point(17, 161);
+            this.chbxExcluiBackupsAntigos_FTP.Location = new System.Drawing.Point(17, 156);
             this.chbxExcluiBackupsAntigos_FTP.Name = "chbxExcluiBackupsAntigos_FTP";
             this.chbxExcluiBackupsAntigos_FTP.Size = new System.Drawing.Size(257, 17);
             this.chbxExcluiBackupsAntigos_FTP.TabIndex = 38;
@@ -1376,6 +1378,25 @@
             this.bunifuElipseBtnTesteTelegram.ElipseRadius = 10;
             this.bunifuElipseBtnTesteTelegram.TargetControl = this.btnTesteTelegram;
             // 
+            // chbxHabilitarExclusaoExtensoesDifFbkFTP
+            // 
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.AutoSize = true;
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.BackColor = System.Drawing.Color.Transparent;
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.CheckedState.BorderRadius = 2;
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.CheckedState.BorderThickness = 0;
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(171)))), ((int)(((byte)(242)))));
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.Location = new System.Drawing.Point(17, 179);
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.Name = "chbxHabilitarExclusaoExtensoesDifFbkFTP";
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.Size = new System.Drawing.Size(400, 17);
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.TabIndex = 54;
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.Text = "Habilitar Exclusão de Arquivos de Backup com extensão diferente de .FBK";
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.UncheckedState.BorderRadius = 2;
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.UncheckedState.BorderThickness = 0;
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbxHabilitarExclusaoExtensoesDifFbkFTP.UseVisualStyleBackColor = false;
+            // 
             // UCIntegracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1493,5 +1514,6 @@
         private Guna.UI2.WinForms.Guna2WinProgressIndicator winIndicatorTelegramTeste;
         private Guna.UI2.WinForms.Guna2TileButton btnTesteTelegram;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipseBtnTesteTelegram;
+        private Guna.UI2.WinForms.Guna2CheckBox chbxHabilitarExclusaoExtensoesDifFbkFTP;
     }
 }

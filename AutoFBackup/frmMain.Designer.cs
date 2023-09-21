@@ -248,7 +248,7 @@ namespace FBackup
             this.btnNovoBackup.ShadowDecoration.Parent = this.btnNovoBackup;
             this.btnNovoBackup.Size = new System.Drawing.Size(85, 64);
             this.btnNovoBackup.TabIndex = 9;
-            this.btnNovoBackup.Text = "Novo Backup";
+            this.btnNovoBackup.Text = "Nova Rotina";
             this.btnNovoBackup.Click += new System.EventHandler(this.btnNovoBackup_Click);
             // 
             // btnDashboard

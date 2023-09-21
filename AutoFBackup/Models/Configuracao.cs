@@ -33,6 +33,7 @@ namespace Models
 
     public class ExcluirBackupsAntigosLocalConfiguracoes
     {
+        public bool HabilitarExclusaoExtensoesDifFbk { get; set; }
         public bool Ativo { get; set; }
         public string Dias { get; set; }
     }
@@ -47,6 +48,7 @@ namespace Models
     public class BackupsConfiguracoes
     {
         public string DiretorioBackups { get; set; }
+        public string ExtensaoBackup { get; set; }
         public List<string> FlagsBackup { get; set; }
         public AplicativoPreBackupConfiguracoes AplicativoPreBackup { get; set; }
         public AplicativoPosBackupConfiguracoes AplicativoPosBackup { get; set; }
