@@ -21,6 +21,7 @@ namespace FBackup
         public frmNovoBackup(frmMain frmMain)
         {
             InitializeComponent();
+            this.Icon = frmMain.Icon;
             dpDownFrequenciaBackups.selectedIndex = 0;
             dpDownExtensaoArquivoBackup.selectedIndex = 0;
             tbControl.SelectedIndex = 0;
